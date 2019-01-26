@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'nova';
+    src: url('../fonts/HKNova/HKNova-Medium.eot');
+    src: url('../fonts/HKNova/HKNova-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/HKNova/HKNova-Medium.woff2') format('woff2'),
+         url('../fonts/HKNova/HKNova-Medium.woff') format('woff'),
+         url('../fonts/HKNova/HKNova-Medium.ttf') format('truetype'),
+         url('../fonts/HKNova/hknova-medium-webfont.svg#hk_novamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'spartan';
+    src: url('../fonts/League-Spartan/leaguespartan-bold.eot');
+    src: url('../fonts/League-Spartan/leaguespartan-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League-Spartan/leaguespartan-bold.woff2') format('woff2'),
+         url('../fonts/League-Spartan/leaguespartan-bold.woff') format('woff'),
+         url('../fonts/League-Spartan/leaguespartan-bold.ttf') format('truetype'),
+         url('../fonts/League-Spartan/leaguespartan-bold.svg#league_spartanbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+/*************************
+*         Fonts          *
+**************************/
+*{ 
+    font-size: 1.6rem;
+    font-family: 'nova';
+ }
+
+ h1{
+     font-size: 3rem;
+ }
