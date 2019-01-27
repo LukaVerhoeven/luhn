@@ -83,7 +83,7 @@ $table_prefix  = 'ev_';
  */
 define('WP_DEBUG', true);
 
-define('VP_ENVIRONMENT', 'default');
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
