@@ -2,3 +2,134 @@
     width: 100%;
     margin-top: 110px;
 }
+
+/*********************************
+*           Home-block           *
+**********************************/
+.home-section{
+    position: relative;
+    z-index: -1;
+}
+
+.home-content{
+    display: inline-block;
+    width: 75%;
+    color: $main-color;
+    margin-left: 5%;
+    padding: 2%;
+    padding-bottom: 16%;
+
+    h1{
+        margin-top: 10vmin;
+        line-height: 4rem;
+        padding: 13px 0;
+    }
+}
+
+.title-big{
+    font-size: 3.5rem;
+    display: block;
+    text-transform: uppercase;
+    font-family: "spartan", sans-serif;
+}
+    
+.user-text{
+    display: none;
+
+    @include mq('tablet') {
+        display: block;
+        position: absolute;
+        right: 0;
+        transform: rotate(90deg);
+        transform-origin: right top;
+        width: 100px;
+        margin-right: 12%;
+    }    
+}
+
+/*********************************
+*         Divider-block          *
+**********************************/
+
+.divider-block{
+    position: relative;
+    height: 300px;
+}
+
+.vertical-ruler{
+    border-left: 1px solid $main-color;
+    height: 100px;
+    width: 1px;
+    margin: 100px auto;
+}
+
+/*************************
+*        graphics        *
+**************************/
+.graphic1{
+    position: absolute;
+    background-image: url(../img/image-sheet.jpg);
+    background-size: 870%;
+    width: 60px;
+    height: 90px;
+    background-position: 21% 53%;
+}
+
+/*************************
+*     Welcome-block      *
+**************************/
+.home-text{
+    display: inline-block;
+    padding: 30px 3% 0 8%;
+    width: 97%;
+}
+
+.welcome {
+
+    .ruler{
+        width: 80px;
+        border-bottom: 1px solid $main-color;
+    }
+
+    .ruler2{
+        height: 80px;
+        border-left: 1px solid $main-color;
+        vertical-align: top;
+        display: inline-block;
+    }
+}
+
+/*************************
+*   welcome bg-shape     *
+**************************/
+.home-bg{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 95%;
+}
+
+.shape1{
+    background-color: lighten($bg-1, 10%);
+    width: calc(80% + 50px);
+    height: 10vmin;
+    margin-left: calc(5vmin - 50px);
+    transform: skewX(-45deg);
+}
+
+.shape2{
+    background-color: $bg-1;
+    width: 80%;
+    height: calc(100% - 10vmin);
+    float: left;
+}
+
+.shape3{
+    background-color: darken($bg-1, 10%);
+    width: 10vmin;
+    height: calc(100% - 10vmin);
+    margin-top: -5vmin;
+    float: left;
+    transform: skewY(-45deg);
+}
