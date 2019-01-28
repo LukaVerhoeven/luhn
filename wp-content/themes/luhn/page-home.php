@@ -3,8 +3,7 @@
     
     <img id="logo" src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
 
-  <?php 
-  $classList = ["welcome", "about", "skills", "contact"];
+  <?php   
   $counter = 0;
 
 /*
@@ -15,7 +14,7 @@ while(the_flexible_field("flexible")): ?>
 
 	<?php if(get_row_layout() == "homepage_title_text"): // layout: Content ?>
 
-		<section class="home-section <?php echo $classList[$counter]?>">
+		<section class="home-section <?php the_sub_field("style_type")?>">
 			<div class="home-content">
 				<h1>
 					<?php the_sub_field("title_intro"); ?>
@@ -23,7 +22,11 @@ while(the_flexible_field("flexible")): ?>
 				</h1>
 				<div class="ruler"></div>
 				<div class="ruler2"></div>
-				<p class="home-text"> <?php the_sub_field("text"); ?> </p>
+				<?php if(get_sub_field("style_type") != "contact"): ?>
+					<p class="home-text"> <?php the_sub_field("text"); ?> </p>
+				<?php elseif(get_sub_field("style_type") == "contact"): ?>
+					<a href=""><?php the_sub_field("button_text"); ?></a>
+				<?php endif; ?>
 				
 			</div>
 			<div class="home-bg box<?php echo $counter?> clearfix">
@@ -32,7 +35,17 @@ while(the_flexible_field("flexible")): ?>
 				<div class="shape3"></div>
 			</div>
 			<p class=user-text> <?php the_sub_field("user_text"); ?> </p>
+
+			<?php if(get_sub_field("style_type") == "skills"): ?>
+				<div class="project-btn-container">
+					<a class="project-btn" href="#">
+						Check out 
+						<span class="project-btn-span"> <i class="icon-arrow"></i> <span class="hide-mobile">some</span> projects</span> 
+					</a>
+				</div>
+			<?php endif; ?>
 		</section>
+
 		<div class="divider-block">
 			<div class="graphic<?php echo $counter+1?>"></div>
 			<div class="vertical-ruler"></div>

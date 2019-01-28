@@ -85,7 +85,8 @@ function imgmin() {
 function watch() {
   browserSync.init({
     open: 'external',
-    proxy: 'http://luhn-portfolio.wordpress/',
+    host: '192.168.0.150',
+    proxy: 'luhn-portfolio.wordpress',
     port: 8080,
   });
   gulp.watch(styleWatchFiles, gulp.series([css, concatCSS]));

@@ -1,0 +1,7 @@
+.hide-mobile{
+    display: none;
+
+    @include mq('desktop') {
+        display: block;
+    }    
+}
