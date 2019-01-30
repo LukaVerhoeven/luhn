@@ -25,7 +25,7 @@ while(the_flexible_field("flexible")): ?>
 				<?php if(get_sub_field("style_type") != "contact"): ?>
 					<p class="home-text"> <?php the_sub_field("text"); ?> </p>
 				<?php elseif(get_sub_field("style_type") == "contact"): ?>
-					<a href=""><?php the_sub_field("button_text"); ?></a>
+					<a class="contact-btn" href="#"><?php the_sub_field("button_text"); ?></a>
 				<?php endif; ?>
 				
 			</div>
@@ -37,10 +37,16 @@ while(the_flexible_field("flexible")): ?>
 			<p class=user-text> <?php the_sub_field("user_text"); ?> </p>
 
 			<?php if(get_sub_field("style_type") == "skills"): ?>
-				<div class="project-btn-container">
+				<div class="project-btn-container clearfix">
 					<a class="project-btn" href="#">
 						Check out 
 						<span class="project-btn-span"> <i class="icon-arrow"></i> <span class="hide-mobile">some</span> projects</span> 
+						<span class="underline"></span>
+						<div class="line-container">
+							<?php for ($x = 0; $x <= 50; $x++) : ?>
+								<span class="line"></span>
+							<?php endfor; ?>
+						</div>
 					</a>
 				</div>
 			<?php endif; ?>

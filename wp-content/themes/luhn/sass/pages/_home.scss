@@ -2,6 +2,9 @@
 *           variables            *
 **********************************/
 $bg-shape-depth: 30px;
+$project-btn-margin: 30px;
+$project-btn-size: 230px;
+$project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
 
 /*********************************
 *              Logo              *
@@ -9,6 +12,11 @@ $bg-shape-depth: 30px;
 #logo{
     width: 100%;
     margin-top: 110px;
+    @include mq('desktop') {
+        max-width: 800px;
+        display: block;
+        margin: 0 auto;
+    }
 }
 
 /*********************************
@@ -33,6 +41,11 @@ $bg-shape-depth: 30px;
     display: block;
     text-transform: uppercase;
     font-family: "spartan", sans-serif;
+
+    @include mq('desktop') {
+        font-size: 5rem;
+        line-height: 6rem;
+    }    
 }
 
 .home-bg{
@@ -51,7 +64,7 @@ $bg-shape-depth: 30px;
 .user-text{
     display: none;
 
-    @include mq('tablet') {
+    @include mq('desktop') {
         display: block;
         position: absolute;
     }    
@@ -76,26 +89,63 @@ $bg-shape-depth: 30px;
 /*********************************
 *            Graphics            *
 **********************************/
-.graphic1, .graphic3{
+.graphic1, 
+.graphic2, 
+.graphic3{
     background-image: url("../img/image-sheet.png");
 }
 .graphic1{
     position: absolute;
     background-size: 870%;
-    width: 100px;
-    height: 150px;
+    margin-top: -50px;
+    width: 15%;
+    height: 23vw;
+    min-width: 90px;
+    min-height: 130px;
     background-position: 21% 53%;
     transform: rotate(-20deg);
+    
+    @include mq('desktop') {    
+        max-width: 250px;
+        max-height: 360px;
+    }
+}
+
+.graphic2{
+    position: absolute;
+    background-size: 440%;
+    margin-top: -2%;
+    right: 9%;
+    width: 19%;
+    height: 15vw;
+    min-width: 130px;
+    min-height: 100px;    
+    background-position: 39% 53%;
+
+    @include mq('desktop') {
+        max-width: 350px;
+        max-height: 280px;
+    }
 }
 
 .graphic3{
+    position: absolute;
+    top: -13vw;
     background-size: 665%;
-    width: 160px;
-    height: 317px;
+    width: 30vw;
+    height: 60vw;
+    max-width: 528px;
+    max-height: 1050px;
+    // margin-top: -60vw;
+    // margin: auto;
+    margin-left: 10%;
     background-position: 0% 100%;
-    margin-left: 317px;
     transform: rotate(90deg);
-    transform-origin: left top;
+    // transform-origin: left top;
+
+    @include mq('desktop') {
+        // top: -300px;
+    }        
 }
 
 /*************************
@@ -103,6 +153,14 @@ $bg-shape-depth: 30px;
 **************************/
 
 .welcome {
+    min-height: 350px;
+    @include mq('desktop') {
+        max-width: 1200px;
+        width: 70%;
+        text-align: right;
+        padding-right: 15%;
+    }    
+
     .home-text{
         padding: 30px 3% 0 8%;
         width: 97%;
@@ -113,6 +171,11 @@ $bg-shape-depth: 30px;
         display: inline-block;
         width: 75%;
         padding: 50px 2%;
+        
+        @include mq('desktop') {
+            text-align: left;
+            width: 50%;
+        }
     }
 
     .ruler{
@@ -128,9 +191,9 @@ $bg-shape-depth: 30px;
     }
 
     .user-text{   
-        @include mq('tablet') {
-            top: 140px;
-            left: calc(80% + #{$bg-shape-depth});
+        @include mq('desktop') {
+            top: 219px;
+            left: calc(80% + 37px);
             transform-origin: left bottom;
             transform: rotate(90deg);
         }    
@@ -169,6 +232,11 @@ $bg-shape-depth: 30px;
         margin: auto;
         width: 80%;
         padding: 20px 5%;
+
+        @include mq('desktop') {
+            width: 50%;
+            max-width: 800px;
+        }        
     }
 }
 /*************************
@@ -180,12 +248,20 @@ $bg-shape-depth: 30px;
     .home-content{
         background-color: $bg-2;
         text-align: right;
+        padding: 0 5%;
+
+        @include mq('desktop') {
+            padding: 5px 5% 30px;
+        }  
     }
 
     h1{
         text-align: left;
-        padding: 0;
+        padding: 20px 0;
 
+        @include mq('desktop') {
+            padding: 30px 0;
+        }  
     }
 
     .rotate-me{
@@ -198,16 +274,29 @@ $bg-shape-depth: 30px;
         margin-left: 10px;
         transform-origin: top left;
         transform: rotate(90deg);
+
+        @include mq('desktop') {
+            font-size: 2.9rem;
+        }            
     }
 
     .home-text{
         width: 80%;
+        padding: 20px 0;
+
+        @include mq('desktop') {
+            padding: 30px 0;
+        }          
     }
 
     .user-text{
-        @include mq('tablet') {
-            left: calc(10% - 35px);
-            top: 220px;
+        @include mq('desktop') {
+            margin: auto;
+            right: 0;
+            left: 0;
+            top: 190px;
+            width: calc(50% + 60px);
+            max-width: 860px;
             transform: rotate(-90deg);
             transform-origin: left top;
         }    
@@ -216,7 +305,7 @@ $bg-shape-depth: 30px;
     .ruler{
         width: 100px;
         border-bottom: 1px solid $main-color;
-        margin: 25px 0 25px 40px;
+        margin-left: 40px;
     }
 
     .shape1, .shape2, .shape3{
@@ -232,7 +321,13 @@ $bg-shape-depth: 30px;
 .skills{
     width: 85%;
     margin-left: 10%;
-
+    
+    @include mq('desktop') {
+        margin-left: 47%;
+        width: 45%;
+        max-width: 800px;
+    } 
+    
     .home-content{
         padding-right: $bg-shape-depth;
         padding-bottom: $bg-shape-depth ;
@@ -248,27 +343,40 @@ $bg-shape-depth: 30px;
         border-left: 1px solid $main-color;
         padding-left: 10px;
         margin-left: 10%;
+        margin-top: 10px;
         vertical-align: top;
         width: 70%;
         padding-bottom: 40px;
+        min-height: 150px;
+
+        @include mq('desktop') {
+            margin-top: 40px;
+        } 
     }
     
     .shape1{
         background-color: $bg-3;
         width: 100%;
-        height: calc(100% - #{$bg-shape-depth});
-        float: left;
-        
+        height: calc(100% - #{$bg-shape-depth} - #{$project-btn});
+        float: left; 
+
+        @include mq('desktop') {
+            height: calc(100% - #{$bg-shape-depth});
+        }
     }
 
     .shape2 {
         background-color: darken($bg-3, 3%);
         float: left;
         width: $bg-shape-depth;
-        height: calc(100% - #{$bg-shape-depth});
+        height: calc(100% - #{$bg-shape-depth} - #{$project-btn});
         margin-top: 15px;
         margin-left: -$bg-shape-depth;
         transform: skewY(-45deg);
+
+        @include mq('desktop') {
+            height: calc(100% - #{$bg-shape-depth});
+        }
     }
 
     .shape3{
@@ -276,59 +384,138 @@ $bg-shape-depth: 30px;
         position: absolute;
         width: 100%;
         height: $bg-shape-depth;
-        top: calc(100% - #{$bg-shape-depth});
+        top: calc(100% - #{$bg-shape-depth} - #{$project-btn});
         z-index: -1;
         margin-left: -15px;
         transform: skewX(-45deg);
+
+        @include mq('desktop') {
+            top: calc(100% - #{$bg-shape-depth});
+        }
     }
 
     .user-text{
-        @include mq('tablet') {
+        @include mq('desktop') {
             right: -25px;
-            top: 180px;
+            top: 250px;
             transform: rotate(90deg);
             transform-origin: top right;
         }    
     }
 
     .project-btn-container{
-        margin-bottom: 200px;
-        margin-top: 30px;
+        margin-top: $project-btn-margin;
+
+        @include mq('desktop') {
+            position: absolute;
+            top: 20px;
+            left: calc(-#{$project-btn-size} / 1.3);
+        }
     }
 
-    .project-btn{
+    .project-btn:after{
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        content: "";
+        box-shadow: 5px 5px 35px #00000038;
+        transition: all .3s ease, transform 50s ease;
+        
+        &:hover{
+            box-shadow: 8px 8px 35px #00000038;
+        }
+    }
+
+    .project-btn, 
+    .project-btn::after {
         color: $main-color;
         display: block;
         background-image: url("../img/image-sheet.png");
         background-size: 564%;
         background-position: 83.9% 1.5%;
         float: right;
-        width: 200px;
-        height: 200px;
-        padding-top: 60px;
+        width: $project-btn-size;
+        height: $project-btn-size;
+        padding-top: 75px;
         text-align: center;
         font-size: 2.3rem;
         line-height: 4rem;
-        box-shadow: 5px 5px 35px #00000038;
+        
         border-radius: 50%;
+        cursor: pointer;
+
+        @include mq('desktop') {
+            padding-top: 70px;
+            transition: transform 70s ease;
+            transition-delay: 1.3s;
+        }
+    }
+    
+    .project-btn:hover{
+        transform: rotate(-8000deg);
     }
 
+    .project-btn:hover::after{
+        transform: rotate(8000deg);
+    }
+    .underline{
+        border-bottom: 1px solid $main-color;
+        width: 0;
+        display: block;
+        margin: auto;
+        transition: width .5s ease;
+    }
+    .project-btn:hover .underline{
+        width: 80%;
+    }
     .project-btn-span{
         display: block;
-        font-size: 2.3rem;
         text-transform: uppercase;
-        font-family: "spartan"
+        font-family: "spartan";
+
+        @include mq('desktop') {
+            font-size: 2rem
+        }        
     }
+
 
     .icon-arrow{
         margin-top: 6px;
         font-size: 2rem;
     }
 
+    .line-container{
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        transform: scale(0.8);
+        transition: transform .5s ease;
+        @include distribute-on-circle(51, 230px, 10px, false); 
+    }
+    
+    .line{
+        height: 10px;
+        display: inline-block;
+        border-left: 2px solid rgb(253, 169, 124);
+    }
+    
+    .project-btn:hover .line-container{
+        transform: scale(1.1);
+    }
+    
 }
 
-.skills+.divider-block .vertical-ruler{ 
-    display: none;
+.skills+.divider-block {
+    height: 42vw;
+    
+
+    @include mq('desktop') {
+        max-height: 680px;
+    }    
+
+    .vertical-ruler{ 
+        display: none;
+    }
 }
 
 /*************************
@@ -336,5 +523,140 @@ $bg-shape-depth: 30px;
 **************************/
 
 .contact{
+    .home-content{
+        background-color: $bg-4;
+        text-align: center;
+        padding-bottom: 50px;
 
+        @include mq('desktop') {
+            padding-bottom: 70px;
+        }        
+    }
+
+    h1{
+        margin-left: -60px;
+        margin-bottom: 20px;
+
+        @include mq('desktop') {
+            margin-left: -160px;
+        }  
+
+        .title-big{
+            margin-left: 60px;
+
+            @include mq('desktop') {
+                margin-left: 160px;
+            }  
+    
+        }
+    }
+
+    // contact button [SAY Hi!]
+    .contact-btn{
+        font-size: 2.3rem;
+        display: inline-block;
+        background-color: #f5d0b5;
+        padding: 10px 30px;
+        position: relative;
+        border: 2px solid #f3997b;
+        margin-bottom: 4px;
+        transition: all .3s ease;
+
+    }
+    .contact-btn::after, .contact-btn::before{
+        content: "";
+        position: absolute;
+        transition: all .3s ease;
+    }
+    .contact-btn:hover{
+        background-color: darken(#f5d0b5, 2%);
+        margin-top: 4px;
+        margin-left: 7px;
+        margin-bottom: 0;
+
+        &::before{
+            height: 7px;
+            bottom: -9px;
+            margin-left: 1.5px;
+        }
+
+        &::after{
+            width: 7px;
+            right: -9px;
+            margin-top: 1.5px;
+        }        
+    }
+    .contact-btn::before{
+        background-color: lighten(#f5d0b5,3%);
+        width: calc(100% + 4px);
+        height: 10px;
+        bottom: -12px;
+        margin-left: 3px;
+        left: 0;
+        border-bottom: none;
+        border-top: none;
+        transform: skewX(45deg);
+    }
+
+    .contact-btn::after{
+        background-color: darken(#f5d0b5,3%);
+        top: 0;
+        right: -12px;
+        width: 10px;
+        height: calc(100% + 4px);
+        margin-top: 3px;
+        border-right: none;
+        border-left: none;
+        transform: skewY(45deg);
+    }
+    // contact button end [SAY Hi!]
+
+    .home-bg{
+        display: none;
+    }
+
+    @include mq('desktop') {
+
+        .home-bg{
+            display: block;
+            margin: auto;
+            left: 0;
+            right: 0;
+            width: 50%;
+            max-width: 800px;
+        }
+        .shape1, .shape2, .shape3{
+            margin-left: -80px;
+            margin-top: 16px;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            height: 20px;
+        }
+
+        .shape3{
+            border-bottom: none;
+        }
+
+        .user-text{
+            transform: rotate(-90deg);
+            transform-origin: top left;
+            top: 100px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: calc(50% + 220px);
+            max-width: 1010px;
+    
+        }
+    }
+
+}
+
+
+.home-section:last-of-type{
+    margin-bottom: 100px;
+
+    &+.divider-block {
+        display: none;
+    }
 }

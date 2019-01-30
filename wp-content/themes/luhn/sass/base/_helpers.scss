@@ -2,6 +2,6 @@
     display: none;
 
     @include mq('desktop') {
-        display: block;
+        display: initial;
     }    
 }

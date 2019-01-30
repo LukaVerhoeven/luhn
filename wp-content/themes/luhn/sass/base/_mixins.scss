@@ -1,0 +1,114 @@
+
+/***********************
+*         Rotate         *
+***********************/
+@mixin distribute-on-circle( 
+    $nb-items,
+    $circle-size,
+    $item-size,
+    $class-for-IE: false
+    ) {
+        $half-item: ($item-size / 2);
+        $half-parent: ($circle-size / 2);
+        
+        // position: relative; /* 1 */
+        width:  $circle-size;
+        height: $circle-size;
+        padding: 0;
+        border-radius: 50%; 
+        list-style: none; /* 2 */ 
+        box-sizing: content-box; /* 3 */ 
+        
+        > * { /* 4 */
+            display: block;
+            position: absolute;
+            top:  50%; 
+            left: 50%;
+            width:  $item-size;
+            height: $item-size;
+            margin: -$half-item;
+        }
+        
+        $angle: (360 / $nb-items);
+        $rot: 0;
+        
+        @for $i from 1 through $nb-items {
+            @if not $class-for-IE {
+                > :nth-of-type(#{$i}) {
+              transform: rotate($rot * 1deg) translate($half-parent) rotate(90deg);
+            }
+        } @else {
+            > .#{$class-for-IE}#{$i} {
+                // If CSS transforms are not supported
+                $mt: sin($rot * pi() / 180) * $half-parent - $half-item;
+                $ml: cos($rot * pi() / 180) * $half-parent - $half-item;
+                margin: $mt 0 0 $ml;
+            }
+        }
+        
+        $rot: ($rot + $angle);
+    }
+}
+
+
+/***********************
+*         Math         *
+***********************/
+@function pi() {
+    @return 3.14159265359;
+  }
+
+@function sin($angle) {
+    $sin: 0;
+    $angle: rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+      $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+    }
+    @return $sin;
+  }
+
+  @function cos($angle) {
+    $cos: 0;
+    $angle: rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 10 {
+      $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+    }
+    @return $cos;
+  }
+  
+  @function fact($number) {
+    $value: 1;
+    @if $number > 0 {
+      @for $i from 1 through $number {
+        $value: $value * $i;
+      }
+    }
+    @return $value;
+  }
+  
+  @function rad($angle) {
+    $unit: unit($angle);
+    $unitless: $angle / ($angle * 0 + 1);
+    // If the angle has 'deg' as unit, convert to radians.
+    @if $unit == deg {
+      $unitless: $unitless / 180 * pi();
+    }
+    @return $unitless;
+  }
+  
+  @function pow($number, $exp) {
+    $value: 1;
+    @if $exp > 0 {
+      @for $i from 1 through $exp {
+        $value: $value * $number;
+      }
+    }
+    @else if $exp < 0 {
+      @for $i from 1 through -$exp {
+        $value: $value / $number;
+      }
+    }
+    @return $value;
+  }

@@ -25,10 +25,13 @@
 /*************************
 *         Fonts          *
 **************************/
-*{ 
-    font-size: 1.4rem;
-    font-family: 'nova', sans-serif;
- }
+:root{ 
+  font-family: 'nova', sans-serif; 
+}
+
+p,a {
+  font-size: 1.4rem;
+}
 
  h1{
      font-size: 2rem;
