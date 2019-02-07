@@ -2,7 +2,7 @@ $menu-size: 56vw;
 
 $menu-width-desktop: 100%;
 $menu-height-desktop: 27vw;
-$menu-maxsize-desktop: 400px;
+$menu-maxsize-desktop: 350px;
 
 /***********************
 *    Global Nav css    *
@@ -28,7 +28,7 @@ $menu-maxsize-desktop: 400px;
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    font-size: 2rem;
+    font-size: 6vw;
     position: absolute;
     color: #fff;
     background-image: url(../img/image-sheet.png);
@@ -42,23 +42,20 @@ $menu-maxsize-desktop: 400px;
         margin: auto;
         width: $menu-width-desktop;
         height: $menu-height-desktop;
-        max-width: $menu-maxsize-desktop;
-        max-height: $menu-maxsize-desktop;
+    }
+
+    @include mq('desktop-large') {
+        font-size: 3.5rem;
     }
 
     span{
         font-family: 'Poppins', sans-serif;
-    }
-
-    .reg-menu{
-        font-family: 'nova', sans-serif;
     }
 }
 
 
 .big-menu{
     display: block;
-    font-size: 2.5rem;
 }
 
 
@@ -69,23 +66,37 @@ $menu-maxsize-desktop: 400px;
 .contact-link a{
     right: 0;
     background-position: 60% 0;
-    font-family: 'nova', sans-serif;
+    color: #77abb5;
     padding-top: 20vmin;
     padding-right: 10%;
+    font-size: 6vw;
     letter-spacing: .6rem;
-    color: $main-color;
+    line-height: 9vw;
 
     @include mq('phablet') {
-        padding-top: 35%;
+        font-size: 2.5vw;
+        line-height: 3.5vw;
+        padding-top: 40%;
         padding-right: 17%;
-    }     
+        max-height: $menu-maxsize-desktop;
+        max-width: $menu-maxsize-desktop*.91;
+    }
+    
+    @include mq('desktop-large') {
+        padding-top: $menu-maxsize-desktop/2.9;
+        padding-right: 64px;
+        font-size: 3.5rem;
+        line-height: 5rem;
+    }        
 }
 
 .contact-link span.big-menu{
-    font-size: 3.4rem;
-
+    font-size: 8vw;
     @include mq('phablet') {
-        font-size: 4.5vw;
+        font-size: 3.5vw;
+    }
+    @include mq('desktop-large') {
+        font-size: 5rem;
     }      
 }
 
@@ -99,7 +110,7 @@ nav .design-link{
     
     @include mq('phablet') {
         margin-top: 0;
-        width: $menu-height-desktop;
+        width: 27%; //$menu-height-desktop
     }    
 }
 
@@ -109,10 +120,16 @@ nav .design-link{
     border-bottom-right-radius: 55%;
     border-bottom-left-radius: 55%;
     border-top-right-radius: 55%;
-
+    
     @include mq('phablet') {
+        max-width: $menu-maxsize-desktop*1.05;
+        max-height: $menu-maxsize-desktop*1.05;
         padding-top: 43%;
-    }       
+    }
+
+    @include mq('desktop-large') {
+        padding-top: $menu-maxsize-desktop/2.2;
+    }          
 }
 
 /***********************
@@ -129,29 +146,24 @@ nav .web-link{
 
 .web-link a{
     text-align: left;
-    padding-left: 10%;
+    padding-left: 18%;
+    padding-top: 28%;
     right: 0;
-    padding-top: 22%;
     border-bottom-left-radius: 35%;
     background-position: 40% 1%;
     height: $menu-size*1.1;
-    font-size: 1.9rem;
-
+    
     @include mq('phablet') {
-        font-size: 2.2vw;
-        padding-top: 38%;
-        padding-left: 17%;        
+        padding-top: 50%;
+        padding-left: 32%;        
         height: $menu-height-desktop*0.965;
-        max-height: $menu-maxsize-desktop*1.1;
-    }   
-}
-
-.web-link .big-menu{
-    margin-left: 10%;
-
-    @include mq('phablet') {
-        font-size: 3vw;
-    }       
+        max-height: $menu-maxsize-desktop*1.05;
+        max-width: $menu-maxsize-desktop*.95;
+    }
+    @include mq('desktop-large') {
+        padding-top: $menu-maxsize-desktop/2.1;
+        padding-left: $menu-maxsize-desktop/3.4;
+    }        
 }
 
 /***********************
@@ -168,44 +180,123 @@ nav .motion-link {
 .motion-link a{
     background-position: 0 0;
     height: $menu-size*1.35;
-    padding-top: 26%;
+    padding-top: 32%;
     padding-left: 17%;
     padding-bottom: 15px;
     text-align: left;
-    font-size: 1.6rem;
+    letter-spacing: .4rem;
 
     @include mq('phablet') {
-        font-size: 2vw;
-        padding-left: 28%;
-        padding-top: 45%;
+        padding-left: 29%;
+        padding-top: 56%;
         padding-bottom: 5%;        
-        height: $menu-height-desktop*1.21;
-        max-height: $menu-maxsize-desktop*1.5;
+        height: $menu-height-desktop*1.18;
+        max-height: $menu-maxsize-desktop*1.25;
+        max-width: $menu-maxsize-desktop*.915;
+    }   
+    @include mq('desktop-large') {
+        padding-top: $menu-maxsize-desktop/1.95;
+        padding-left: $menu-maxsize-desktop/3.7;
+    }        
+}
+
+
+.motion-link a::first-letter{
+    margin-left: 1.5px;
+}
+
+
+
+/************************************************
+*               Homepage Desktop                *
+*************************************************/
+
+/*********************************
+*              Logo              *
+**********************************/
+#logo{
+    @include mq('desktop') {
+        height: 100vh;
+        max-width: 800px;
+        min-height: 900px;
+        display: block;
+        margin: 0 auto;
+        width: 55%;
+    }
+
+    img{
+        width: 100%;
+        margin-top: 20vh;
+    }
+} 
+
+.logo-text{
+    display: none;
+}
+/*********************************
+*            Shapes              *
+**********************************/
+.home{
+    @include mq('desktop') {
+        .logo-text{
+            text-align: center;
+            display: block;
+            opacity: 0;
+            line-height: 3rem;
+            animation-name: logo-text;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-delay: 2s;
+        }
+        // RESET HAMBURGER MENU
+        .hamburger{
+            display: none;
+        }
+        
+        .global-menu{
+            position: absolute;
+            max-width: unset;
+            margin-top: 3vh;
+        }
+        .global-menu__item{
+            transform: scale(1);
+            position: absolute;
+            pointer-events: auto;
+            opacity: 1;
+            height: 360px;
+            
+            a{
+                transition: transform .3s ease 0s;
+
+                &:hover{
+                    transform: scale(1.1);
+                }       
+            }     
+        }
+        // ENDOF RESET HAMBURGER MENU
+        .contact-link{
+            right: 30px;
+        }
+
+        .design-link{
+
+        }
+
+        .web-link{
+            right: 10%;
+            top: 53vh;
+        }
+
+        .motion-link{
+            height: 540px;
+            top: 42vh;
+            left: 10%;
+        }
     }      
 }
 
-.motion-link .big-menu{
-    letter-spacing: .6rem;
-    margin-left: -10px;
-    
-    @include mq('phablet') {
-        font-size: 3.5vw;
-        line-height: 4.5vw;
-    }     
-}
-
-.motion-link .big-menu::first-letter{
-    margin-left: 3px;
-}
-
-
-// font-fix small screen
-@media only screen and (max-width: 320px) {
-    .motion-link a {
-      font-size: 1.4rem;
-    }
-
-    .web-link a{
-        font-size: 1.7rem;
-    }
+@keyframes logo-text {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
   }

@@ -5,10 +5,10 @@ $breakpoints: (
     "tablet-small":     640px,
     "tablet":           768px,
     "desktop":          1024px,
-    "desktop-medium":   1200px,
-    "desktop-large":    1440px,
-    "1600":             1600px,
-    "xl":               2300px,
+    "desktop-medium":   1250px,
+    "desktop-large":    1350px,
+    "desktop-xl":       1600px,
+    "2k":               2300px,
     "4k":               3000px
 );
 @mixin mq($width, $type: min) {

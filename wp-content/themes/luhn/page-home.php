@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 <main>
     
-    <img id="logo" src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
-
   <?php   
   $counter = 0;
 
@@ -38,16 +36,21 @@ while(the_flexible_field("flexible")): ?>
 
 			<?php if(get_sub_field("style_type") == "skills"): ?>
 				<div class="project-btn-container clearfix">
-					<a class="project-btn" href="#">
-						Check out 
-						<span class="project-btn-span"> <i class="icon-arrow"></i> <span class="hide-mobile">some</span> projects</span> 
-						<span class="underline"></span>
+					<div class="circle-of-lines">
 						<div class="line-container">
 							<?php for ($x = 0; $x <= 50; $x++) : ?>
-								<span class="line"></span>
+							<span class="line"></span>
 							<?php endfor; ?>
 						</div>
-					</a>
+					</div>
+					<div class="project-btn-bg"></div>
+					<div class="project-btn-content">
+						<a class="project-btn" href="#">
+							Check out 
+							<span class="project-btn-span"> <i class="icon-arrow"></i> <span class="hide-mobile">some</span> projects</span> 
+							<span class="underline"></span>
+						</a>
+					</div>
 				</div>
 			<?php endif; ?>
 		</section>

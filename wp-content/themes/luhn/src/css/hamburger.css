@@ -52,14 +52,17 @@ a:focus {
 /* Top Navigation Style */
 
 .global-menu {
-	width: 100vw;
+    margin: auto;
+    width: 100%;
+    left: 0;
+    right: 0;
+	top: 0;
+	max-width: 1600px;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: fixed;
-	top: 0;
-	left: 0;
 	pointer-events: none;
 	z-index: 100;
 }
@@ -161,7 +164,7 @@ a:focus {
 	width: 64px;
 	height: 64px;
 	display: block;
-	position: relative;
+	/* position: relative; */
 	cursor: pointer;
 	position: absolute;
 	top: 2.25em;

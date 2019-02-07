@@ -30,7 +30,7 @@
     <title><?php wp_title('|'); ?></title>
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 	<header>
 		<!-- Hamburger menu -->
 		<div class="hamburger-menu">
@@ -52,12 +52,17 @@
 						<div class="hamburger__line-in hamburger__line-in--cross02 hamburger__line-in--demo-5"></div>
 					</div>
 				</div>
+				<div id="logo">
+					<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+					<p class="logo-text">- Choose your favorite element - <br>or <br> scroll down</p>
+				</div>
+
 				<nav class="global-menu">
 					<ul class="global-menu__wrap">
-						<li class="global-menu__item contact-link"><a href="#" aria-label="contact"><span class="big-menu reg-menu">Con</span>tact</a></li>
+						<li class="global-menu__item contact-link"><a href="#" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
 						<li class="global-menu__item design-link"><a href="#">Design</a></li>
-						<li class="global-menu__item web-link"><a href="#"><span class="reg-menu big-menu">Web</span> development</a></li>
-						<li class="global-menu__item motion-link"><a href="#" aria-label="Motion graphics"><span class="big-menu">Mo<br>tion</span> graphics</a></li>
+						<li class="global-menu__item web-link"><a href="#"> web</a></li>
+						<li class="global-menu__item motion-link"><a href="#" aria-label="Motion graphics">Mo<br>tion</a></li>
 					</ul>
 				</nav>
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
