@@ -20,7 +20,8 @@
 	\ \___,_\   \ \____\    \ \___/     \ \____\     /\____\   \ \____/    \ \ ,__/    \ \_\ \_\ \_\   \ \____\    \ \_\ \_\   \ \__\
 	 \/__,_ /    \/____/     \/__/       \/____/     \/____/    \/___/      \ \ \/      \/_/\/_/\/_/    \/____/     \/_/\/_/    \/__/
 	                                                                         \ \_\
-	                                                                          \/_/
+																			  \/_/
+https://luhn.be/																			  
 -->
 <html <?php language_attributes(); ?>>
 <head>
@@ -54,8 +55,11 @@
 				</div>
 				<?php if(is_category()):?>				
 					<a class="back-button" href="/" ><i class="icon-arrow"></i></a>
-				<?php elseif(is_single()): ?>
-					<a class="back-button" href="#" onClick="history.back();return false;"><i class="icon-arrow"></i></a>
+				<?php elseif(get_the_category()): 
+				$categoryID = get_the_category()[0]->cat_ID;?>
+					<a class="back-button" href="<?php echo  get_category_link($categoryID);?>"><i class="icon-arrow"></i></a>
+				<?php else: ?>
+					<a class="back-button" href="/" ><i class="icon-arrow"></i></a>
 				<?php endif; ?>
 				<div id="logo">
 					<?php if(is_page("home")):?>

@@ -4,6 +4,7 @@
 #category-nav{
     max-width: 1200px;
     margin: auto;
+
     .background-3d {
         margin: 0;
         float: left;
@@ -16,48 +17,44 @@
         opacity: .5;
         transition: all .5s ease;
 
-            &.active{
-                margin-top: 0;
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            &.motion-link a{
-                height: 190px;
-                left: -9960px;
-                // margin-top: -20px;
-                padding-top: 74px;
-                padding-left: 36px;
-            }
-
-            &.design-link a{
-                height: 160px;
-                padding-top: 60px;
-            }
-            
-            &.web-link a{
-                height: 155px;
-                // margin-top: -5px;
-                padding-top: 67px;
-                padding-left: 42px;
-            }
-            
-            a{
-                left: -9999px;
-                right: -9999px;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                font-size: 1.5rem;
-                line-height: 2rem;
-                width: 100%;
-                width: 140px;
-                vertical-align: top;
-                display: inline-block;
-
-                
-            }
+        &.active{
+            margin-top: 0;
+            transform: scale(1);
+            opacity: 1;
         }
+
+        &.motion-link a{
+            height: 190px;
+            left: -9960px;
+            padding-top: 74px;
+            padding-left: 36px;
+        }
+
+        &.design-link a{
+            height: 160px;
+            padding-top: 60px;
+        }
+        
+        &.web-link a{
+            height: 155px;
+            padding-top: 67px;
+            padding-left: 42px;
+        }
+        
+        a{
+            left: -9999px;
+            right: -9999px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            width: 100%;
+            width: 140px;
+            vertical-align: top;
+            display: inline-block;
+        }
+    }
 }
 /***********************
 *       post-card      *
@@ -92,13 +89,9 @@
     }
     .thumbnail img{
         width: 180%;
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-        right: -9999px;
-        bottom: -9999px;
-        margin: auto;
+        height: auto;
         opacity: .7;
+        @include overflow-absloute-center();
     }
     .overlay{
         opacity: .8;

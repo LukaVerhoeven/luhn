@@ -24,7 +24,7 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
 }
 
 .title-big{
-    font-size: 3.5rem;
+    font-size: $font-size-big;
     display: block;
     text-transform: uppercase;
     font-family: "spartan", sans-serif;

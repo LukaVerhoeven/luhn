@@ -25,6 +25,7 @@ var PHPWatchFiles  = root + '**/*.php',
 // Used to concat the files in a specific order.
 var jsSRC = [
     js + 'isMobile.js',
+    js + 'play-video.js',
     js + 'hamburger/easings.js',
     js + 'hamburger/demo6.js',
     js + 'active-category.js'

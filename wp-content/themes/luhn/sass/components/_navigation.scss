@@ -4,36 +4,6 @@ $menu-width-desktop: 100%;
 $menu-height-desktop: 27vw;
 $menu-maxsize-desktop: 350px;
 
-/*********************************
-*          Logo & header         *
-**********************************/
-#logo{
-    padding-top: 1px;
-    a{
-        display: block;
-    }
-    img{
-        width: 130px;
-        margin-top: 0;
-        display: block;
-        margin: auto;
-    }    
-} 
-
-.back-button{
-    position: absolute;
-    margin-top: 32px;
-    margin-left: 20px;
-
-    i{
-        transform: rotate(180deg) ;
-    }
-}
-
-.logo-text{
-    display: none;
-}
-
 /***********************
 *    Global Nav css    *
 ***********************/
@@ -245,35 +215,7 @@ nav .motion-link {
 *            Shapes              *
 **********************************/
 .home{
-    #logo{
-        @include mq('desktop') {
-            height: 100vh;
-            max-width: 800px;
-            min-height: 900px;
-            display: block;
-            margin: 0 auto;
-            width: 55%;
-        }
-        img{
-            width: 100%;
-            margin-top: 20vh;
-        }
-    } 
-    .back-button{
-        display: none;
-    }
-
     @include mq('desktop') {
-        .logo-text{
-            text-align: center;
-            display: block;
-            opacity: 0;
-            line-height: 3rem;
-            animation-name: logo-text;
-            animation-iteration-count: infinite;
-            animation-duration: 2s;
-            animation-delay: 2s;
-        }
         // RESET HAMBURGER MENU
         .hamburger{
             display: none;
@@ -291,7 +233,6 @@ nav .motion-link {
             opacity: 1;
             height: 360px;
             transition: none;
-
             
             a{
                 transition: transform .3s ease 0s;
@@ -323,8 +264,3 @@ nav .motion-link {
     }      
 }
 
-@keyframes logo-text {
-    0% {opacity: 0;}
-    50% {opacity: 1;}
-    100% {opacity: 0;}
-  }

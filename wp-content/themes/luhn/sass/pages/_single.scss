@@ -1,0 +1,134 @@
+/***********************
+*     Single global   *
+***********************/     
+section:nth-child(2n){
+    &:before{
+        content: "";
+        display: block;
+        background-image:  url(../img/image-sheet.png);
+        background-size: 1400%;
+        height: 120px;
+        width: 60px;
+        background-position: 58% 50%;
+        margin: auto;
+    }
+}
+
+section:nth-child(2n+1){
+    &:before{
+        content: "";
+        display: block;
+        background-image:  url(../img/image-sheet.png);
+        background-size: 500%;
+        height: 100px;
+        width: 250px;
+        background-position: 79% 50%;
+        margin: auto;
+    }
+}
+section:first-child{
+    &:before{
+        display: none;
+    }
+}
+
+/***********************
+*       Intro block     *
+***********************/     
+.single-header{
+    color: $main-color;
+
+    header{
+        text-align: right;
+        margin: 25px;
+    }
+    h1{
+        font-size: $font-size-big;
+    }
+    header p{
+        font-size: $font-size-med;
+    }
+
+    .cover-image{
+        display: inline-block;
+        margin-top: 20px;
+        width: 270px;
+        height: 270px;
+        overflow: hidden;
+        position: relative;
+        margin-left: 20px;
+
+        img{
+            width: 180%;
+            height: auto;
+            @include overflow-absloute-center();
+        }
+    }
+
+    .single-intro{
+        text-align: right;
+        margin-top: -140px;
+        padding: 160px 20px 20px;
+        width: 70%;
+        min-width: 250px;
+        margin-left: 20%;
+    }
+}
+
+/***********************
+*         video       *
+***********************/   
+
+.video{
+    width: 90%;
+    margin: auto;
+    position: relative;
+
+    .video-container{
+        @include responsive-video-container('iframe');
+    }
+
+    .img-container{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        opacity: 1;
+        transition: opacity 1s ease;
+    }
+
+    .hide-overlay{
+        opacity: 0;
+    }
+
+    .cover{
+        overflow: hidden;
+        position: relative;
+        @include responsive-video-container();
+
+        img{
+            width: 120%;
+            height: auto;
+            @include overflow-absloute-center();
+        }
+    }
+
+    .cover-overlay{
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.3);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        cursor: pointer;
+    }
+
+    .icon-play{
+        display: block;   
+        text-align: center;
+        margin-top: 25%;
+
+        &::before{
+            color: white;
+            font-size: 4rem;
+        }
+    }
+}

@@ -1,7 +1,37 @@
+.hide{
+    display: none;
+}
+
 .hide-mobile{
     display: none;
 
     @include mq('desktop') {
         display: initial;
     }    
+}
+
+@mixin overflow-absloute-center(){
+    position: absolute;
+    left: -9999px;
+    right: -9999px;
+    top: -9999px;
+    bottom: -9999px;
+    margin: auto;
+}
+
+@mixin responsive-video-container($child :0){
+    position: relative;
+    padding-top: 25px;
+    height: 0;            
+    padding-bottom: 56.25%; // --> screenratio = height / width x 100 <--> ex: 9/16 *100 = 56.25%
+
+    @if $child{
+        #{$child} {
+           position: absolute;
+            top: 0;
+             left: 0;
+            width: 100%;
+             height: 100%;
+        }
+    }
 }

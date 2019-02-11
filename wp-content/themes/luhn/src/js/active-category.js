@@ -1,5 +1,8 @@
+
+var isCathegoryPage = document.querySelector('.category') !== null;
+
 // load this script on the cathegory page
-if(window.location.href.indexOf("category") > -1) {
+if(isCathegoryPage) {
     // toggle active class on hover
     var Activepage = $('#category-nav .active');
     

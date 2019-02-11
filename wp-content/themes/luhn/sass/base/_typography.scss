@@ -69,6 +69,10 @@ p,a {
     -moz-osx-font-smoothing: grayscale;
   }
   
+  .icon-play:before {
+    content: "\25b7";
+  }
   .icon-arrow:before {
     content: "\279c";
-  }  
+  }
+  
