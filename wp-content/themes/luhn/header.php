@@ -31,7 +31,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<header>
+	<header >
 		<!-- Hamburger menu -->
 		<div class="hamburger-menu">
 			<div class="content">
@@ -52,17 +52,28 @@
 						<div class="hamburger__line-in hamburger__line-in--cross02 hamburger__line-in--demo-5"></div>
 					</div>
 				</div>
+				<?php if(is_category()):?>				
+					<a class="back-button" href="/" ><i class="icon-arrow"></i></a>
+				<?php elseif(is_single()): ?>
+					<a class="back-button" href="#" onClick="history.back();return false;"><i class="icon-arrow"></i></a>
+				<?php endif; ?>
 				<div id="logo">
-					<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+					<?php if(is_page("home")):?>
+						<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+					<?php else: ?>
+						<a href="/">
+							<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+						</a>
+					<?php endif; ?>
 					<p class="logo-text">- Choose your favorite element - <br>or <br> scroll down</p>
 				</div>
 
-				<nav class="global-menu">
+				<nav class="global-menu"  id="parallax" data-selector="li" data-hover-only="true">
 					<ul class="global-menu__wrap">
-						<li class="global-menu__item contact-link"><a href="#" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
-						<li class="global-menu__item design-link"><a href="#">Design</a></li>
-						<li class="global-menu__item web-link"><a href="#"> web</a></li>
-						<li class="global-menu__item motion-link"><a href="#" aria-label="Motion graphics">Mo<br>tion</a></li>
+						<li data-depth="-0.40" class="global-menu__item contact-link background-3d"><a href="#" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
+						<li data-depth="-0.40" class="global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
+						<li data-depth="-0.40" class="global-menu__item web-link background-3d"><a href="category/web/"> web</a></li>
+						<li data-depth="-0.40" class="global-menu__item motion-link background-3d"><a href="category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
 					</ul>
 				</nav>
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">

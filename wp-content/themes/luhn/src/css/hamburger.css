@@ -138,6 +138,7 @@ a:focus {
 	position: fixed;
 	top: 0;
 	left: 0;
+	z-index: 1;
 }
 
 .shape-overlays.is-opened {
@@ -412,12 +413,13 @@ a:focus {
 		height: 100%;
 	}
 	.hamburger {
-		position: fixed;
+		position: absolute;
 		top: 0.5em;
 		right: 0.5em;
 		transform: scale(0.75);
 	}
 	.content {
+		position: relative;
 		height: auto;
 		min-height: 0;
 		flex-direction: column;

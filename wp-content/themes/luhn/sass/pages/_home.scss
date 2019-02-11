@@ -12,7 +12,6 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
 **********************************/
 .home-section{
     position: relative;
-    // z-index: -1;                        //<<<<---- uncomment this
 }
 
 .home-content{
@@ -124,6 +123,7 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
     height: 60vw;
     max-width: 528px;
     max-height: 1050px;
+    z-index: -1;
     // margin-top: -60vw;
     // margin: auto;
     margin-left: 10%;

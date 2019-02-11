@@ -1,7 +1,7 @@
 class ShapeOverlays {
   constructor(elm) {
     this.elm = elm;
-    this.path = elm.querySelectorAll('path');
+    this.path = elm[0].querySelectorAll('path');
     this.numPoints = 10;
     this.duration = 900;
     this.delayPointsArray = [];
@@ -24,13 +24,16 @@ class ShapeOverlays {
   }
   open() {
     this.isOpened = true;
-    this.elm.classList.add('is-opened');
+    this.elm[0].classList.add('is-opened');
+    // this.elm[1].classList.add('hide-behind-menu');
     this.timeStart = Date.now();
     this.renderLoop();
   }
   close() {
+    
     this.isOpened = false;
-    this.elm.classList.remove('is-opened');
+    this.elm[0].classList.remove('is-opened');
+    // setTimeout(function() {this.elm[1].classList.remove('hide-behind-menu')} , 1000);
     this.timeStart = Date.now();
     this.renderLoop();
   }
@@ -87,7 +90,10 @@ class ShapeOverlays {
   const body = document.querySelector('body');
   const gNavItems = document.querySelectorAll('.global-menu__item');
   const elmOverlay = document.querySelector('.shape-overlays');
-  const overlay = new ShapeOverlays(elmOverlay);
+  const main = document.querySelector('main');
+  const elements = [elmOverlay,main]
+  const overlay = new ShapeOverlays(elements);
+  
 
   elmHamburger.addEventListener('click', () => {
     if (overlay.isAnimating) {
@@ -98,7 +104,6 @@ class ShapeOverlays {
       
       elmHamburger.classList.add('is-opened-navi');
       overlay.disableScrolling();
-      console.log("menu:",elmHamburger);
       
       elmHamburger.setAttribute("aria-label","Back to the page");
       elmHamburger.setAttribute("title","Close");

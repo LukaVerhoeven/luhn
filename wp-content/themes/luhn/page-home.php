@@ -8,9 +8,9 @@
 *  Loop through a Flexible Content field and display it's content with different views for different layouts
 */
 
-while(the_flexible_field("flexible")): ?>
+while(the_flexible_field("page-content")): ?>
 
-	<?php if(get_row_layout() == "homepage_title_text"): // layout: Content ?>
+	<?php if(get_row_layout() == "homepage_block"): // layout: Content ?>
 
 		<section class="home-section <?php the_sub_field("style_type")?>">
 			<div class="home-content">
