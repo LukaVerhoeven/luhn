@@ -10,8 +10,8 @@
 
         <!-- corner-top -->
         <div class="top-right-corner">
-            <span class="line-horizontal"></span>
-            <span class="line-vertical"></span>
+            <span class="line line-horizontal"></span>
+            <span class="line line-vertical"></span>
         </div>
 
         <!-- text-block -->
@@ -22,8 +22,8 @@
         
         <!-- corner bottom -->
         <div class="left-bottom-corner">
-            <span class="line-vertical"></span>
-            <span class="line-horizontal"></span>
+            <span class="line line-vertical"></span>
+            <span class="line line-horizontal"></span>
         </div>
     </article>
 </a>

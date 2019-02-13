@@ -1,7 +1,7 @@
 
 
 <?php wp_footer(); ?>
-<?php if(is_page("home")):?>
+<?php if(! wp_is_mobile() &&is_page("home")):?>
     <script>
         // init custom parallax
         var scene = document.getElementById('parallax');

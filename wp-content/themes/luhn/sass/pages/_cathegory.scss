@@ -91,7 +91,7 @@
         width: 180%;
         height: auto;
         opacity: .7;
-        @include overflow-absloute-center();
+        @include overflow-absolute-center();
     }
     .overlay{
         opacity: .8;
@@ -123,52 +123,8 @@
         transform: translateZ(40px);
         font-size: 1.5rem;   
     }
-
     /***********************
     *     corner-lines     *
-    ***********************/   
-    .top-right-corner, .left-bottom-corner{
-        position: absolute;
-        transform: translateZ(25px);
-    }
-
-    .top-right-corner{
-        top: 30px;
-        right: 30px;
-
-        .line-vertical{
-            border-right: 1px solid $main-color;
-        }             
-    }
-
-    .left-bottom-corner{
-        bottom: 30px;
-        left: 30px;
-
-        .line-vertical{
-            border-left: 1px solid $main-color;
-        }               
-    }
-        
-    .line-vertical{
-        display: block;
-        height: 50px;
-        transition: height .4s ease;
-    }
-
-    .line-horizontal{
-        display: block;
-        width: 50px;
-        border-bottom: 1px solid $main-color;
-        transition: width .4s ease;
-    }
-    
-    &:hover{
-        .line-vertical{
-            height: 239px;
-        }
-        .line-horizontal{
-            width: 239px
-        }
-    }
+    ***********************/     
+    // zie corner-lines.scss  
 }

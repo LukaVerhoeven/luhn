@@ -45,7 +45,8 @@ while(the_flexible_field("page-content")): ?>
 					</div>
 					<div class="project-btn-bg"></div>
 					<div class="project-btn-content">
-						<a class="project-btn" href="#">
+						<?php $links= ["web", "motion"]; ?>
+						<a class="project-btn" href="/category/<?php echo $links[array_rand($links)]; ?>">
 							Check out 
 							<span class="project-btn-span"> <i class="icon-arrow"></i> <span class="hide-mobile">some</span> projects</span> 
 							<span class="underline"></span>

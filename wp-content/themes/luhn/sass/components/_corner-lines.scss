@@ -1,0 +1,68 @@
+/***********************
+*     corner-lines     *
+***********************/   
+.top-right-corner, .left-bottom-corner{
+    position: absolute;
+    transform: translateZ(25px);
+}
+
+.line{
+    border-style: solid;
+    border-color: $main-color;
+    border-width: 0;
+}
+
+.top-right-corner{
+    top: 30px;
+    right: 30px;
+
+    .line-vertical{
+        border-right-width: 1px;
+    }             
+}
+
+.left-bottom-corner{
+    bottom: 30px;
+    left: 30px;
+
+    .line-vertical{
+        border-left-width: 1px;
+    }               
+}
+.line-vertical{
+    display: block;
+    height: 50px;
+    transition: height .4s ease;
+}
+
+.line-horizontal{
+    display: block;
+    width: 50px;
+    border-bottom-width: 1px;
+    transition: width .4s ease;
+}
+/***********************
+*       cathegory      *
+***********************/   
+
+.post-block:hover {
+    .line-vertical{
+        height: 239px;
+    }
+    .line-horizontal{
+        width: 239px
+    }
+}
+
+/***********************
+*        single       *
+***********************/   
+.single{
+    .line-vertical{
+        height: 30px;
+    }
+    
+    .line-horizontal{
+        width: 30px;
+    }
+}

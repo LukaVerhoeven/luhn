@@ -42,6 +42,31 @@
 	========================================== */
 	add_theme_support('post-thumbnails');
 
+/* ==========================================
+		 Youtube add enableAPI to url
+	========================================== */	
+	function my_plugin_enable_js_api( $html, $url, $args ) {
+ 
+		/* Modify video parameters. */
+		if ( strstr( $html,'youtube.com/embed/' ) ) {
+			$html = str_replace( '?feature=oembed', '?feature=oembed&enablejsapi=1', $html );
+		}
+		
+		return $html;
+	}
+	add_filter( 'oembed_result', 'my_plugin_enable_js_api', 10, 3 );
+/* ==========================================
+		Larger max-width srcset images
+	========================================== */		
+	add_theme_support( 'post-thumbnails' );
+	// add large screen sizes ( for srcset )
+	add_image_size( 'extra-large', 1200, 9999 );
+	add_image_size( 'fullpage', 1600, 9999 );
+
+	// add thumbnail sizes (for srcset )
+	add_image_size( 'thumbnail-medium', 200, 200, true ); // Hard Crop Mode
+	add_image_size( 'thumbnail-large', 500, 500, true ); 
+	add_image_size( 'thumbnail-fullpage', 800, 800, true ); 
 
 /* ==========================================
 			Custom admin panel logo

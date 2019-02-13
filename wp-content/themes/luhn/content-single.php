@@ -1,14 +1,18 @@
 <section class="single-header">
     <header>
         <h1><?php the_title()?></h1>
-        <?php the_content()?>
+        <h2><?php the_field('subtitle'); ?></h2>
     </header>
-    <div class="cover-image">
-        <?php if( has_post_thumbnail() ): ?>
-            <?php the_post_thumbnail('thumnail'); ?>
-        <?php endif; ?>
+    <div class="intro-block">
+        <div class="cover-image">
+            <?php if( has_post_thumbnail() ): ?>
+                <?php the_post_thumbnail('thumbnail-fullpage'); ?>
+            <?php endif; ?>
+        </div>
+        <div class="single-intro <?php the_field('card_color'); ?>">
+                <p> <?php the_field('intro_text'); ?></p>
+        </div>
     </div>
-    <p class="single-intro <?php the_field('card_color'); ?>"> <?php the_field('intro_text'); ?></p>
 </section>
 
 <?php
@@ -19,43 +23,96 @@
 
             <section class="<?php echo get_row_layout() ?>">
                 <!-- VIDEO  -->
-               <?php if (get_row_layout()=="video"): 
+               <?php if (get_row_layout()=="iframe"): 
                     $image = get_sub_field('cover_image'); ?>
+                  
+                    <!-- title-cube -->
+                    <div class="title-cube">
+                        <div class="back"></div>
+                        <div class="side-left"></div>
+                        <div class="side-right"></div>
+                        <div class="back-line-fix"></div>
+                        <h2 class="front">Video</h2>
+                    </div>
                     <!-- video -->
-                    <div class="video-container">
-                        <?php the_sub_field('video_url') ?>
+                    <div class="video-container js-player">
+                        <?php
+                        $video = get_sub_field('video_url');
+                        $videoID= get_row_index();
+                        $video = preg_replace('/(<iframe\b[^><]*)>/i', '$1 id="player' . $videoID .'" >', $video);
+                        echo $video ?>
                     </div>
                     <!-- cover image -->
-                    <div class="img-container" id="playvideo">
+                    <div class="img-container js-play js-play-youtube<?php echo $videoID ?> ">
                         <div class="cover">
-                            <?php echo wp_get_attachment_image( $image['id'], "medium" ) ?>
+                            <?php echo wp_get_attachment_image( $image['id'], "fullpage" ) ?>
                         </div>
+                        <!-- play button -->
                         <div class="cover-overlay">
                             <i class="icon-play"></i>
+                        </div>
+                        <!-- video title -->
+                        <h2><?php the_sub_field('video_title'); ?></h2>
+                        <!-- corner top -->
+                        <div class="top-right-corner">
+                            <span class="line line-horizontal"></span>
+                            <span class="line line-vertical"></span>
+                        </div>                        
+                        <!-- corner bottom -->
+                        <div class="left-bottom-corner">
+                            <span class="line line-vertical"></span>
+                            <span class="line line-horizontal"></span>
                         </div>
                     </div>
    
                <!-- GALLERY  -->
                <?php elseif (get_row_layout()=="gallery"): 
                    $images = get_sub_field('images'); ?>
-                   <?php foreach( $images as $image ): ?>
-                   <li>
-                       <a href="<?php echo $image['url']; ?>">
-                           <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
-                       </a>
-                       <p><?php echo $image['caption']; ?></p>
-                   </li>                
-                   <?php endforeach; ?>
+                    <div class="title-cube">
+                        <div class="back"></div>
+                        <div class="side-left"></div>
+                        <div class="side-right"></div>
+                        <div class="back-line-fix"></div>
+                        <h2 class="front">Gallery</h2>
+                    </div>
+                   <div class="carousel-container js-carousel">
+                       <ul class="carousel">
+                           <?php foreach( $images as $image ): ?>
+                           <li>
+                               <a href="<?php echo $image['url']; ?>">
+                                    <?php echo wp_get_attachment_image( $image['id'], "thumbnail-fullpage" ) ?>
+                                </a>
+                                <p><?php echo $image['caption']; ?></p>
+                            </li>                
+                            <?php endforeach; ?>
+                        </ul>
+                        <a class="prev-button js-prev" href="#"> previous image <i class="icon-arrow"></i></a>
+                        <a class="next-button js-next" href="#"> next image <i class="icon-arrow"></i></a>
+                   </div>
    
                <!-- SINGLE IMAGE  -->
                <?php elseif (get_row_layout()=="image"): 
                    $image = get_sub_field('single_image');?>
-                   
-                   <?php echo wp_get_attachment_image( $image['id'], "medium" ) ?>
+                    <div class="title-cube">
+                        <div class="back"></div>
+                        <div class="side-left"></div>
+                        <div class="side-right"></div>
+                        <div class="back-line-fix"></div>
+                        <h2 class="front">Picture</h2>
+                    </div>
+                    
+                   <?php echo wp_get_attachment_image( $image['id'], "fullpage" ) ?>
    
                <!-- TEXT  -->
                <?php elseif (get_row_layout()=="text_block"): ?>
-                   <?php the_sub_field('text') ?>
+                    <div class="title-cube">
+                        <div class="back"></div>
+                        <div class="side-left"></div>
+                        <div class="side-right"></div>
+                        <div class="back-line-fix"></div>
+                        <h2 class="front">Text</h2>
+                    </div>
+                   <p><?php the_sub_field('text') ?></p>
                <?php endif; ?>
             </section>
 
