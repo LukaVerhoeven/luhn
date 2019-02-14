@@ -1,0 +1,23 @@
+
+/***********************
+*     overlay color    *
+***********************/   
+// yellow
+.post-color1{
+    background-color: #feece2;
+}
+
+header.post-color1{
+    background-color: transparent;
+    color: darken(#feece2, 80%);
+}
+
+// Blue
+.post-color2{
+    background-color: #cddfe3;
+}
+
+header.post-color2{
+    background-color: transparent;
+    color: darken(#cddfe3 , 50%);
+}

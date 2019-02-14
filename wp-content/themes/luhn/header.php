@@ -28,7 +28,14 @@ https://luhn.be/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php wp_title('|'); ?></title>
+	<title><?php wp_title('|'); ?></title>
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/site.webmanifest">
+	<link rel="mask-icon" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="theme-color" content="#ffffff">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -53,7 +60,7 @@ https://luhn.be/
 						<div class="hamburger__line-in hamburger__line-in--cross02 hamburger__line-in--demo-5"></div>
 					</div>
 				</div>
-				<?php if(is_category()):?>				
+				<?php if(is_category()):?>		
 					<a class="back-button" href="/" ><i class="icon-arrow"></i></a>
 				<?php elseif(get_the_category()): 
 				$categoryID = get_the_category()[0]->cat_ID;?>
@@ -69,7 +76,7 @@ https://luhn.be/
 							<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
 						</a>
 					<?php endif; ?>
-					<p class="logo-text">- Choose your favorite element - <br>or <br> scroll down</p>
+					<p class="logo-text">- Choose your favorite element - <br>or <br> scroll down <br> <i class="icon-arrow"></i></p>
 				</div>
 
 				<nav class="global-menu"  id="parallax" data-selector="li" data-hover-only="true">

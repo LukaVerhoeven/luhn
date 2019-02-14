@@ -60,6 +60,11 @@
             animation-iteration-count: infinite;
             animation-duration: 2s;
             animation-delay: 2s;
+
+            i{
+                margin-top: 10px;
+                transform: rotate(90deg);
+            }
         }    
     }
 }

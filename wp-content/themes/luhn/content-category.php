@@ -19,7 +19,7 @@
             <h1><?php the_title()?></h1>
             <?php the_content()?>
         </div>
-        
+   
         <!-- corner bottom -->
         <div class="left-bottom-corner">
             <span class="line line-vertical"></span>
