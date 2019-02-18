@@ -20,7 +20,7 @@ if(isSinglePage) {
     var isAnimating             = 0;
 
     // mobile single carousel
-    if ($(window).outerWidth() < 1024) {
+    if (!isDesktop) {
 
         // Add active class to first elemnt
         var current_active_item = item.first().addClass(active_class);
@@ -69,12 +69,13 @@ if(isSinglePage) {
         var tile_next = item.slice(3,4).addClass("js-active-next");
         var SlidingAnimation = 0;
 
-        $(next).on( "click", function(e) {
+        $(prev).on( "click", function(e) {
             fixedHeight();
             e.preventDefault();
             SlidingAnimation= 1;
             setTimeout(function() { SlidingAnimation =0; }, animationTime);
-
+            console.log("next");
+            
             var nextButton = $(this);
             if(movement_counter>-(item_amount-4)){
                 // translate position
@@ -93,7 +94,7 @@ if(isSinglePage) {
             }
         });        
 
-        $(prev).click(function(e){
+        $(next).click(function(e){
             e.preventDefault();
             SlidingAnimation= 1;
             setTimeout(function() { SlidingAnimation =0; }, animationTime);
@@ -147,24 +148,25 @@ if(isSinglePage) {
                 isAnimating = 0;
             }, 500);
         }
-
-        if(!isAnimatingLastSlide){
-            isAnimatingLastSlide = 1;
-            var currentTranslateX = parseInt(getTranslateX(item),10);
-            setTimeout(function() { isAnimatingLastSlide =0; }, animationTime*2);
-            if(direction=="next"){
-                var movementX = (-item_width/3) + currentTranslateX;
-                var movementY = "15%";
-            } else if(direction=="prev"){
-                var movementX = (item_width/3) + currentTranslateX;
-                var movementY = "-15%";
+        if(isDesktop){
+            if(!isAnimatingLastSlide){
+                isAnimatingLastSlide = 1;
+                var currentTranslateX = parseInt(getTranslateX(item),10);
+                setTimeout(function() { isAnimatingLastSlide =0; }, animationTime*2);
+                if(direction=="next"){
+                    var movementX = (-item_width/3) + currentTranslateX;
+                    var movementY = "15%";
+                } else if(direction=="prev"){
+                    var movementX = (item_width/3) + currentTranslateX;
+                    var movementY = "-15%";
+                }
+    
+                item.css("transform", "translate("+ movementX+"px, "+ movementY+") scale(1.2)");
+                setTimeout(function() {
+                    item.css("transform", "translate("+ currentTranslateX+"px,0) scale(1.2)");
+                }, animationTime);
+             
             }
-
-            item.css("transform", "translate("+ movementX+"px, "+ movementY+") scale(1.2)");
-            setTimeout(function() {
-                item.css("transform", "translate("+ currentTranslateX+"px,0) scale(1.2)");
-            }, animationTime);
-         
         }
     }
 

@@ -1,0 +1,8 @@
+.js-fade{
+    opacity: 1;
+    transition: opacity .5s ease;
+
+    &.js-fade_out{
+        opacity: 0;
+    }
+}

@@ -6,7 +6,12 @@
     <div class="intro-block">
         <div class="cover-image">
             <?php if( has_post_thumbnail() ): ?>
-                <?php the_post_thumbnail('thumbnail-fullpage'); ?>
+            <div class="grid__item grid__item--bg">
+                <div class="grid__item-img" data-displacement="<?php echo get_template_directory_uri()?>/dist/img/displacement/<?php the_field('featured_glitch_effect'); ?>.jpg" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2">
+                    <?php the_post_thumbnail('thumbnail-fullpage'); ?>
+                    <?php the_post_thumbnail('thumbnail-fullpage'); ?>
+                </div>
+            </div>
             <?php endif; ?>
         </div>
         <div class="single-intro <?php the_field('card_color'); ?>">

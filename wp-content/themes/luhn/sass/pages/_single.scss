@@ -26,6 +26,7 @@
             width: 250px;
             background-position: 79% 50%;
             margin: 70px auto;
+            transition: transform .6s ease;
         }
     }
     // No graphic on intro
@@ -94,10 +95,13 @@
             height: auto;
             margin-left: 20px;
             max-width: 300px;
+
             @include mq('tablet') {
-                width: 40%;
-                height: auto;
+                width: 40vw;
+                height: 40vw;
+                // height: auto;
                 max-width: 500px;
+                max-height: 500px;
             } 
             
             img{
@@ -114,7 +118,7 @@
             margin: auto;
             margin-top: -140px;
             margin-left: 18%;
-            z-index: -1;
+            z-index: -2;
             text-align: right;
             
             @include mq('tablet') {
@@ -250,12 +254,13 @@
         
         li{
             display: inline-block;
-            vertical-align: top;
+            vertical-align: middle;
             opacity: 0;
             visibility: hidden;
             transition: transform .5s ease,opacity .3s ease, visibility .3s ease, margin-top .5s ease;
             
             @include mq('desktop') {
+                vertical-align: top;
                 width: 33%;
                 position: relative;
                 transform: scale(1.2);
@@ -311,6 +316,10 @@
         .icon-arrow{
             text-indent: 0;
             position: absolute;
+
+            @include mq('desktop') {
+                font-size: 2.3rem;
+            }                
         }
         
         .prev-button {

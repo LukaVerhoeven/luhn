@@ -1,0 +1,94 @@
+/***********************
+*     Share buttons    *
+***********************/   
+.share-container {
+  
+    // background: #FF7472;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .share-container .shareButton.main .close {
+    position: absolute;
+    top: 1rem;
+    left: 2px;
+    transition: all 150ms;
+  }
+  .shareButton svg{
+      fill: #FFF;
+  }
+  .shareButton svg, .shareButton.open svg, .shareButton i {
+    transition: all 150ms;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .share-container .shareButton.main.open .close,
+   .share-container .shareButton.main.sent .check {
+    -webkit-transform: rotate(0) scale(1);
+            transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+    .share-container .shareButton.main .close,
+    .share-container .shareButton.main.open .share,
+    .share-container .shareButton.main .check,
+    .share-container .shareButton.main.sent .share {
+    opacity: 0;
+    -webkit-transform: rotate(90deg) scale(0);
+            transform: rotate(90deg) scale(0);
+  }
+ 
+  .shareButton, .shareButton.open {
+    border: none;
+    border-radius: 50%;
+    // background: #fff;
+    padding: 1rem;
+    overflow: hidden;
+    outline: none;
+    margin: 0.5rem;
+    width: 24px;
+    height: 24px;
+    box-sizing: content-box;
+    transition: all 200ms;
+    position: relative;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+   
+    .icon-instagram{
+        margin-top: 0px;
+        margin-left: -.5px;
+        font-size: 2.3rem;
+    }
+  }
+  .shareButton:hover, .shareButton.open:hover {
+    -webkit-transform: scale(1.1) translateY(-3px);
+            transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  }
+  
+  
+  .fb, .shareButton.open.ig {
+    transition-delay: 100ms;
+  }
+  
+  .tw, .shareButton.open.tw {
+    transition-delay: 50ms;
+  }
+  
+  .ig, .shareButton.open.fb {
+    transition-delay: 0ms;
+  }
+  
+  .fb, .tw, .ig {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }

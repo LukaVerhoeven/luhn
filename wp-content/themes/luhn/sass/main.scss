@@ -4,6 +4,7 @@
 @import "base/variables";
 @import "base/reset";
 
+@import "base/javascript";
 @import "base/colors";
 @import "base/breakpoints";
 @import "base/helpers";
@@ -13,14 +14,17 @@
 /*************************
 *       Components       *
 **************************/
+@import "components/block-3d";
 @import "components/buttons";
 @import "components/corner-lines";
+@import "components/glitch-hover";
 @import "components/navigation";
 @import "components/title-cube";
 
 /*************************
 *         Layout       	 *
 **************************/
+@import "layout/footer";
 @import "layout/header";
 
 /*************************

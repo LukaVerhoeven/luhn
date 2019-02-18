@@ -29,6 +29,7 @@ https://luhn.be/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title><?php wp_title('|'); ?></title>
+	<!-- favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/favicon-16x16.png">
@@ -37,6 +38,7 @@ https://luhn.be/
 	<meta name="msapplication-TileColor" content="#2b5797">
 	<meta name="theme-color" content="#ffffff">
     <?php wp_head(); ?>
+	<!-- <script>    document.documentElement.className = "js-glitch";</script> -->
 </head>
 <body <?php body_class(); ?>>
 	<header >
@@ -70,7 +72,11 @@ https://luhn.be/
 				<?php endif; ?>
 				<div id="logo">
 					<?php if(is_page("home")):?>
-						<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+						<img class="js-fade" src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo" 
+						data-gif1="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" 
+						data-gif2="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif"
+						data-gif3="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif"
+						data-gif4="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif">
 					<?php else: ?>
 						<a href="/">
 							<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
@@ -81,10 +87,10 @@ https://luhn.be/
 
 				<nav class="global-menu"  id="parallax" data-selector="li" data-hover-only="true">
 					<ul class="global-menu__wrap">
-						<li data-depth="-0.40" class="global-menu__item contact-link background-3d"><a href="#" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
-						<li data-depth="-0.40" class="global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
-						<li data-depth="-0.40" class="global-menu__item web-link background-3d"><a href="category/web/"> web</a></li>
-						<li data-depth="-0.40" class="global-menu__item motion-link background-3d"><a href="category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
+						<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item contact-link background-3d"><a href="#" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
+						<li data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
+						<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item web-link background-3d"><a href="category/web/"> web</a></li>
+						<li data-depth="-0.40" data-category="4" class="js-change_gif global-menu__item motion-link background-3d"><a href="category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
 					</ul>
 				</nav>
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">

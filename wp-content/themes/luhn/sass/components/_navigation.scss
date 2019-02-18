@@ -2,8 +2,11 @@
 $menu-size: 56vw;
 // desktop
 $menu-width-desktop: 100%;
-$menu-height-desktop: 27vw;
-$menu-maxsize-desktop: 350px;
+$menu-height-desktop: 22vw;
+$menu-maxsize-desktop: 270px;
+
+// nav items
+$nav-item-width: 19%;
 
 /***********************
 *    Global Nav css    *
@@ -16,7 +19,7 @@ $menu-maxsize-desktop: 350px;
     margin: 0;
 
     @include mq('phablet') {
-        width: 23.5%;
+        width: $nav-item-width;
         height: 100%;
         display: inline-block;
     }
@@ -36,7 +39,7 @@ $menu-maxsize-desktop: 350px;
     color: #fff;
 
     @include mq('phablet') {
-        font-size: 2.5vw;
+        font-size: 2.2vw;
         top: 50%;
         bottom: 50%;
         right: 0;
@@ -47,7 +50,7 @@ $menu-maxsize-desktop: 350px;
     }
 
     @include mq('desktop-large') {
-        font-size: 3.5rem;
+        font-size: 2.7rem;
     }
 
     span{
@@ -108,11 +111,11 @@ $menu-maxsize-desktop: 350px;
 nav .design-link{
     margin-top: -20vw;
     z-index: 0;
-    width: 50%;
+    // width: 50%;
     
     @include mq('phablet') {
         margin-top: 0;
-        width: 27%; //$menu-height-desktop
+        width: $nav-item-width *1.2; //$menu-height-desktop
     }    
 }
 

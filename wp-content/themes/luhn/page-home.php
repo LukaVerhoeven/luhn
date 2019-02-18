@@ -14,26 +14,41 @@ while(the_flexible_field("page-content")): ?>
 
 		<section class="home-section <?php the_sub_field("style_type")?>">
 			<div class="home-content">
+				<!-- block title -->
 				<h1>
 					<?php the_sub_field("title_intro"); ?>
 					<span class="title-big"><?php the_sub_field("title"); ?></span>
 				</h1>
+
+				<!-- rulers -->
 				<div class="ruler"></div>
 				<div class="ruler2"></div>
+
 				<?php if(get_sub_field("style_type") != "contact"): ?>
+					<!-- block text -->
 					<p class="home-text"> <?php the_sub_field("text"); ?> </p>
+
 				<?php elseif(get_sub_field("style_type") == "contact"): ?>
+					<!-- contact button-->
 					<a class="contact-btn" href="#"><?php the_sub_field("button_text"); ?></a>
 				<?php endif; ?>
-				
+
+				<?php if(get_sub_field("style_type") == "skills"): ?>
+					<!-- skill cubes -->
+					<?php get_template_part('content','skills'); ?>
+				<?php endif; ?>
+
 			</div>
+			<!-- 3d background -->
 			<div class="home-bg box<?php echo $counter?> clearfix">
-				<div class="shape1"></div>
-				<div class="shape2"></div>
-				<div class="shape3"></div>
+				<div class="shape"></div>
+				<div class="shape"></div>
+				<div class="shape"></div>
 			</div>
+			<!-- vertical text -->
 			<p class=user-text> <?php the_sub_field("user_text"); ?> </p>
 
+			<!-- skills project button -->
 			<?php if(get_sub_field("style_type") == "skills"): ?>
 				<div class="project-btn-container clearfix">
 					<div class="circle-of-lines">
@@ -59,21 +74,6 @@ while(the_flexible_field("page-content")): ?>
 		<div class="divider-block">
 			<div class="graphic<?php echo $counter+1?>"></div>
 			<div class="vertical-ruler"></div>
-		</div>
-	<?php elseif(get_row_layout() == "featured_posts"): // layout: Featured Posts ?>
-
-		<div>
-			<h2><?php the_sub_field("title"); ?></h2>
-			<?php the_sub_field("content"); ?>
-
-			<?php if(get_sub_field("posts")): ?>
-				<ul>
-				<?php foreach(get_sub_field("posts") as $p): ?>
-					<li><a href="<?php echo get_permalink($p->ID); ?>"><?php echo get_the_title($p->ID); ?></a></li>
-				<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
-
 		</div>
 
 	<?php endif; ?>

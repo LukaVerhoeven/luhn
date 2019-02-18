@@ -69,11 +69,16 @@ p,a {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   .icon-play:before {
     content: "\25b7";
+  }
+  .icon-share:before {
+    content: "\2ba9";
   }
   .icon-arrow:before {
     content: "\279c";
   }
-  
+  .icon-instagram:before {
+    content: "\2661";
+  }

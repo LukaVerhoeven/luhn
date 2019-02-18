@@ -1,4 +1,4 @@
-<a href="<?php the_permalink() ?>" class="post-block js-tilt" data-tilt>
+<a href="#" data-url="<?php the_permalink() ?>" class="js-animated_url post-block js-tilt" data-tilt>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <!-- thumbnail -->
         <div class="thumbnail">

@@ -2,9 +2,11 @@
 *           variables            *
 **********************************/
 $bg-shape-depth: 30px;
-$project-btn-margin: 30px;
+$project-btn-margin: -10px;
 $project-btn-size: 230px;
 $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
+
+$skill-cube-width: 50px;
 
 
 /*********************************
@@ -63,7 +65,7 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
 
 .divider-block{
     position: relative;
-    height: 300px;
+    padding: 1px;
 }
 
 .vertical-ruler{
@@ -84,7 +86,7 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
 .graphic1{
     position: absolute;
     background-size: 870%;
-    margin-top: -50px;
+    margin-top: 60px;
     width: 15%;
     height: 23vw;
     min-width: 90px;
@@ -101,15 +103,17 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
 .graphic2{
     position: absolute;
     background-size: 440%;
-    margin-top: -2%;
-    right: 9%;
+    margin-top: 120px;
+    right: 0;
     width: 19%;
     height: 15vw;
     min-width: 130px;
     min-height: 100px;    
     background-position: 39% 53%;
-
+    
     @include mq('desktop') {
+        right: 9%;
+        margin-top: 30px;
         max-width: 350px;
         max-height: 280px;
     }
@@ -119,20 +123,19 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
     position: absolute;
     top: -13vw;
     background-size: 665%;
-    width: 30vw;
-    height: 60vw;
+    width: 40vw;
+    height: 80vw;
     max-width: 528px;
     max-height: 1050px;
     z-index: -1;
-    // margin-top: -60vw;
-    // margin: auto;
-    margin-left: 10%;
+    margin-left: 19%;
     background-position: 0% 100%;
     transform: rotate(90deg);
-    // transform-origin: left top;
 
     @include mq('desktop') {
-        // top: -300px;
+        margin-left: 10%;
+        width: 30vw;
+        height: 60vw;
     }        
 }
 
@@ -186,30 +189,23 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
             transform: rotate(90deg);
         }    
     }
-    
-    .shape1{
-        background-color: lighten($bg-1, 3%);
+
+    @include block-3d( 100% , 80% , $bg-shape-depth, $bg-1);
+    .shape:first-child{
         width: calc(80% + #{$bg-shape-depth});
-        height: $bg-shape-depth;
         margin-left:calc( 15px - #{$bg-shape-depth});
-        transform: skewX(-45deg);
     }
 
-    .shape2{
-        background-color: $bg-1;
-        width: 80%;
-        height: calc(100% - 30px);
-        float: left;
-    }
-
-    .shape3{
-        background-color: darken($bg-1, 5%);
-        width: $bg-shape-depth;
-        height: calc(100% - #{$bg-shape-depth});
-        margin-top: -15px;
-        float: left;
-        transform: skewY(-45deg);
-    }
+    // shadow of block
+    // &::after{
+    //     content:"";
+    //     display: block;
+    //     position: absolute;
+    //     border-radius: 30%;
+    //     width: calc(80% + #{$bg-shape-depth});
+    //     height: 50px;
+    //     box-shadow: 0px 80px 50px rgba(0, 0, 0, 0.05);
+    // }
 }
 /*************************
 *  ABOUT & CONTACT block *
@@ -318,7 +314,8 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
     
     .home-content{
         padding-right: $bg-shape-depth;
-        padding-bottom: $bg-shape-depth ;
+        padding-bottom: $bg-shape-depth;
+        position: relative;
     }
     
     h1{
@@ -333,52 +330,54 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
         margin-left: 10%;
         margin-top: 10px;
         vertical-align: top;
-        width: 70%;
-        padding-bottom: 40px;
+        width: 85%;
+        padding-bottom: 110px;
         min-height: 150px;
 
         @include mq('desktop') {
             margin-top: 40px;
+            width: 70%;
         } 
     }
+    .home-bg{
+        .shape:first-child{
+            background-color: $bg-3;
+            width: 100%;
+            height: calc(100% - #{$bg-shape-depth} - #{$project-btn});
+            float: left; 
     
-    .shape1{
-        background-color: $bg-3;
-        width: 100%;
-        height: calc(100% - #{$bg-shape-depth} - #{$project-btn});
-        float: left; 
-
-        @include mq('desktop') {
-            height: calc(100% - #{$bg-shape-depth});
+            @include mq('desktop') {
+                height: calc(100% - #{$bg-shape-depth});
+            }
         }
-    }
-
-    .shape2 {
-        background-color: darken($bg-3, 3%);
-        float: left;
-        width: $bg-shape-depth;
-        height: calc(100% - #{$bg-shape-depth} - #{$project-btn});
-        margin-top: 15px;
-        margin-left: -$bg-shape-depth;
-        transform: skewY(-45deg);
-
-        @include mq('desktop') {
-            height: calc(100% - #{$bg-shape-depth});
+    
+        .shape:nth-child(2) {
+            background-color: darken($bg-3, 3%);
+            float: left;
+            width: $bg-shape-depth;
+            height: calc(100% - #{$bg-shape-depth} - #{$project-btn});
+            margin-top: 15px;
+            margin-left: -$bg-shape-depth;
+            transform: skewY(-45deg);
+    
+            @include mq('desktop') {
+                height: calc(100% - #{$bg-shape-depth});
+            }
         }
-    }
-
-    .shape3{
-        background-color: lighten($bg-3, 3%);
-        position: absolute;
-        width: 100%;
-        height: $bg-shape-depth;
-        top: calc(100% - #{$bg-shape-depth} - #{$project-btn});
-        z-index: -1;
-        margin-left: -15px;
-        transform: skewX(-45deg);
-
-        @include mq('desktop') {
-            top: calc(100% - #{$bg-shape-depth});
+    
+        .shape:last-child{
+            background-color: lighten($bg-3, 3%);
+            position: absolute;
+            width: 100%;
+            height: $bg-shape-depth;
+            top: calc(100% - #{$bg-shape-depth} - #{$project-btn});
+            z-index: -1;
+            margin-left: -15px;
+            transform: skewX(-45deg);
+    
+            @include mq('desktop') {
+                top: calc(100% - #{$bg-shape-depth});
+            }
         }
     }
 
@@ -401,6 +400,7 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
             }
         }
         @include mq('desktop') {
+            margin-top: 0px;
             position: absolute;
             top: 20px;
             left: calc(-#{$project-btn-size} / 1.3);
@@ -504,10 +504,96 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
         margin-top: 6px;
         font-size: 2rem;
     }
+
+
+    .skill-cube-container{
+        position: absolute;
+        bottom: 40px;
+        right: 30px;
+    }
+    .skill-block{
+        display: inline-block;
+        z-index: 1;
+        margin-right: 20px;
+        transition: transform .5s ease;
+
+        &::after{
+            content:"";
+            display: inline-block;
+            position: absolute;
+            border-radius: 30%;
+            width: $skill-cube-width *1.3;
+            height: 8px;
+            margin-top: -$skill-cube-width *1.5;
+            // margin-left: 32px;
+            box-shadow: $skill-cube-width $skill-cube-width*2 25px rgba(0, 0, 0, .15);
+            transform: skewX(-45deg)  translateY(0);
+            transition: all .5s ease;
+        }
+
+        &:hover{
+            transform: translateY(-10px);
+            
+            &::after{
+                box-shadow: $skill-cube-width $skill-cube-width*2 25px rgba(0, 0, 0, .2);
+                margin-top: -$skill-cube-width *1.28;
+                margin-left: -5px;
+                // transform: skewX(-45deg)  translateY(10px);
+                width: $skill-cube-width *1.5;
+            }
+        }
+    }
+    .skill-logo{
+        height: 32px;
+        width: 32px;
+        margin: 10px auto;
+        background-size: 1160%;
+        background-image: url(../img/image-sheet.png);
+    }
+    .cc{
+        @include block-3d ( $skill-cube-width ,$skill-cube-width, 15px, rgb(255, 147, 165));
+    }
+    .cc .skill-logo{
+        background-position: 98% 0;
+    }
+
+    .wp{
+        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(128, 208, 228));
+    }
+    .wp .skill-logo{
+        background-position: 98% 80%;
+    }
+    .laravel{
+        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(253, 147, 161));
+    }
+    .laravel .skill-logo{
+        margin-top: 12px;
+        background-position: 98% 98%;
+    }
+    .angular{
+        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(255, 130, 157));
+    }
+    .angular .skill-logo{
+        background-position: 98% 59%;
+    }
+    .psd{
+        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(124, 181, 255));
+    }
+    .psd .skill-logo{
+        margin-top: 11px;
+        background-position: 98% 39%;
+    }
+    .ae{
+        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(248, 123, 200));
+    }
+    .ae .skill-logo{
+        margin-top: 7px;
+        background-position: 98% 19%;
+    }                    
 }
 
 .skills+.divider-block {
-    height: 42vw;
+    height: 68vw;
     
 
     @include mq('desktop') {
@@ -626,7 +712,7 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
             width: 50%;
             max-width: 800px;
         }
-        .shape1, .shape2, .shape3{
+        .shape{
             margin-left: -80px;
             margin-top: 16px;
             border-top: 2px solid black;
@@ -634,7 +720,7 @@ $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
             height: 20px;
         }
 
-        .shape3{
+        .shape:last-child{
             border-bottom: none;
         }
 

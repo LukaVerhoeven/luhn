@@ -3,6 +3,8 @@
 **********************************/
 #logo{
     padding-top: 1px;
+    width: 50%;
+    margin: auto;
     a{
         display: block;
     }
@@ -33,6 +35,8 @@
 *************************************************/
 .home{
     #logo{
+        width: 100%;
+        
         @include mq('desktop') {
             height: 100vh;
             max-width: 800px;
