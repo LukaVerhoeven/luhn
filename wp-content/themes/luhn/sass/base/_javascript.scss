@@ -1,6 +1,7 @@
 .js-fade{
     opacity: 1;
     transition: opacity .5s ease;
+    will-change: opacity;
 
     &.js-fade_out{
         opacity: 0;

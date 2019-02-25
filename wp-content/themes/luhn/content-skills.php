@@ -15,22 +15,22 @@
     <?php else: ?>
         <div class="skill-block laravel">
             <div class="shape"></div>
-            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Adobe Creative cloud"></div></div>
+            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Laravel"></div></div>
             <div class="shape"></div>
         </div>
         <div class="skill-block angular">
             <div class="shape"></div>
-            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Adobe Creative cloud"></div></div>
+            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Angular"></div></div>
             <div class="shape"></div>
         </div>
         <div class="skill-block psd">
             <div class="shape"></div>
-            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Adobe Creative cloud"></div></div>
+            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="photoshop"></div></div>
             <div class="shape"></div>
         </div>
         <div class="skill-block ae">
             <div class="shape"></div>
-            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Adobe Creative cloud"></div></div>
+            <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="After effects & Resolume"></div></div>
             <div class="shape"></div>
         </div>              
     <?php endif; ?>

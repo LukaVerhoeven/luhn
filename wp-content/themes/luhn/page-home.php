@@ -30,7 +30,7 @@ while(the_flexible_field("page-content")): ?>
 
 				<?php elseif(get_sub_field("style_type") == "contact"): ?>
 					<!-- contact button-->
-					<a class="contact-btn" href="#"><?php the_sub_field("button_text"); ?></a>
+					<a class="contact-btn" href="/contact"><?php the_sub_field("button_text"); ?></a>
 				<?php endif; ?>
 
 				<?php if(get_sub_field("style_type") == "skills"): ?>

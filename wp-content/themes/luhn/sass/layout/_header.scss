@@ -20,6 +20,7 @@
     position: absolute;
     margin-top: 32px;
     margin-left: 20px;
+    cursor: pointer;
 
     i{
         transform: rotate(180deg) ;
@@ -39,16 +40,20 @@
         
         @include mq('desktop') {
             height: 100vh;
-            max-width: 800px;
+            max-width: 650px;
             min-height: 900px;
+            max-height: 1270px;
             display: block;
             margin: 0 auto;
             width: 55%;
         }
         img{
             width: 100%;
-            margin-top: 14vh;
-            margin-bottom: 10vh;
+            margin-top: 17vh;
+            margin-bottom: 2vh;
+            @include mq('desktop-xl') {
+                margin-bottom: 8vh;
+            }
         }
     } 
     .back-button{

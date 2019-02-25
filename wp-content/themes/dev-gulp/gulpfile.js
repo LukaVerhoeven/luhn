@@ -28,6 +28,7 @@ var jsSRC = [
     js + 'hover-changeGif.js',
     js + 'hover-glitch.js',
     js + 'carousel.js',
+    js + 'play-YT-iframe.js',
     js + 'play-video.js',
     js + 'share-button.js',
     js + 'hamburger/easings.js',
@@ -94,7 +95,8 @@ function imgmin() {
 function watch() {
   browserSync.init({
     open: 'external',
-    // host: '192.168.0.150',
+    host: '192.168.0.149',
+    host: 'luhn-portfolio.wordpress',
     proxy: 'luhn-portfolio.wordpress',
     port: 8080,
   });

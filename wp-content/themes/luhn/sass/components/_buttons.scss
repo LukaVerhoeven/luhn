@@ -17,10 +17,11 @@
     transition: all 150ms;
   }
   .shareButton svg{
-      fill: #FFF;
+    fill: #FFF;
   }
   .shareButton svg, .shareButton.open svg, .shareButton i {
     transition: all 150ms;
+
     -webkit-transform: scale(1);
             transform: scale(1);
   }

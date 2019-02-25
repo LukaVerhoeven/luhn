@@ -183,7 +183,7 @@ $skill-cube-width: 50px;
 
     .user-text{   
         @include mq('desktop') {
-            top: 219px;
+            top: 248px;
             left: calc(80% + 37px);
             transform-origin: left bottom;
             transform: rotate(90deg);
@@ -265,11 +265,13 @@ $skill-cube-width: 50px;
     }
 
     .home-text{
-        width: 80%;
-        padding: 20px 0;
+        width: 100%;
+        padding: 20px 0 20px 40px;
+        text-align: justify;
 
         @include mq('desktop') {
             padding: 30px 0;
+            width: 75%;
         }          
     }
 
@@ -278,7 +280,7 @@ $skill-cube-width: 50px;
             margin: auto;
             right: 0;
             left: 0;
-            top: 190px;
+            top: 220px;
             width: calc(50% + 60px);
             max-width: 860px;
             transform: rotate(-90deg);
@@ -384,7 +386,7 @@ $skill-cube-width: 50px;
     .user-text{
         @include mq('desktop') {
             right: -25px;
-            top: 250px;
+            top: 265px;
             transform: rotate(90deg);
             transform-origin: top right;
         }    
@@ -429,6 +431,7 @@ $skill-cube-width: 50px;
     .project-btn-content {
         right: 0;
         @include mq('desktop') {
+            will-change: transform;
             transition: transform 70s ease;
             transition-delay: 1.3s;            
         }
@@ -443,6 +446,7 @@ $skill-cube-width: 50px;
         top: 0;
         z-index: -1;
         opacity: 0;
+        will-change: transform, opacity;
         transform: scale(0.8);
         transition: transform .5s ease, opacity .25s;
         @include distribute-on-circle(51, 230px, 10px, false);       
@@ -464,6 +468,7 @@ $skill-cube-width: 50px;
 
         @include mq('desktop') {
             transition: transform .5s ease;
+            will-change: transform;
         }
     }
     
@@ -488,6 +493,7 @@ $skill-cube-width: 50px;
         display: block;
         margin: auto;
         transition: width .5s ease;
+        will-change: width;
     }
 
     .project-btn-span{
@@ -516,6 +522,7 @@ $skill-cube-width: 50px;
         z-index: 1;
         margin-right: 20px;
         transition: transform .5s ease;
+        will-change: transform;
 
         &::after{
             content:"";
@@ -648,11 +655,13 @@ $skill-cube-width: 50px;
         border: 2px solid #f3997b;
         margin-bottom: 4px;
         transition: all .3s ease;
+        will-change: margin;
 
     }
     .contact-btn::after, .contact-btn::before{
         content: "";
         position: absolute;
+        will-change: margin,width,height;
         transition: all .3s ease;
     }
     .contact-btn:hover{

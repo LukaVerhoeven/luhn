@@ -1,12 +1,13 @@
 // mobile
 $menu-size: 56vw;
 // desktop
-$menu-width-desktop: 100%;
-$menu-height-desktop: 22vw;
-$menu-maxsize-desktop: 270px;
+$menu-width-desktop: 75%;
+$menu-height-desktop: 20vw;
 
-// nav items
-$nav-item-width: 19%;
+$menu-list-height-desktop: 260px;
+$menu-maxsize-desktop: 300px;
+// desktop large
+$querysize: 'desktop-xl';
 
 /***********************
 *    Global Nav css    *
@@ -17,9 +18,10 @@ $nav-item-width: 19%;
     z-index: -2;
     display: block;
     margin: 0;
+    will-change: opacity,transform;
 
     @include mq('phablet') {
-        width: $nav-item-width;
+        width: 23.5%;
         height: 100%;
         display: inline-block;
     }
@@ -39,7 +41,8 @@ $nav-item-width: 19%;
     color: #fff;
 
     @include mq('phablet') {
-        font-size: 2.2vw;
+        font-size: 1.8vw;
+        line-height: 2.5vw;
         top: 50%;
         bottom: 50%;
         right: 0;
@@ -49,8 +52,9 @@ $nav-item-width: 19%;
         height: $menu-height-desktop;
     }
 
-    @include mq('desktop-large') {
-        font-size: 2.7rem;
+    @include mq($querysize) {
+        font-size: 3rem;
+        line-height: 4.1rem;
     }
 
     span{
@@ -74,34 +78,35 @@ $nav-item-width: 19%;
     color: #77abb5;
     padding-top: 20vmin;
     padding-right: 10%;
-    font-size: 6vw;
+    // font-size: 6vw;
     letter-spacing: .6rem;
-    line-height: 9vw;
+    line-height: 8.5vw;
 
     @include mq('phablet') {
-        font-size: 2.5vw;
-        line-height: 3.5vw;
-        padding-top: 40%;
-        padding-right: 17%;
+        // font-size: 2.5vw;
+        line-height: 2.5vw;
+        padding-top: $menu-width-desktop/2.7;
+        padding-right: 11%;
         max-height: $menu-maxsize-desktop;
         max-width: $menu-maxsize-desktop*.91;
     }
     
-    @include mq('desktop-large') {
+    @include mq($querysize) {
         padding-top: $menu-maxsize-desktop/2.9;
-        padding-right: 64px;
-        font-size: 3.5rem;
-        line-height: 5rem;
+        padding-right: 52px;
+        font-size: 3rem;
+        line-height: 4rem;
     }        
 }
 
 .contact-link span.big-menu{
-    font-size: 8vw;
+    font-size: 7vw;
     @include mq('phablet') {
-        font-size: 3.5vw;
+        font-size: 2.1vw;
+        margin-left: -2px;
     }
-    @include mq('desktop-large') {
-        font-size: 5rem;
+    @include mq($querysize) {
+        font-size: 3.5rem;
     }      
 }
 
@@ -111,11 +116,11 @@ $nav-item-width: 19%;
 nav .design-link{
     margin-top: -20vw;
     z-index: 0;
-    // width: 50%;
+    width: 50%;
     
     @include mq('phablet') {
         margin-top: 0;
-        width: $nav-item-width *1.2; //$menu-height-desktop
+        width: 27%; //$menu-height-desktop
     }    
 }
 
@@ -129,10 +134,10 @@ nav .design-link{
     @include mq('phablet') {
         max-width: $menu-maxsize-desktop*1.05;
         max-height: $menu-maxsize-desktop*1.05;
-        padding-top: 43%;
+        padding-top: $menu-width-desktop/2.3;
     }
 
-    @include mq('desktop-large') {
+    @include mq($querysize) {
         padding-top: $menu-maxsize-desktop/2.2;
     }          
 }
@@ -159,15 +164,15 @@ nav .web-link{
     height: $menu-size*1.1;
     
     @include mq('phablet') {
-        padding-top: 50%;
-        padding-left: 32%;        
+        padding-top: $menu-width-desktop/1.95;
+        padding-left: $menu-width-desktop/3.1;        
         height: $menu-height-desktop*0.965;
         max-height: $menu-maxsize-desktop*1.05;
         max-width: $menu-maxsize-desktop*.95;
     }
-    @include mq('desktop-large') {
+    @include mq($querysize) {
         padding-top: $menu-maxsize-desktop/2.1;
-        padding-left: $menu-maxsize-desktop/3.4;
+        padding-left: $menu-maxsize-desktop/3;
     }        
 }
 
@@ -192,14 +197,14 @@ nav .motion-link {
     letter-spacing: .4rem;
 
     @include mq('phablet') {
-        padding-left: 29%;
-        padding-top: 56%;
+        padding-left: $menu-width-desktop/3.4;
+        padding-top: $menu-width-desktop/1.75;
         padding-bottom: 5%;        
-        height: $menu-height-desktop*1.18;
+        height: $menu-height-desktop*1.21;
         max-height: $menu-maxsize-desktop*1.25;
         max-width: $menu-maxsize-desktop*.915;
     }   
-    @include mq('desktop-large') {
+    @include mq($querysize) {
         padding-top: $menu-maxsize-desktop/1.95;
         padding-left: $menu-maxsize-desktop/3.7;
     }        
@@ -229,13 +234,17 @@ nav .motion-link {
             position: absolute;
             max-width: unset;
             margin-top: 3vh;
+
+            @include mq($querysize) {
+                margin-top: 6vh;
+            }              
         }
         .global-menu__item{
             transform: scale(1);
             position: absolute;
             pointer-events: auto;
             opacity: 1;
-            height: 360px;
+            height: $menu-list-height-desktop;
             transition: none;
             
             a{
@@ -261,10 +270,9 @@ nav .motion-link {
         }
 
         .motion-link{
-            height: 540px;
+            height: $menu-list-height-desktop*1.7;
             top: 42vh;
             left: 10%;
         }
     }      
 }
-

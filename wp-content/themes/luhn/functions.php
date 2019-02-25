@@ -51,6 +51,12 @@
 	add_theme_support('post-thumbnails');
 
 /* ==========================================
+			 increase upload size
+	========================================== */
+
+	@ini_set( 'upload_max_size' , '64M' );
+
+/* ==========================================
 		 Youtube add enableAPI to url
 	========================================== */	
 	function my_plugin_enable_js_api( $html, $url, $args ) {
@@ -76,6 +82,31 @@
 	add_image_size( 'thumbnail-large', 500, 500, true ); 
 	add_image_size( 'thumbnail-fullpage', 800, 800, true ); 
 
+/* ==========================================
+		Contact form remove <span>
+	========================================== */
+		add_filter('wpcf7_form_elements', function($content) {
+			// removes span
+			$content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+			// make input required (fixes css style)
+			$str_pos = strpos( $content, 'value' );
+			$content = str_replace ( 'aria-required="true"', 'aria-required="true" required', $content);
+			// remove "novalidate" from the form
+			// $content = str_replace ( 'novalidate="novalidate"', '', $content);
+			return $content;
+		});
+	
+/* ==========================================
+	  add favicon to admin & login panel 
+	========================================== */
+	// First, create a function that includes the path to your favicon
+	function add_favicon() {
+		$favicon_url = get_stylesheet_directory_uri() . '/dist/img/favicon/favicon.ico';
+		echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
+	}
+
+	add_action('login_head', 'add_favicon');
+	add_action('admin_head', 'add_favicon');
 /* ==========================================
 			Custom admin panel logo
 	========================================== */

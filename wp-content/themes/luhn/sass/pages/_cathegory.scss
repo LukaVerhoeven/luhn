@@ -57,6 +57,23 @@
     }
 }
 /***********************
+*        no-post      *
+***********************/    
+.no-post{
+    text-align: center;
+
+    h2{
+        margin-top: 40px;
+    }
+    p{
+        margin-top: 20px;
+    }
+    a{
+        text-decoration: underline;
+    }
+}
+
+/***********************
 *       post-card      *
 ***********************/    
 .post-container{

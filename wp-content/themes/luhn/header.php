@@ -68,7 +68,7 @@ https://luhn.be/
 				$categoryID = get_the_category()[0]->cat_ID;?>
 					<a class="back-button" href="<?php echo  get_category_link($categoryID);?>"><i class="icon-arrow"></i></a>
 				<?php else: ?>
-					<a class="back-button" href="/" ><i class="icon-arrow"></i></a>
+					<a class="back-button" onclick="window.history.back()"><i class="icon-arrow"></i></a>
 				<?php endif; ?>
 				<div id="logo">
 					<?php if(is_page("home")):?>
@@ -87,10 +87,10 @@ https://luhn.be/
 
 				<nav class="global-menu"  id="parallax" data-selector="li" data-hover-only="true">
 					<ul class="global-menu__wrap">
-						<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item contact-link background-3d"><a href="#" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
+						<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item contact-link background-3d"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
 						<li data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
-						<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item web-link background-3d"><a href="category/web/"> web</a></li>
-						<li data-depth="-0.40" data-category="4" class="js-change_gif global-menu__item motion-link background-3d"><a href="category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
+						<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item web-link background-3d"><a href="/category/web/"> web</a></li>
+						<li data-depth="-0.40" data-category="4" class="js-change_gif global-menu__item motion-link background-3d"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
 					</ul>
 				</nav>
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">

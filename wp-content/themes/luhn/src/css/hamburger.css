@@ -4,7 +4,7 @@
 	--color-text: #120047;
 	--color-bg: #333;
 	--color-link: #110046;
-	--color-link-hover: #e83779;
+	/* --color-link-hover: #fff; */
 	--color-info: #fff;
 	--color-main-bg: #7115d8;
 	--path-fill-1: url(#gradient1);
@@ -44,8 +44,8 @@ a {
 
 a:hover,
 a:focus {
-	color: #423c2b;
-	color: var(--color-link-hover);
+	/* color: #423c2b; */
+	/* color: var(--color-link-hover); */
 	outline: none;
 }
 

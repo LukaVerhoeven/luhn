@@ -23,7 +23,8 @@
     position: relative;
     padding-top: 25px;
     height: 0;            
-    padding-bottom: 56.25%; // --> screenratio = height / width x 100 <--> ex: 9/16 *100 = 56.25%
+    // padding-bottom: 56.25%; // --> screenratio = height / width x 100 <--> ex: 9/16 *100 = 56.25%
+    padding-bottom: 54%;
 
     @if $child{
         #{$child} {

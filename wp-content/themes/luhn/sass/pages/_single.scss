@@ -155,9 +155,11 @@
     *    iframe/video      *
     ***********************/   
     
-    .iframe{
+    .iframe,
+    .video{
         .video-container{
             @include responsive-video-container('iframe');
+            @include responsive-video-container('video');
         }
         
         .img-container{
@@ -166,6 +168,7 @@
             bottom: 0;
             opacity: 1;
             transition: opacity 1s ease;
+            will-change: opacity;
             
             h2{
                 position: absolute;
@@ -199,6 +202,10 @@
             top: 0;
             cursor: pointer;
             overflow: hidden;
+
+            &.dark{
+                background-color: rgba(100, 100, 100, 0.3);
+            }
         }
         
         
@@ -257,7 +264,8 @@
             vertical-align: middle;
             opacity: 0;
             visibility: hidden;
-            transition: transform .5s ease,opacity .3s ease, visibility .3s ease, margin-top .5s ease;
+            transition: transform .5s ease,opacity .3s ease, visibility .3s ease;
+            will-change: transform;
             
             @include mq('desktop') {
                 vertical-align: top;
@@ -282,22 +290,22 @@
         }
         
         .js-active-prev{
-            margin-top: 45%;
+            margin-bottom: 45%;
             z-index: 4;
         }      
         .js-active1{
-            margin-top: 30%;
+            margin-bottom: 30%;
             z-index: 3;
         }
         .js-active2{
-            margin-top: 15%;
+            margin-bottom: 15%;
             z-index: 2;
         }   
         .js-active3{
             z-index: 1;
         }   
         .js-active-next{
-            margin-top: -15%;
+            margin-bottom: -15%;
             z-index: 0;
         }  
         

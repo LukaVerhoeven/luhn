@@ -18,7 +18,7 @@
 	<a href="#" class="shareButton tw">Share on twitter <i class="icon-instagram"></i></a>
 	<a href="#" class="shareButton ig">Share on instagram <i class="icon-instagram"></i></a>
 </div>
-<?php elseif(is_page("home")):?>
+<?php elseif(is_page("home") || is_page("contact") ):?>
 	<h2>Follow me</h2>
 	<a href="https://www.instagram.com/luhn_official/" target="_blank">Share on twitter <i class="icon-instagram"></i></a>
 <?php endif; ?>

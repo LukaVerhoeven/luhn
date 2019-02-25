@@ -59,6 +59,8 @@ $transparant-color: rgba(255, 255, 255, 0.7);
         height: 50px;
     }
 
+
+
     .back{
         border-color: $color2;
         z-index: -1;
@@ -83,6 +85,7 @@ $transparant-color: rgba(255, 255, 255, 0.7);
         margin-bottom: ($cube-depth / 5) - .5;
         margin-left: $cube-width;
     }
+
     .back-line-fix{
         position: absolute;
         background-color: $transparant-color;
@@ -92,7 +95,27 @@ $transparant-color: rgba(255, 255, 255, 0.7);
         top: $border-width;
     }
 
-  
+    &.medium{
+        width: $cube-width*1.3 + $cube-depth;
+    }
+    &.medium .front, 
+    &.medium .back{
+        width: ($cube-width + $border-width)*1.3;
+    }
+    &.medium .side-right{
+        margin-left: $cube-width*1.3;
+    }
+
+    &.big{
+        width: $cube-width*1.7 + $cube-depth;
+    }
+    &.big .front, 
+    &.big .back{
+        width: ($cube-width + $border-width)*1.7;
+    }
+    &.big .side-right{
+        margin-left: $cube-width*1.7;
+    }    
 }
 
 /*************************
