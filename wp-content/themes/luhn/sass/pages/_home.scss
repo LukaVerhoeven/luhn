@@ -5,8 +5,8 @@ $bg-shape-depth: 30px;
 $project-btn-margin: -10px;
 $project-btn-size: 230px;
 $project-btn: calc( #{$project-btn-size} + #{$project-btn-margin});
-
 $skill-cube-width: 50px;
+
 
 
 /*********************************
@@ -81,7 +81,7 @@ $skill-cube-width: 50px;
 .graphic1, 
 .graphic2, 
 .graphic3{
-    background-image: url("../img/image-sheet.png");
+    @include sprite('image-sheet', 'webp');
 }
 .graphic1{
     position: absolute;
@@ -97,6 +97,8 @@ $skill-cube-width: 50px;
     @include mq('desktop') {    
         max-width: 250px;
         max-height: 360px;
+        // desktop sheet
+        background-position: 63% 97%;
     }
 }
 
@@ -116,6 +118,8 @@ $skill-cube-width: 50px;
         margin-top: 30px;
         max-width: 350px;
         max-height: 280px;
+        // desktop sheet
+        background-position: 89% 97%;
     }
 }
 
@@ -134,8 +138,19 @@ $skill-cube-width: 50px;
 
     @include mq('desktop') {
         margin-left: 10%;
-        width: 30vw;
-        height: 60vw;
+        // width: 30vw;
+        // height: 60vw;
+        // desktop sheet
+        transform: rotate(0deg);
+        background-size: 180%;
+        background-position: 0% 98%;
+        height: 30vw;
+        width: 60vw;
+        max-width: 1050px;
+        max-height: 528px;
+        // position: relative;
+        top: 0;
+        margin-left: -2px;
     }        
 }
 
@@ -459,12 +474,12 @@ $skill-cube-width: 50px;
     }
     
     .project-btn-bg{
-        background-image: url("../img/image-sheet.png");
         background-size: 564%;
         background-position: 83.9% 1.5%;
         border-radius: 50%;
         box-shadow: 5px 5px 35px #00000038;
         float: right;
+        @include sprite('image-sheet', 'webp');
 
         @include mq('desktop') {
             transition: transform .5s ease;
@@ -550,12 +565,13 @@ $skill-cube-width: 50px;
             }
         }
     }
+
     .skill-logo{
         height: 32px;
         width: 32px;
         margin: 10px auto;
         background-size: 1160%;
-        background-image: url(../img/image-sheet.png);
+        @include sprite('image-sheet', 'webp');
     }
     .cc{
         @include block-3d ( $skill-cube-width ,$skill-cube-width, 15px, rgb(255, 147, 165));

@@ -15,7 +15,7 @@
             <?php endif; ?>
         </div>
         <div class="single-intro <?php the_field('card_color'); ?>">
-                <p> <?php the_field('intro_text'); ?></p>
+                <?php echo the_field('intro_text'); ?>
         </div>
     </div>
 </section>
@@ -27,9 +27,9 @@
         while (have_rows('post_content')): the_row();?>
 
             <section class="<?php echo get_row_layout() ?>">
-                <!-- IFRAME  -->
-               <?php if (get_row_layout()=="iframe"): 
+                <?php if (get_row_layout()=="iframe"): 
                     $image = get_sub_field('cover_image'); ?>
+                <!-- IFRAME  -->
                   
                     <!-- title-cube -->
                     <div class="title-cube-line">
@@ -73,9 +73,10 @@
                             <span class="line line-horizontal"></span>
                         </div>
                     </div>
-                <!-- VIDEO  -->
+
                 <?php elseif (get_row_layout()=="video"): 
-                $image = get_sub_field('cover_image'); ?>
+                    $image = get_sub_field('cover_image'); ?>
+                <!-- VIDEO  -->
                 
                     <!-- title-cube -->
                     <div class="title-cube-line">
@@ -121,9 +122,9 @@
                             <span class="line line-horizontal"></span>
                         </div>
                     </div>
-               <!-- GALLERY  -->
-               <?php elseif (get_row_layout()=="gallery"): 
+                <?php elseif (get_row_layout()=="gallery"): 
                    $images = get_sub_field('images'); ?>
+                <!-- GALLERY  -->
                    <div class="title-cube-line">
                         <div class="title-cube <?php the_sub_field('block_size'); ?>">
                             <div class="back"></div>
@@ -149,9 +150,9 @@
                         <a class="next-button js-next" href="#"> next image <i class="icon-arrow"></i></a>
                    </div>
    
-               <!-- SINGLE IMAGE  -->
-               <?php elseif (get_row_layout()=="image"): 
+                <?php elseif (get_row_layout()=="image"): 
                    $image = get_sub_field('single_image');?>
+                <!-- SINGLE IMAGE  -->
                    <div class="title-cube-line">
                         <div class="title-cube <?php the_sub_field('block_size'); ?>">
                             <div class="back"></div>
@@ -165,18 +166,18 @@
                     
                    <?php echo wp_get_attachment_image( $image['id'], "fullpage" ) ?>
    
-               <!-- TEXT  -->
-               <?php elseif (get_row_layout()=="text_block"): ?>
-                <div class="title-cube-line">
-                    <div class="title-cube <?php the_sub_field('block_size'); ?>">
-                        <div class="back"></div>
-                        <div class="side-left"></div>
-                        <div class="side-right"></div>
-                        <div class="back-line-fix"></div>
-                        <h2 class="front"><?php the_sub_field('block_title'); ?></h2>
+                <?php elseif (get_row_layout()=="text_block"): ?>
+                <!-- TEXT  -->
+                    <div class="title-cube-line">
+                        <div class="title-cube <?php the_sub_field('block_size'); ?>">
+                            <div class="back"></div>
+                            <div class="side-left"></div>
+                            <div class="side-right"></div>
+                            <div class="back-line-fix"></div>
+                            <h2 class="front"><?php the_sub_field('block_title'); ?></h2>
+                        </div>
+                        <div class="long-line"></div>
                     </div>
-                    <div class="long-line"></div>
-                </div>
                    <p><?php the_sub_field('text') ?></p>
                <?php endif; ?>
             </section>

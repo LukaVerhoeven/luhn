@@ -27,6 +27,8 @@ https://luhn.be/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="GwlLOTPoI5Xzvs0yi4gDGIucreRvMW2UwXjHR9CVSN8" />
+	<meta name="keywords" content="luka, verhoeven, luhn, develoment, visuals, design, web, motion">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title><?php wp_title('|'); ?></title>
 	<!-- favicon -->
@@ -39,9 +41,27 @@ https://luhn.be/
 	<meta name="theme-color" content="#ffffff">
     <?php wp_head(); ?>
 	<!-- <script>    document.documentElement.className = "js-glitch";</script> -->
+	<script>
+		function preloader() {
+			var loader = document.getElementById("preloader");
+			loader.classList.add("fade-out");
+			setTimeout(function(){loader.classList.add("hide");}, 800);
+		}
+	</script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90269735-2"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-90269735-2');
+	</script>	
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?>  onload="preloader()">
 	<header >
+		<div id="preloader">
+			<p>Preparing the visual experience of Luhn</p>
+			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+		</div>
 		<!-- Hamburger menu -->
 		<div class="hamburger-menu">
 			<div class="content">
@@ -72,14 +92,25 @@ https://luhn.be/
 				<?php endif; ?>
 				<div id="logo">
 					<?php if(is_page("home")):?>
-						<img class="js-fade" src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo" 
-						data-gif1="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" 
-						data-gif2="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif"
-						data-gif3="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif"
-						data-gif4="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif">
+						<h1>&#x4c;&#x55;&#x48;&#x4e;</h1>
+						<?php if(! wp_is_mobile()):?>
+							<div class="animation-container">
+								<div class="logo-overlay">
+									<picture>
+										<source srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo-min.webm" type="image/webm">	
+										<source srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo.webp" type="image/webp">	
+										<source srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" type="image/gif">
+										<img srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+									</picture>
+										<!-- <video preload>
+											<source src="<?php bloginfo('template_directory'); ?>/dist/img/logo-min.webm" type="video/webm">
+										</video> -->
+								</div>
+							</div>
+						<?php endif; ?>
 					<?php else: ?>
 						<a href="/">
-							<img src="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+							<h1>Luhn</h1>
 						</a>
 					<?php endif; ?>
 					<p class="logo-text">- Choose your favorite element - <br>or <br> scroll down <br> <i class="icon-arrow"></i></p>
@@ -87,10 +118,10 @@ https://luhn.be/
 
 				<nav class="global-menu"  id="parallax" data-selector="li" data-hover-only="true">
 					<ul class="global-menu__wrap">
-						<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item contact-link background-3d"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
-						<li data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
-						<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item web-link background-3d"><a href="/category/web/"> web</a></li>
-						<li data-depth="-0.40" data-category="4" class="js-change_gif global-menu__item motion-link background-3d"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
+						<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item contact-link background-3d"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
+						<li data-depth="-0.40" data-category="0" class="js-change_gif global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
+						<li data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item web-link background-3d"><a href="/category/web/"> web</a></li>
+						<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item motion-link background-3d"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
 					</ul>
 				</nav>
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">

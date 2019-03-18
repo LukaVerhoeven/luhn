@@ -18,7 +18,7 @@ if(isSinglePage) {
     var horizontal_displacement = 0;
     var movement_counter        = 1;
     var isAnimating             = 0;
-
+    
     // mobile single carousel
     if (!isDesktop) {
 
@@ -69,7 +69,7 @@ if(isSinglePage) {
         var tile_next = item.slice(3,4).addClass("js-active-next").css("transform", "translate(0, -"+vertical_displacement+"px) scale(1.2)");
         var SlidingAnimation = 0;
         
-        $(prev).on( "click", function(e) {
+        $(next).on( "click", function(e) {
             fixedHeight();
             e.preventDefault();
             SlidingAnimation= 1;
@@ -93,7 +93,7 @@ if(isSinglePage) {
             }
         });        
 
-        $(next).click(function(e){
+        $(prev).click(function(e){
             e.preventDefault();
             SlidingAnimation= 1;
             setTimeout(function() { SlidingAnimation =0; }, animationTime);
@@ -117,23 +117,26 @@ if(isSinglePage) {
         })
 
         // scale item on hover
-        var translate;
-        item.mouseover(function(){
-            if(!SlidingAnimation && !isAnimatingLastSlide){
-                translate = getTranslate($(this));
+        setTimeout(function() {
+         
+            var translate;
+            item.mouseover(function(){
+                if(!SlidingAnimation && !isAnimatingLastSlide){
+                    translate = getTranslate($(this));
+                    
+                    $(this).css("transform", "translate("+ translate[0]+"px, "+translate[1]+"px) scale(1.3)")
+                }
                 
-                $(this).css("transform", "translate("+ translate[0]+"px, "+translate[1]+"px) scale(1.3)")
-            }
+            })
+            item.mouseleave(function(){
+                if(!SlidingAnimation && !isAnimatingLastSlide){
+                    translate = getTranslate($(this));
+                    $(this).css("transform", "translate("+ translate[0]+"px, "+translate[1]+"px) scale(1.2)")
+                }
+                
+            })        
             
-        })
-        item.mouseleave(function(){
-            if(!SlidingAnimation && !isAnimatingLastSlide){
-                translate = getTranslate($(this));
-                $(this).css("transform", "translate("+ translate[0]+"px, "+translate[1]+"px) scale(1.2)")
-            }
-            
-        })        
-
+        }, 600);
     }    
 
     // animation when reaching the last slide
@@ -146,7 +149,7 @@ if(isSinglePage) {
             timeout_ID = setTimeout(function() {
                 button.removeClass("no-more-slide"); 
                 isAnimating = 0;
-            }, 500);
+            }, 300);
         }
         if(isDesktop){
             if(!isAnimatingLastSlide){

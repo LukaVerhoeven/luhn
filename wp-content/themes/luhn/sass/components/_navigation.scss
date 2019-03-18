@@ -29,7 +29,6 @@ $querysize: 'desktop-xl';
 
 
 .background-3d a{
-    background-image: url(../img/image-sheet.png);
     background-size: 630%;
     height: $menu-size;
     width: $menu-size;
@@ -39,6 +38,7 @@ $querysize: 'desktop-xl';
     font-size: 6vw;
     position: absolute;
     color: #fff;
+    @include sprite('image-sheet', 'webp');
 
     @include mq('phablet') {
         font-size: 1.8vw;

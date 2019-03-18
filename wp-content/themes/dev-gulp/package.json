@@ -13,6 +13,11 @@
   ],
   "author": "Luka Verhoeven",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
@@ -23,8 +28,10 @@
     "gulp-imagemin": "^5.0.3",
     "gulp-line-ending-corrector": "^1.0.3",
     "gulp-sass": "^4.0.2",
+    "gulp-scss-lint": "^1.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
-    "gulp-uglifyes": "^0.2.1"
+    "gulp-uglifyes": "^0.2.1",
+    "sass-bem": "^2.6.5"
   }
 }

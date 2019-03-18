@@ -1,5 +1,5 @@
 .hide{
-    display: none;
+    display: none !important;
 }
 
 .hide-mobile{
@@ -8,6 +8,18 @@
     @include mq('desktop') {
         display: initial;
     }    
+}
+
+.hide-desktop{
+    @include mq('desktop') {
+        display: none;
+    }    
+}
+
+
+.fade-out{
+    transition: opacity .8s ease;
+    opacity: 0;
 }
 
 @mixin overflow-absolute-center(){

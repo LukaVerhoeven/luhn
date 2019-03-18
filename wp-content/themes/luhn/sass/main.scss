@@ -1,38 +1,42 @@
+@import '../../dev-gulp/node_modules/sass-bem/bem';
+
 /*************************
 *          Base        	 *
 **************************/
-@import "base/variables";
-@import "base/reset";
+@import 'base/variables';
+@import 'base/reset';
 
-@import "base/javascript";
-@import "base/colors";
-@import "base/breakpoints";
-@import "base/helpers";
-@import "base/mixins";
-@import "base/typography";
+@import 'base/javascript';
+@import 'base/colors';
+@import 'base/breakpoints';
+@import 'base/helpers';
+@import 'base/mixins';
+@import 'base/typography';
 
 /*************************
 *       Components       *
 **************************/
-@import "components/block-3d";
-@import "components/buttons";
-@import "components/contact-form";
-@import "components/corner-lines";
-@import "components/glitch-hover";
-@import "components/navigation";
-@import "components/title-cube";
+@import 'components/sprites';
+@import 'components/block-3d';
+@import 'components/buttons';
+@import 'components/contact-form';
+@import 'components/corner-lines';
+@import 'components/glitch-hover';
+@import 'components/navigation';
+@import 'components/preloader';
+@import 'components/title-cube';
 
 /*************************
 *         Layout       	 *
 **************************/
-@import "layout/footer";
-@import "layout/header";
+@import 'layout/footer';
+@import 'layout/header';
 
 /*************************
 *         Pages      	 *
 **************************/
-@import "pages/404";
-@import "pages/cathegory";
-@import "pages/contact";
-@import "pages/home";
-@import "pages/single";
+@import 'pages/404';
+@import 'pages/cathegory';
+@import 'pages/contact';
+@import 'pages/home';
+@import 'pages/single';

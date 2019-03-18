@@ -1,5 +1,6 @@
 @font-face {
     font-family: 'nova';
+    font-display: swap;
     src: url('../fonts/HKNova/HKNova-Medium.eot');
     src: url('../fonts/HKNova/HKNova-Medium.eot?#iefix') format('embedded-opentype'),
          url('../fonts/HKNova/HKNova-Medium.woff2') format('woff2'),
@@ -8,10 +9,10 @@
          url('../fonts/HKNova/hknova-medium-webfont.svg#hk_novamedium') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 @font-face {
     font-family: 'spartan';
+    font-display: swap;
     src: url('../fonts/League-Spartan/leaguespartan-bold.eot');
     src: url('../fonts/League-Spartan/leaguespartan-bold.eot?#iefix') format('embedded-opentype'),
          url('../fonts/League-Spartan/leaguespartan-bold.woff2') format('woff2'),
@@ -20,8 +21,24 @@
          url('../fonts/League-Spartan/leaguespartan-bold.svg#league_spartanbold') format('svg');
     font-weight: bold;
     font-style: normal;
-
 }
+
+// @font-face {
+//   font-family: 'ailerons';
+//   src: url('ailerons/ailerons-Regular.eot');
+//   src: url('ailerons/ailerons-Regular.eot?#iefix') format('embedded-opentype'),
+//        url('ailerons/ailerons-Regular.woff2') format('woff2'),
+//        url('ailerons/ailerons-Regular.woff') format('woff'),
+//        url('ailerons/ailerons-Regular.ttf') format('truetype'),
+//        url('ailerons/ailerons-Regular.svg') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @media screen and (-webkit-min-device-pixel-ratio:0) {@font-face {font-family: 'chunk-webfont';
+//   src: url('../../includes/fonts/chunk-webfont.svg') format('svg');
+//   }}
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 /*************************
 *         Fonts          *
 **************************/
@@ -41,13 +58,17 @@ p,a {
  textarea{
   font-family: 'arial', sans-serif; 
  }
-
+ 
+a{
+  color: $main-color;
+}
  /*************************
 *        Icon Font        *
 **************************/
 
  @font-face {
     font-family: 'icomoon';
+    font-display: swap;
     src:  url('../fonts/iconfont/icomoon.eot?vusqvg');
     src:  url('../fonts/iconfont/icomoon.eot?vusqvg#iefix') format('embedded-opentype'),
       url('../fonts/iconfont/icomoon.ttf?vusqvg') format('truetype'),
@@ -83,6 +104,35 @@ p,a {
   .icon-arrow:before {
     content: "\279c";
   }
+  
+  .icon-facebook:before {
+    content: "\66";
+  }
+  .icon-whatsapp:before {
+    content: "\1f57b";
+  }
   .icon-instagram:before {
     content: "\2661";
+  }
+  .icon-twitter:before {
+    content: "\1f54a";
+  }
+  .icon-linkedin:before {
+    content: "\1f464";
+  }
+  .icon-telegram:before {
+    content: "\2708";
+  }
+
+  .icon-l:before {
+    content: "\4c";
+  }
+  .icon-U:before {
+    content: "\55";
+  }
+  .icon-h:before {
+    content: "\48";
+  }
+  .icon-n:before {
+    content: "\4e";
   }

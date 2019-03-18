@@ -5,13 +5,13 @@
 	<nav id="category-nav">
 		<ul class="global-menu__wrap clearfix">
 			<li class="background-3d motion-link <?php if (is_category('motion')) echo 'active'; ?>">
-				<a class="js-animated_url" data-url="/category/motion/" href="#" aria-label="Motion graphics">Mo<br>tion</a>
+				<a class="js-animated_url" data-url="/category/motion/" href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a>
 			</li>
 			<li class="background-3d design-link <?php if (is_category('design')) echo 'active'; ?>">
-				<a class="js-animated_url" data-url="/category/design/" href="#" aria-label="Design">Design</a>
+				<a class="js-animated_url" data-url="/category/design/" href="/category/design/" aria-label="Design">Design</a>
 			</li>
 			<li class="background-3d web-link <?php if (is_category('web')) echo 'active'; ?>">
-				<a class="js-animated_url" data-url="/category/web/" href="#" aria-label="web"> web</a>
+				<a class="js-animated_url" data-url="/category/web/" href="/category/web/" aria-label="web"> web</a>
 			</li>
 		</ul>
 	</nav>

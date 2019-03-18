@@ -8,11 +8,15 @@
     a{
         display: block;
     }
-    img{
-        width: 130px;
-        margin-top: 0;
-        display: block;
-        margin: auto;
+    h1{
+        font-family: "icomoon", "nova", sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        text-shadow: none;
+        font-weight: 400;
+        color: #cddcf5;
+        font-size: 5rem;
+        margin-top: 9px;         
     }    
 } 
 
@@ -20,7 +24,7 @@
     position: absolute;
     margin-top: 32px;
     margin-left: 20px;
-    cursor: pointer;
+    cursor: pointer;  
 
     i{
         transform: rotate(180deg) ;
@@ -37,23 +41,82 @@
 .home{
     #logo{
         width: 100%;
+        position: relative;
         
         @include mq('desktop') {
             height: 100vh;
             max-width: 650px;
-            min-height: 900px;
+            min-height: 800px;
             max-height: 1270px;
             display: block;
             margin: 0 auto;
             width: 55%;
         }
-        img{
-            width: 100%;
+        h1,picture, .animation-container, img{
+            @include mq('desktop') {
+                width: 550px;
+            } 
+            @include mq('desktop-large') {
+                width: 650px;
+            }            
+        }
+        h1{
+            text-shadow: 5px -4px #8fa5ca;
             margin-top: 17vh;
-            margin-bottom: 2vh;
-            @include mq('desktop-xl') {
-                margin-bottom: 8vh;
+            margin-bottom: 13vh;
+            margin-left: -5.5px;
+            font-size: 13rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            
+            @include mq('tablet') {
+                font-size: 20.5rem;
+                text-shadow: 8px -6.5px #8fa5ca;
+                height: 254px;
+                line-height: 254px;                
+                margin-top: calc(17vh + 9px);
+                margin-left: calc(3vw + 1px);
+                // letter-spacing: .5px;
+            
+            }            
+            @include mq('desktop-large') {
+                margin-top: calc(17vh + 11px);
+                letter-spacing: -1.3px;
+                height: 300px;
+                margin-left: -18px;
+                line-height: 300px;
+                font-size: 24.4rem;
             }
+        }
+        .animation-container{
+            margin-left: calc(3vw + 6px);
+            position: absolute;
+            top: 17vh;
+            height: 300px;
+
+            @include mq('desktop-large') {
+                margin-left: -13px;
+            }            
+        }
+        
+        .logo-overlay{
+            position: relative;
+            width: 25%;
+            opacity: 0;
+            height: 100%;
+            overflow: hidden;
+
+      
+
+            &.active{
+                opacity: 1;
+            }
+        }
+        
+        picture{
+            position: absolute;
+            margin-left: 2px;
+            height: 100%;
         }
     } 
     .back-button{

@@ -13,10 +13,14 @@
 		<svg class="close" style="width:24px;height:24px" viewBox="0 0 24 24"> 
 		<path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
 	</a>
+
 	<!-- <a href="#" onclick="javascript:window.open(this.href,\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\'); return false;"></a> -->
-	<a href="#" class="shareButton fb"  href="https://www.facebook.com/sharer?u=<?php $test = get_the_permalink() ?>&lt;??&gt;&amp;t=&lt;?<?php the_title(); ?>&gt;" target="_blank" rel="noopener">share on Facebook<i class="icon-instagram"></i></a>
-	<a href="#" class="shareButton tw">Share on twitter <i class="icon-instagram"></i></a>
-	<a href="#" class="shareButton ig">Share on instagram <i class="icon-instagram"></i></a>
+	<?php $url = str_replace("https:","https%3A",get_the_permalink()); ?>
+	<a class="shareButton fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url?>"  rel="noopener">share on Facebook<i class="icon-facebook"></i></a>
+	<a class="shareButton tw" target="_blank" href="https://twitter.com/home?status=<?php echo $url?>" >Share on Twitter <i class="icon-twitter"></i></a>
+	<a class="shareButton li hide-mobile" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url?>&title=<?php echo rawurlencode(basename(get_the_title())) ?>&summary=<?php echo rawurlencode(basename(get_the_title())) ?>&source=https%3A//luhn.be" >Share on Linkedin <i class="icon-linkedin"></i></a>
+	<a class="shareButton wa hide-desktop" target="_blank" href="whatsapp://send?text=<?php the_permalink(); ?>" data-action="share/whatsapp/share" >Share on Whatsapp <i class="icon-whatsapp"></i></a>
+	<a class="shareButton tg hide-desktop" target="_blank" href="https://telegram.me/share/url?url=<?php the_permalink(); ?>&text=check out this project of Luhn" >Share on Telegram <i class="icon-telegram"></i></a>
 </div>
 <?php elseif(is_page("home") || is_page("contact") ):?>
 	<h2>Follow me</h2>

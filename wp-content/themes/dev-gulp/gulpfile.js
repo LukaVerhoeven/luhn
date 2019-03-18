@@ -9,6 +9,7 @@ var gulp = require( 'gulp' ),
     imagemin  = require( 'gulp-imagemin' ),
     changed = require( 'gulp-changed' ),
     uglify  = require( 'gulp-uglifyes' ),
+    scsslint = require('gulp-scss-lint'),
     lineec  = require( 'gulp-line-ending-corrector' );
 
 var root  = '../' + themename + '/',
@@ -16,6 +17,7 @@ var root  = '../' + themename + '/',
     cssdist = root + 'dist/css/',
     js  = root + 'src/js/',
     jsdist  = root + 'dist/js/';
+    lint  = 'lint.yml';
 
 // Watch Files
 
@@ -25,6 +27,10 @@ var PHPWatchFiles  = root + '**/*.php',
 // Used to concat the files in a specific order.
 var jsSRC = [
     js + 'isMobile.js',
+    js + 'preloader.js',
+    js + 'modernizr-webp.js',
+    js + 'BrowserDetect.js',
+    js + 'picturefill.min.js',
     js + 'hover-changeGif.js',
     js + 'hover-glitch.js',
     js + 'carousel.js',
@@ -56,19 +62,29 @@ function css() {
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(sass({
     outputStyle: 'expanded'
+    // outputStyle: 'compressed'
   }).on('error', sass.logError))
   .pipe(autoprefixer('last 2 versions'))
-  .pipe(sourcemaps.write())
+  // .pipe(sourcemaps.write())
   .pipe(lineec())
   .pipe(gulp.dest(cssdist));
 }
+
+function scssLint() {
+  return gulp.src([root + 'sass/**/*.scss'])
+  .pipe(scsslint({
+    'config': lint,
+    'maxBuffer': 99999999999
+  }));
+}
+
 
 function concatCSS() {
   return gulp.src(cssSRC)
   .pipe(sourcemaps.init({loadMaps: true, largeFile: true}))
   .pipe(concat('libraries.min.css'))
   .pipe(cleanCSS())
-  .pipe(sourcemaps.write('./maps/'))
+  // .pipe(sourcemaps.write('./maps/'))
   .pipe(lineec())
   .pipe(gulp.dest(cssdist));
 }
@@ -95,12 +111,13 @@ function imgmin() {
 function watch() {
   browserSync.init({
     open: 'external',
-    host: '192.168.0.149',
+    // host: '192.168.0.149',
     host: 'luhn-portfolio.wordpress',
     proxy: 'luhn-portfolio.wordpress',
     port: 8080,
   });
-  gulp.watch(styleWatchFiles, gulp.series([css, concatCSS]));
+  // gulp.watch(styleWatchFiles, scssLint);
+  gulp.watch(styleWatchFiles, gulp.series([css, concatCSS] , scssLint));
   gulp.watch(jsSRC, javascript);
   gulp.watch(imgSRC, imgmin);
   gulp.watch([PHPWatchFiles, jsdist + 'libraries.js', cssdist + 'libraries.min.css', cssdist + 'main.css']).on('change', browserSync.reload);
@@ -108,6 +125,7 @@ function watch() {
 
 exports.css = css;
 exports.concatCSS = concatCSS;
+exports.scssLint = scssLint;
 exports.javascript = javascript;
 exports.watch = watch;
 exports.imgmin = imgmin;

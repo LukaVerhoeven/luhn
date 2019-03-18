@@ -1,0 +1,20 @@
+
+
+@mixin sprite($filename, $extension){
+    .webp & {
+        background-image: url("/wp-content/themes/luhn/dist/img/"+ $filename +"-m."+$extension+"");
+    
+        @include mq('desktop') {
+            background-image: url("/wp-content/themes/luhn/dist/img/"+ $filename +"."+$extension+"");
+        }       
+    }
+    & {
+        // background-image: url("/wp-content/themes/luhn/dist/img/"+ $filename +"-m.png");
+        background-image: url("/wp-content/themes/luhn/dist/img/"+ $filename+"-m.png");
+    
+        @include mq('desktop') {
+            background-image: url("/wp-content/themes/luhn/dist/img/"+ $filename+".png");
+        }    
+    }
+}
+

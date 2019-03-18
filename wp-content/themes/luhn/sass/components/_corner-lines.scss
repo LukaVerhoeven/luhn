@@ -1,9 +1,15 @@
 /***********************
 *     corner-lines     *
 ***********************/   
+.corner-container{
+    position: relative;
+    height: 100%;
+}
+
 .top-right-corner, .left-bottom-corner{
     position: absolute;
-    transform: translateZ(25px);
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
 }
 
 .line{
@@ -17,8 +23,13 @@
     right: 30px;
 
     .line-vertical{
+        right: 0;
         border-right-width: 1px;
-    }             
+    }
+    .line-horizontal{
+        right: 0;
+        border-top-width: 1px;
+    }          
 }
 
 .left-bottom-corner{
@@ -27,30 +38,42 @@
 
     .line-vertical{
         border-left-width: 1px;
-    }               
+        bottom: 0;
+    }
+    .line-horizontal{
+        left: 0;
+        bottom: 0;
+        border-bottom-width: 1px;
+    }      
 }
 .line-vertical{
     display: block;
     height: 50px;
     transition: height .4s ease;
+    position: absolute;
 }
 
 .line-horizontal{
     display: block;
     width: 50px;
-    border-bottom-width: 1px;
+    
     transition: width .4s ease;
+    position: absolute;
 }
 /***********************
 *       cathegory      *
 ***********************/   
-
+.post-block{
+    .top-right-corner, .left-bottom-corner{
+        transform: translateZ(25px);
+    }
+}
 .post-block:hover {
     .line-vertical{
-        height: 239px;
+        height: 100%;
     }
     .line-horizontal{
-        width: 239px
+        width: 100%;
     }
 }
 
@@ -65,4 +88,13 @@
     .line-horizontal{
         width: 30px;
     }
+
+    .top-right-corner{
+        top: 25px;
+        right: 25px;
+    }
+    .left-bottom-corner{
+        bottom: 25px;
+        left: 25px;
+    }    
 }

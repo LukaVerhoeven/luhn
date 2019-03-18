@@ -37,8 +37,8 @@
         
         &.web-link a{
             height: 155px;
-            padding-top: 67px;
-            padding-left: 42px;
+            padding-top: 70px;
+            padding-left: 47px;
         }
         
         a{
@@ -83,33 +83,44 @@
 }
 
 .post-block{
+    width: 80vw;
+    height: 80vw;
     display: block;
-    width: 300px;
-    height: 300px;
     margin: 25px;
     display: inline-block;
     transform-style: preserve-3d;
     transform: perspective(300px);  //<-- fixes the on hover zoom text,
+    
+    @include mq('phablet') {
+        width: 300px;
+        height: 300px;
+    }
 
     /***********************
     *       thumbnail     *
     ***********************/           
-
+    
     .thumbnail, article, .overlay{
         width: 100%;
         height: 100%;
-        position: relative;
+        position: absolute;
     }
 
     .thumbnail{
         overflow: hidden;
     }
+
     .thumbnail img{
         width: 180%;
         height: auto;
         opacity: .7;
         @include overflow-absolute-center();
     }
+    
+    .thumbnail.square img{
+        width: 100%;
+    }
+    
     .overlay{
         opacity: .8;
     }
@@ -120,7 +131,8 @@
     .post-text {
         position: absolute;
         bottom: 60px;
-        left: 60px;
+        left: 17%;
+        width: 64vw;
         color: $main-color;
         text-align: left;
         transform-style: preserve-3d;
@@ -128,6 +140,11 @@
         // blurry fon't fix for translateZ
         transform-origin: bottom left;
         transform: scale(.8);
+    
+        @include mq('phablet') {
+            width: auto;
+            left: 60px;
+        }        
     }
     
     h1{
