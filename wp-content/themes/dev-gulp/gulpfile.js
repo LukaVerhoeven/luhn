@@ -9,6 +9,7 @@ var gulp = require( 'gulp' ),
     imagemin  = require( 'gulp-imagemin' ),
     changed = require( 'gulp-changed' ),
     uglify  = require( 'gulp-uglifyes' ),
+    uglifyCSS = require('gulp-uglify');
     scsslint = require('gulp-scss-lint'),
     lineec  = require( 'gulp-line-ending-corrector' );
 
@@ -61,12 +62,13 @@ function css() {
   return gulp.src([scss + 'main.scss'])
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(sass({
-    outputStyle: 'expanded'
-    // outputStyle: 'compressed'
+    // outputStyle: 'expanded'
+    outputStyle: 'compressed'
   }).on('error', sass.logError))
   .pipe(autoprefixer('last 2 versions'))
   // .pipe(sourcemaps.write())
   .pipe(lineec())
+  .uglify()
   .pipe(gulp.dest(cssdist));
 }
 
@@ -112,8 +114,8 @@ function watch() {
   browserSync.init({
     open: 'external',
     // host: '192.168.0.149',
-    host: 'luhn-portfolio.wordpress',
-    proxy: 'luhn-portfolio.wordpress',
+    host: 'mywebsite.luhn',
+    proxy: 'mywebsite.luhn',
     port: 8080,
   });
   // gulp.watch(styleWatchFiles, scssLint);

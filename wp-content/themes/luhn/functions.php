@@ -4,7 +4,6 @@
     /* ==========================================
 	 			Include scripts
 	==========================================*/
-
     function awesome_script_enqueue() {
         // fonts
 		wp_enqueue_style('Poppins', 'https://fonts.googleapis.com/css?family=Poppins:200&font-display=swap', array(), '1.0.0', 'all');
@@ -13,8 +12,19 @@
         // wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', array(), '4.1.1', 'all');
 		wp_enqueue_style('main', get_template_directory_uri() . '/dist/css/main.css', array(), '1.0.0', 'all');
 		wp_enqueue_style('libraries', get_template_directory_uri() . '/dist/css/libraries.min.css', array(), '1.0.0', 'all');
-        // css is loaded injs
+				// css is loaded injs
+			
 
+		// disable default wp crap
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' );
+		// Disable REST API link tag
+		remove_action('wp_head', 'rest_output_link_wp_head', 10);
+		// Disable oEmbed Discovery Links
+		remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+		// Disable REST API link in HTTP headers
+		remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+		remove_action('wp_head', 'rsd_link');
 
 		// CDNS
 		// Jquery
@@ -49,6 +59,7 @@
     }
 
 	add_action( 'wp_enqueue_scripts', 'awesome_script_enqueue');
+
 /* ==========================================
 		Async script attribute (for cdn)
 ========================================== */
@@ -63,6 +74,18 @@
 			}
 		}
 	}, 10, 2 );
+
+	// ENQUE ASYNC SCRIPT: wp_enqueue_script('dcsnt', '/js/jquery.social.media.tabs.1.7.1.min.js#asyncload' )
+	function add_async_forscript($url)
+	{
+			if (strpos($url, '#asyncload')===false)
+					return $url;
+			else if (is_admin())
+					return str_replace('#asyncload', '', $url);
+			else
+					return str_replace('#asyncload', '', $url)."' async='async"; 
+	}
+add_filter('clean_url', 'add_async_forscript', 11, 1);
 /* =======================================================
     Remove unused deafault wp jquery1 + jquery-migrate
 ========================================================== */
@@ -113,16 +136,19 @@ if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 /* ==========================================
 		Contact form remove <span>
 	========================================== */
-		add_filter('wpcf7_form_elements', function($content) {
-			// removes span
-			$content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
-			// make input required (fixes css style)
-			$str_pos = strpos( $content, 'value' );
-			$content = str_replace ( 'aria-required="true"', 'aria-required="true" required', $content);
-			// remove "novalidate" from the form
-			// $content = str_replace ( 'novalidate="novalidate"', '', $content);
-			return $content;
-		});
+	add_filter( 'wpcf7_load_js', '__return_false' );
+	add_filter( 'wpcf7_load_css', '__return_false' );
+
+	add_filter('wpcf7_form_elements', function($content) {
+		// removes span
+		$content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+		// make input required (fixes css style)
+		$str_pos = strpos( $content, 'value' );
+		$content = str_replace ( 'aria-required="true"', 'aria-required="true" required', $content);
+		// remove "novalidate" from the form
+		// $content = str_replace ( 'novalidate="novalidate"', '', $content);
+		return $content;
+	});
 	
 /* ==========================================
 	  add favicon to admin & login panel 

@@ -1,4 +1,14 @@
 <?php get_header(); ?>
+<?php
+    if (is_page('contact')) { 
+        if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+                wpcf7_enqueue_scripts();
+        }
+        if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+                wpcf7_enqueue_styles();
+        }
+    }
+?>
 
 <main class="contact-page">
 <h1>Let's <br><span class="big-text">get in touch</span> And <br>Create something great togheter</h1>

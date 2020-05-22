@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <!--
-									__          __  __      __  __      __  __
-								   /\ \        /\ \/\ \    /\ \/\ \    /\ \/\ \
-								   \ \ \       \ \ \ \ \   \ \ \_\ \   \ \ `\\ \
-									\ \ \  __   \ \ \ \ \   \ \  _  \   \ \ , ` \
-									 \ \ \L\ \   \ \ \_\ \   \ \ \ \ \   \ \ \`\ \
-									  \ \____/    \ \_____\   \ \_\ \_\   \ \_\ \_\
-									   \/___/      \/_____/    \/_/\/_/    \/_/\/_/
+ __          __  __      __  __      __  __
+/\ \        /\ \/\ \    /\ \/\ \    /\ \/\ \
+\ \ \       \ \ \ \ \   \ \ \_\ \   \ \ `\\ \
+ \ \ \  __   \ \ \ \ \   \ \  _  \   \ \ , ` \
+  \ \ \L\ \   \ \ \_\ \   \ \ \ \ \   \ \ \`\ \
+   \ \____/    \ \_____\   \ \_\ \_\   \ \_\ \_\
+    \/___/      \/_____/    \/_/\/_/    \/_/\/_/
 
-								 _______      _______      _______      _______      _______
-								/\______\    /\______\    /\______\    /\______\    /\______\
-								\/______/    \/______/    \/______/    \/______/    \/______/
+ _______      _______      _______      _______      _______
+/\______\    /\______\    /\______\    /\______\    /\______\
+\/______/    \/______/    \/______/    \/______/    \/______/
 
 	  __                                            __                                                                       __
 	 /\ \                                         /\_ \                                                                     /\ \__
@@ -20,7 +20,7 @@
 	\ \___,_\   \ \____\    \ \___/     \ \____\     /\____\   \ \____/    \ \ ,__/    \ \_\ \_\ \_\   \ \____\    \ \_\ \_\   \ \__\
 	 \/__,_ /    \/____/     \/__/       \/____/     \/____/    \/___/      \ \ \/      \/_/\/_/\/_/    \/____/     \/_/\/_/    \/__/
 	                                                                         \ \_\
-																			  \/_/
+																			  
 https://luhn.be/																			  
 -->
 <html <?php language_attributes(); ?>>
@@ -39,15 +39,26 @@ https://luhn.be/
 	<link rel="mask-icon" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#2b5797">
 	<meta name="theme-color" content="#ffffff">
+	<style>
+		/* PreLoad only works with JavaScript, 
+		   if it's not present, don't show loader */
+		.no-js #preloader { visibility: hidden; }
+		.js #preloader { visibility: visible; }
+	</style>
+	<script > 
+			document.onreadystatechange = function() { 
+				var loader = document.getElementById("preloader");
+					if (document.readyState !== "complete") { 
+						loader.classList.remove("hide");
+					} else { 
+						loader.classList.add("hide");
+					} 
+			}; 
+    </script> 
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
     <?php wp_head(); ?>
 	<!-- <script>    document.documentElement.className = "js-glitch";</script> -->
-	<script>
-		function preloader() {
-			var loader = document.getElementById("preloader");
-			loader.classList.add("fade-out");
-			setTimeout(function(){loader.classList.add("hide");}, 800);
-		}
-	</script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90269735-2"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
@@ -55,8 +66,9 @@ https://luhn.be/
 	  gtag('js', new Date());
 	  gtag('config', 'UA-90269735-2');
 	</script>	
+
 </head>
-<body <?php body_class(); ?>  onload="preloader()">
+<body <?php body_class(); ?> >
 	<header >
 		<div id="preloader">
 			<p>Preparing the visual experience of Luhn</p>

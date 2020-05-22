@@ -3851,6 +3851,8 @@ footer a .icon-whatsapp {
 
 .single .single-header .cover-image canvas {
   z-index: 1;
+  top: 0;
+  position: absolute;
 }
 
 .single .single-header .grid__item-img {
@@ -3866,6 +3868,7 @@ footer a .icon-whatsapp {
   margin-top: -140px;
   margin-left: 18%;
   text-align: right;
+  z-index: 0;
 }
 
 @media only screen and (min-width: 768px) {
