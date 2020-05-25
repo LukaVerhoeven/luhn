@@ -7,12 +7,13 @@
         &:before{
             content: "";
             display: block;
-            background-size: 1400%;
+            // background-size: 1400%;
             height: 120px;
-            width: 60px;
+            width: 40px;
             background-position: 58% 50%;
             margin: 30px auto;
-            @include sprite('image-sheet', 'webp');
+            background-image:  url("/wp-content/themes/luhn/dist/img/zigzag1.svg");
+            background-repeat: no-repeat;
             position: relative;
         }
     }
@@ -22,13 +23,14 @@
             content: "";
             position: relative;
             display: block;
-            background-size: 500%;
+            // background-size: 500%;
             height: 100px;
             width: 250px;
             background-position: 79% 50%;
             margin: 70px auto;
             transition: transform .6s ease;
-            @include sprite('image-sheet', 'webp');
+            background-image:  url("/wp-content/themes/luhn/dist/img/zigzag2.svg");
+            background-repeat: no-repeat;
         }
     }
     // No graphic on intro

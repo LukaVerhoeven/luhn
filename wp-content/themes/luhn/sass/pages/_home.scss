@@ -78,25 +78,26 @@ $skill-cube-width: 50px;
 /*********************************
 *            Graphics            *
 **********************************/
-.graphic1, 
-.graphic2, 
-.graphic3{
-    @include sprite('image-sheet', 'webp');
-}
+// .graphic1, 
+// .graphic2, 
+// .graphic3{
+//     @include sprite('image-sheet', 'webp');
+// }
 .graphic1{
     position: absolute;
-    background-size: 870%;
-    margin-top: 60px;
-    width: 15%;
+    margin-top: 70px;
+    margin-left: -29px;
+    width: 18%;
     height: 23vw;
     min-width: 90px;
     min-height: 130px;
-    background-position: 21% 53%;
-    transform: rotate(-20deg);
+    background-image: url("/wp-content/themes/luhn/dist/img/half-circle.svg");
+    background-repeat: no-repeat;
+    transform: rotate(10deg);
     
-    @include mq('desktop') {    
+    @include mq('desktop') { 
         max-width: 250px;
-        max-height: 360px;
+        max-height: 300px;
         // desktop sheet
         background-position: 63% 97%;
     }
@@ -104,14 +105,16 @@ $skill-cube-width: 50px;
 
 .graphic2{
     position: absolute;
-    background-size: 440%;
+    // background-size: 440%;
     margin-top: 120px;
     right: 0;
     width: 19%;
     height: 15vw;
     min-width: 130px;
     min-height: 100px;    
-    background-position: 39% 53%;
+    background-image: url("/wp-content/themes/luhn/dist/img/triangle.svg");
+    background-repeat: no-repeat;
+    // background-position: 39% 53%;
     
     @include mq('desktop') {
         right: 9%;
@@ -126,27 +129,28 @@ $skill-cube-width: 50px;
 .graphic3{
     position: absolute;
     top: -13vw;
-    background-size: 665%;
     width: 40vw;
     height: 80vw;
     max-width: 528px;
     max-height: 1050px;
     z-index: -1;
-    margin-left: 19%;
-    background-position: 0% 100%;
-    transform: rotate(90deg);
+    // margin-left: 19%;
+    // background-position: 0% 100%;
+    // transform: rotate(90deg);
+    background-image: url("/wp-content/themes/luhn/dist/img/wiggle.svg");
+    background-repeat: no-repeat;
 
     @include mq('desktop') {
-        margin-left: 10%;
+        // margin-left: 10%;
         // width: 30vw;
         // height: 60vw;
         // desktop sheet
         transform: rotate(0deg);
-        background-size: 180%;
-        background-position: 0% 98%;
+        // background-size: 180%;
+        // background-position: 0% 98%;
         height: 30vw;
-        width: 60vw;
-        max-width: 1050px;
+        width: 70vw;
+        max-width: 1250px;
         max-height: 528px;
         // position: relative;
         top: 0;
@@ -474,12 +478,11 @@ $skill-cube-width: 50px;
     }
     
     .project-btn-bg{
-        background-size: 564%;
         background-position: 83.9% 1.5%;
         border-radius: 50%;
         box-shadow: 5px 5px 35px #00000038;
         float: right;
-        @include sprite('image-sheet', 'webp');
+        background-image: url("/wp-content/themes/luhn/dist/img/ball.svg");
 
         @include mq('desktop') {
             transition: transform .5s ease;
@@ -570,48 +573,49 @@ $skill-cube-width: 50px;
         height: 32px;
         width: 32px;
         margin: 10px auto;
-        background-size: 1160%;
-        @include sprite('image-sheet', 'webp');
+        // background-size: 1160%;
+        // @include sprite('image-sheet', 'webp');
+        background-repeat: no-repeat;
+        background-size: 90%;
+        background-position: 50% 20%;
     }
     .cc{
         @include block-3d ( $skill-cube-width ,$skill-cube-width, 15px, rgb(255, 147, 165));
     }
     .cc .skill-logo{
-        background-position: 98% 0;
+        background-image:  url("/wp-content/themes/luhn/dist/img/cc.svg");
     }
 
     .wp{
         @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(128, 208, 228));
     }
     .wp .skill-logo{
-        background-position: 98% 80%;
+        background-image:  url("/wp-content/themes/luhn/dist/img/wordpress.svg");
+        // background-position: 88% 60%;
     }
-    .laravel{
-        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(253, 147, 161));
+    .skill2{
+        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, #91d78b);
     }
-    .laravel .skill-logo{
-        margin-top: 12px;
-        background-position: 98% 98%;
+    .skill2 .skill-logo{
+        background-image:  url("/wp-content/themes/luhn/dist/img/nodejs.svg");
     }
-    .angular{
-        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(255, 130, 157));
+    .skill3{
+        @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, #55779c);
     }
-    .angular .skill-logo{
-        background-position: 98% 59%;
+    .skill3 .skill-logo{
+        background-image:  url("/wp-content/themes/luhn/dist/img/processing.svg");
     }
     .psd{
         @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(124, 181, 255));
     }
     .psd .skill-logo{
-        margin-top: 11px;
-        background-position: 98% 39%;
+        background-image:  url("/wp-content/themes/luhn/dist/img/ps.svg");
     }
     .ae{
         @include block-3d ($skill-cube-width ,$skill-cube-width, 15px, rgb(248, 123, 200));
     }
     .ae .skill-logo{
-        margin-top: 7px;
-        background-position: 98% 19%;
+        background-image:  url("/wp-content/themes/luhn/dist/img/ae.svg");
     }                    
 }
 

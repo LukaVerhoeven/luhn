@@ -13,12 +13,12 @@
             <div class="shape"></div>
         </div>
     <?php else: ?>
-        <div class="skill-block laravel">
+        <div class="skill-block skill2">
             <div class="shape"></div>
             <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Laravel"></div></div>
             <div class="shape"></div>
         </div>
-        <div class="skill-block angular">
+        <div class="skill-block skill3">
             <div class="shape"></div>
             <div class="shape"><div class="skill-logo" role="img" aria-label="The logo of adobe creative cloud" title="Angular"></div></div>
             <div class="shape"></div>

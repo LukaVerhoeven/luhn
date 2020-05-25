@@ -9,7 +9,6 @@ var gulp = require( 'gulp' ),
     imagemin  = require( 'gulp-imagemin' ),
     changed = require( 'gulp-changed' ),
     uglify  = require( 'gulp-uglifyes' ),
-    uglifyCSS = require('gulp-uglify');
     scsslint = require('gulp-scss-lint'),
     lineec  = require( 'gulp-line-ending-corrector' );
 
@@ -68,7 +67,6 @@ function css() {
   .pipe(autoprefixer('last 2 versions'))
   // .pipe(sourcemaps.write())
   .pipe(lineec())
-  .uglify()
   .pipe(gulp.dest(cssdist));
 }
 

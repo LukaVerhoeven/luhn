@@ -6,7 +6,7 @@
 	==========================================*/
     function awesome_script_enqueue() {
         // fonts
-		wp_enqueue_style('Poppins', 'https://fonts.googleapis.com/css?family=Poppins:200&font-display=swap', array(), '1.0.0', 'all');
+		// wp_enqueue_style('Poppins', 'https://fonts.googleapis.com/css?family=Poppins:200&display=swap', array(), '1.0.0', 'all');
 		
         //css
         // wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', array(), '4.1.1', 'all');

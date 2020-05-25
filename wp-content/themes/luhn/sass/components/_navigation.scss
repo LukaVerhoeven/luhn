@@ -12,24 +12,39 @@ $querysize: 'desktop-xl';
 /***********************
 *    Global Nav css    *
 ***********************/
+.global-menu__wrap {
+    display: flex;
+    @include mq('phablet') {
+        // flex-direction: row-reverse;
+    }
+}
+
+.menu-col{
+    flex: auto;
+}
 .global-menu__item {
     position: relative;
     height: 25%;
+    min-height: 180px;
     z-index: -2;
     display: block;
     margin: 0;
     will-change: opacity,transform;
 
     @include mq('phablet') {
-        width: 23.5%;
+        width: 49%;
         height: 100%;
         display: inline-block;
     }
+    @include mq('desktop') {
+        width: 23%;
+    }
+    
 }
 
 
 .background-3d a{
-    background-size: 630%;
+    // background-size: 630%;
     height: $menu-size;
     width: $menu-size;
     text-transform: uppercase;
@@ -38,7 +53,7 @@ $querysize: 'desktop-xl';
     font-size: 6vw;
     position: absolute;
     color: #fff;
-    @include sprite('image-sheet', 'webp');
+    // @include sprite('image-sheet', 'webp');
 
     @include mq('phablet') {
         font-size: 1.8vw;
@@ -51,6 +66,8 @@ $querysize: 'desktop-xl';
         width: $menu-width-desktop;
         height: $menu-height-desktop;
     }
+
+  
 
     @include mq($querysize) {
         font-size: 3rem;
@@ -77,18 +94,27 @@ $querysize: 'desktop-xl';
     background-position: 60% 0;
     color: #77abb5;
     padding-top: 20vmin;
-    padding-right: 10%;
+    padding-right: 18%;
     // font-size: 6vw;
     letter-spacing: .6rem;
     line-height: 8.5vw;
-
+    background-image:  url("/wp-content/themes/luhn/dist/img/air.svg");
+    background-size: 74%;
+    background-position:45% 75%;
+    background-repeat: no-repeat;
+    
+    
     @include mq('phablet') {
+        background-position: 50% 30%;
+        // background-position: 15px 7px;
+        // background-position: 32px 17px;
         // font-size: 2.5vw;
         line-height: 2.5vw;
         padding-top: $menu-width-desktop/2.7;
         padding-right: 11%;
         max-height: $menu-maxsize-desktop;
         max-width: $menu-maxsize-desktop*.91;
+        top: 53%;
     }
     
     @include mq($querysize) {
@@ -114,14 +140,15 @@ $querysize: 'desktop-xl';
 *        design       *
 ***********************/
 nav .design-link{
-    margin-top: -20vw;
+    margin-top: 17vh;
     z-index: 0;
-    width: 50%;
     
     @include mq('phablet') {
         margin-top: 0;
+    }
+    @include mq('desktop') {
         width: 27%; //$menu-height-desktop
-    }    
+    }   
 }
 
 .design-link a{
@@ -130,11 +157,20 @@ nav .design-link{
     border-bottom-right-radius: 55%;
     border-bottom-left-radius: 55%;
     border-top-right-radius: 55%;
+    background-image:  url("/wp-content/themes/luhn/dist/img/water.svg");
+    background-size: 95%;
+    background-position:40% 80%;
+    background-repeat: no-repeat;
     
     @include mq('phablet') {
+        background-position: 70% 115%;
         max-width: $menu-maxsize-desktop*1.05;
         max-height: $menu-maxsize-desktop*1.05;
-        padding-top: $menu-width-desktop/2.3;
+        padding-top: $menu-width-desktop/1.85;
+    }
+
+    @include mq('desktop') {
+       padding-top: 31%;
     }
 
     @include mq($querysize) {
@@ -146,7 +182,7 @@ nav .design-link{
 *        web-dev       *
 ***********************/
 nav .web-link{
-    margin-top: -8vw;
+    margin-top: 12vh;
     z-index: -1;
     
     @include mq('phablet') {
@@ -156,20 +192,29 @@ nav .web-link{
 
 .web-link a{
     text-align: left;
-    padding-left: 18%;
-    padding-top: 28%;
+    padding-left: 38%;
+    padding-top: 58%;
     right: 0;
     border-bottom-left-radius: 35%;
-    background-position: 40% 1%;
+    border-top-right-radius: 80%;
+    // background-position: 40% 1%;
     height: $menu-size*1.1;
+    background-image:  url("/wp-content/themes/luhn/dist/img/earth.svg");
+    background-size: 95%;
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
     
     @include mq('phablet') {
-        padding-top: $menu-width-desktop/1.95;
-        padding-left: $menu-width-desktop/3.1;        
+        padding-top: $menu-width-desktop/2.1;
+        padding-left: $menu-width-desktop/2.95;        
         height: $menu-height-desktop*0.965;
         max-height: $menu-maxsize-desktop*1.05;
         max-width: $menu-maxsize-desktop*.95;
     }
+
+    @include mq('desktop') {
+        padding-top: 39%;
+     }
     @include mq($querysize) {
         padding-top: $menu-maxsize-desktop/2.1;
         padding-left: $menu-maxsize-desktop/3;
@@ -180,7 +225,7 @@ nav .web-link{
 *       Mo-graph       *
 ***********************/
 nav .motion-link {
-    margin-top: -23vw;
+    margin-top: 10vh;
 
     @include mq('phablet') {
         margin-top: 0;
@@ -188,13 +233,16 @@ nav .motion-link {
 }
 
 .motion-link a{
-    background-position: 0 0;
     height: $menu-size*1.35;
-    padding-top: 32%;
-    padding-left: 17%;
+    padding-top: 64%;
+    padding-left: 35%;
     padding-bottom: 15px;
     text-align: left;
     letter-spacing: .4rem;
+    background-image:  url("/wp-content/themes/luhn/dist/img/fire.svg");
+    background-size: 70%;
+    background-position: 20% 80%;
+    background-repeat: no-repeat;
 
     @include mq('phablet') {
         padding-left: $menu-width-desktop/3.4;
@@ -204,6 +252,9 @@ nav .motion-link {
         max-height: $menu-maxsize-desktop*1.25;
         max-width: $menu-maxsize-desktop*.915;
     }   
+    @include mq('desktop') {
+        padding-top: 47%;
+     }
     @include mq($querysize) {
         padding-top: $menu-maxsize-desktop/1.95;
         padding-left: $menu-maxsize-desktop/3.7;

@@ -25,8 +25,9 @@ https://luhn.be/
 -->
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://www.google-analytics.com" >
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google-site-verification" content="GwlLOTPoI5Xzvs0yi4gDGIucreRvMW2UwXjHR9CVSN8" />
 	<meta name="keywords" content="luka, verhoeven, luhn, develoment, visuals, design, web, motion">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -39,6 +40,13 @@ https://luhn.be/
 	<link rel="mask-icon" href="<?php echo get_template_directory_uri()?>/dist/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#2b5797">
 	<meta name="theme-color" content="#ffffff">
+
+	<!-- predload images/ videos -->
+	<link rel="preload" href="http://mywebsite.luhn:8080/wp-content/themes/luhn/dist/img/logo-min.webm" as="fetch">
+	<!-- Async CSS or font -->
+	<link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:200&display=swap" as="style" onload="this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200&font-display=swap"></noscript>
+
 	<style>
 		/* PreLoad only works with JavaScript, 
 		   if it's not present, don't show loader */
@@ -130,10 +138,14 @@ https://luhn.be/
 
 				<nav class="global-menu"  id="parallax" data-selector="li" data-hover-only="true">
 					<ul class="global-menu__wrap">
-						<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item contact-link background-3d"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
-						<li data-depth="-0.40" data-category="0" class="js-change_gif global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
-						<li data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item web-link background-3d"><a href="/category/web/"> web</a></li>
-						<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item motion-link background-3d"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
+						<div class="menu-col">
+							<li data-depth="-0.40" data-category="0" class="js-change_gif global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
+							<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item motion-link background-3d"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
+						</div>
+						<div class="menu-col">
+							<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item contact-link background-3d"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
+							<li data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item web-link background-3d"><a href="/category/web/"> web</a></li>
+						</div>
 					</ul>
 				</nav>
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
