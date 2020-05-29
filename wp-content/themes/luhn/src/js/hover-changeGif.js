@@ -15,7 +15,7 @@ if(isDesktop && isHome){
             }else{
                 overlay.classList.add("active");
             }
-            var x = this.parentElement.dataset.category*(picture.offsetWidth/4);
+            var x = this.parentElement.parentElement.dataset.category*(picture.offsetWidth/4);
             
             // move image to correct letter
             overlay.style.transform = "translate("+x+"px,0)";

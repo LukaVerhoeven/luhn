@@ -3,15 +3,14 @@
 /*************************
 *          Base        	 *
 **************************/
-@import 'base/variables';
-@import 'base/reset';
+@import 'utils/variables';
+@import 'utils/reset';
 
-@import 'base/javascript';
-@import 'base/colors';
-@import 'base/breakpoints';
-@import 'base/helpers';
-@import 'base/mixins';
-@import 'base/typography';
+@import 'utils/javascript';
+@import 'utils/breakpoints';
+@import 'utils/helpers';
+@import 'utils/mixins';
+@import 'utils/typography';
 
 /*************************
 *       Components       *

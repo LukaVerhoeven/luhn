@@ -55,6 +55,7 @@
 
 		// js
 		wp_enqueue_script('customjs', get_template_directory_uri() . '/dist/js/libraries.js', array(), '1.0.0', true);
+		// wp_enqueue_script('customjs', get_template_directory_uri() . '/dev-webpack/dist/home.bundle.mjs', array(), '1.0.0', true);
 
     }
 

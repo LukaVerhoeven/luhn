@@ -26,6 +26,8 @@ https://luhn.be/
 <html <?php language_attributes(); ?>>
 <head>
 	<link rel="preconnect" href="https://www.google-analytics.com" >
+	<link rel="preconnect" href="https://fonts.gstatic.com/" >
+	<link rel="preconnect" href="https://cdnjs.com/">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google-site-verification" content="GwlLOTPoI5Xzvs0yi4gDGIucreRvMW2UwXjHR9CVSN8" />
@@ -42,11 +44,21 @@ https://luhn.be/
 	<meta name="theme-color" content="#ffffff">
 
 	<!-- predload images/ videos -->
-	<link rel="preload" href="http://mywebsite.luhn:8080/wp-content/themes/luhn/dist/img/logo-min.webm" as="fetch">
+	<link rel="preload" href="<?php echo get_template_directory_uri()?>/dist/img/logo-min.webm" as="fetch">
 	<!-- Async CSS or font -->
 	<link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:200&display=swap" as="style" onload="this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200&font-display=swap"></noscript>
 
+	<!-- Animate on scroll -->
+	<link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.rel='stylesheet'"/>
+	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/dist/css/testaos.css"> -->
+	<!-- preload script in footer -->
+	<link rel="preload" href='<?php echo get_template_directory_uri()?>/dist/js/libraries.js"' as="script">
+	<link rel="preload" href="https://unpkg.com/aos@next/dist/aos.js" as="script">
+	
+	
+
+	
 	<style>
 		/* PreLoad only works with JavaScript, 
 		   if it's not present, don't show loader */
@@ -67,13 +79,7 @@ https://luhn.be/
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
     <?php wp_head(); ?>
 	<!-- <script>    document.documentElement.className = "js-glitch";</script> -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90269735-2"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', 'UA-90269735-2');
-	</script>	
+
 
 </head>
 <body <?php body_class(); ?> >
@@ -117,10 +123,10 @@ https://luhn.be/
 							<div class="animation-container">
 								<div class="logo-overlay">
 									<picture>
-										<source srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo-min.webm" type="image/webm">	
-										<source srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo.webp" type="image/webp">	
-										<source srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" type="image/gif">
-										<img srcset="<?php bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
+										<source srcset="<?php  bloginfo('template_directory'); ?>/dist/img/logo-min.webm" type="image/webm">	
+										<source srcset="<?php  bloginfo('template_directory'); ?>/dist/img/logo.webp" type="image/webp">	
+										<source srcset="<?php  bloginfo('template_directory'); ?>/dist/img/logo.gif" type="image/gif">
+										<img srcset="<?php  bloginfo('template_directory'); ?>/dist/img/logo.gif" alt="Animation of the luhn logo">
 									</picture>
 										<!-- <video preload>
 											<source src="<?php bloginfo('template_directory'); ?>/dist/img/logo-min.webm" type="video/webm">
@@ -136,16 +142,16 @@ https://luhn.be/
 					<p class="logo-text">- Choose your favorite element - <br>or <br> scroll down <br> <i class="icon-arrow"></i></p>
 				</div>
 
-				<nav class="global-menu"  id="parallax" data-selector="li" data-hover-only="true">
+				<nav class="global-menu"  id="parallax" data-selector=".global-menu__item " data-hover-only="true">
 					<ul class="global-menu__wrap">
-						<div class="menu-col">
-							<li data-depth="-0.40" data-category="0" class="js-change_gif global-menu__item design-link background-3d"><a href="/category/design/">Design</a></li>
-							<li data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item motion-link background-3d"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></li>
-						</div>
-						<div class="menu-col">
-							<li data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item contact-link background-3d"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></li>
-							<li data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item web-link background-3d"><a href="/category/web/"> web</a></li>
-						</div>
+						<li class="menu-col">
+							<div data-depth="-0.40" data-category="0" class="js-change_gif global-menu__item design-link background-3d"><div class="hovering"><a href="/category/design/">Design</a></div></div>
+							<div data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item motion-link background-3d"><div class="hovering"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></div></div>
+						</li>
+						<li class="menu-col">
+							<div data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item contact-link background-3d"><div class="hovering"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></div></div>
+							<div data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item web-link background-3d"><div class="hovering"><a href="/category/web/"> web</a></div></div>
+						</li>
 					</ul>
 				</nav>
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">

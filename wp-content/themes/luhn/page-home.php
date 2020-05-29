@@ -11,8 +11,22 @@
 while(the_flexible_field("page-content")): ?>
 
 	<?php if(get_row_layout() == "homepage_block"): // layout: Content ?>
+		<?php $animateStyle = get_sub_field("style_type"); ?>
+		
+		<section class="home-section <?php the_sub_field("style_type")?>" <?php 
+		switch ($animateStyle) {
+			case "welcome":
+				echo'data-aos="fade-right"';
+					break;
+			case "about":
+			case "contact":
+				echo'data-aos="zoom-in"';
+					break;
+			case "skills":
+				echo'data-aos="fade-left"';
+					break;
+	} ?>>
 
-		<section class="home-section <?php the_sub_field("style_type")?>">
 			<div class="home-content">
 				<!-- block title -->
 				<h1>

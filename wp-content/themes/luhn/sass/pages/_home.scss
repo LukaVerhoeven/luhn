@@ -12,6 +12,10 @@ $skill-cube-width: 50px;
 /*********************************
 *           Home-block           *
 **********************************/
+main{  //AOS- position fixed- bugg   https://github.com/michalsnik/aos/issues/227
+    overflow-x: hidden;
+}
+
 .home-section{
     position: relative;
 }
@@ -128,8 +132,8 @@ $skill-cube-width: 50px;
 
 .graphic3{
     position: absolute;
-    top: -13vw;
-    width: 40vw;
+    top: 10vw;
+    width: 70vw;
     height: 80vw;
     max-width: 528px;
     max-height: 1050px;

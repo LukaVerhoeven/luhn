@@ -27,11 +27,15 @@
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^5.0.3",
     "gulp-line-ending-corrector": "^1.0.3",
+    "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-scss-lint": "^1.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.2",
     "gulp-uglifyes": "^0.2.1",
     "sass-bem": "^2.6.5"
+  },
+  "dependencies": {
+    "postcss-critical-split": "^2.5.3"
   }
 }

@@ -1,0 +1,27 @@
+@import '../../dev-gulp/node_modules/sass-bem/bem';
+
+/*************************
+*          Base        	 *
+**************************/
+// @import 'base/variables';
+// @import 'base/reset';
+// @import 'base/javascript';
+// @import 'base/colors';
+// @import 'base/breakpoints';
+// @import 'base/helpers';
+// @import 'base/mixins';
+// @import 'base/typography';
+
+/*************************
+*       Components       *
+**************************/
+@import 'components/block-3d';
+@import 'components/buttons';
+@import 'components/navigation';
+@import 'components/preloader';
+
+/*************************
+*         Layout       	 *
+**************************/
+
+@import 'pages/home';

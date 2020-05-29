@@ -10,6 +10,36 @@ $menu-maxsize-desktop: 300px;
 $querysize: 'desktop-xl';
 
 /***********************
+*   Animation   *
+***********************/
+$yCurve: cubic-bezier(.25,.5,.5,1.65);
+$animationTime: 8s;
+@keyframes hovering {
+    50% {
+      animation-timing-function: $yCurve;
+      transform: translateY(20px);
+    }
+}
+
+.hovering{
+    height: 100%;
+    @include mq('desktop') {
+        animation: hovering $animationTime infinite;
+        animation-timing-function: $yCurve;
+    }
+}
+
+.contact-link .hovering{
+    animation-delay: -0.5s;
+}
+.design-link .hovering{
+    animation-delay: -1.5s;
+}
+.web-link .hovering{
+    animation-delay: 0.9s;
+}
+
+/***********************
 *    Global Nav css    *
 ***********************/
 .global-menu__wrap {
@@ -21,7 +51,10 @@ $querysize: 'desktop-xl';
 
 .menu-col{
     flex: auto;
+    list-style: none;
 }
+
+
 .global-menu__item {
     position: relative;
     height: 25%;
@@ -31,6 +64,7 @@ $querysize: 'desktop-xl';
     margin: 0;
     will-change: opacity,transform;
 
+
     @include mq('phablet') {
         width: 49%;
         height: 100%;
@@ -39,11 +73,33 @@ $querysize: 'desktop-xl';
     @include mq('desktop') {
         width: 23%;
     }
-    
+
+  
+}
+
+// fix ==> disable paralax on mobile
+@media only screen and (max-width:1024px) {
+    .global-menu{
+        background-attachment: inherit !important;
+    }
+
+    .global-menu__item {
+        background-attachment: inherit !important;
+        transform-style: unset !important;
+        position: relative !important;
+        backface-visibility: inherit !important;
+        transform: inherit !important;
+
+        @include mq('phablet') {
+            display: inline-block !important;
+        }
+    }
 }
 
 
+
 .background-3d a{
+
     // background-size: 630%;
     height: $menu-size;
     width: $menu-size;
@@ -53,6 +109,8 @@ $querysize: 'desktop-xl';
     font-size: 6vw;
     position: absolute;
     color: #fff;
+
+    
     // @include sprite('image-sheet', 'webp');
 
     @include mq('phablet') {
@@ -67,7 +125,7 @@ $querysize: 'desktop-xl';
         height: $menu-height-desktop;
     }
 
-  
+ 
 
     @include mq($querysize) {
         font-size: 3rem;
@@ -102,6 +160,7 @@ $querysize: 'desktop-xl';
     background-size: 74%;
     background-position:45% 75%;
     background-repeat: no-repeat;
+    
     
     
     @include mq('phablet') {
@@ -140,7 +199,7 @@ $querysize: 'desktop-xl';
 *        design       *
 ***********************/
 nav .design-link{
-    margin-top: 17vh;
+    margin-top: 14vh;
     z-index: 0;
     
     @include mq('phablet') {
@@ -162,6 +221,7 @@ nav .design-link{
     background-position:40% 80%;
     background-repeat: no-repeat;
     
+    
     @include mq('phablet') {
         background-position: 70% 115%;
         max-width: $menu-maxsize-desktop*1.05;
@@ -182,7 +242,7 @@ nav .design-link{
 *        web-dev       *
 ***********************/
 nav .web-link{
-    margin-top: 12vh;
+    margin-top: 8vh;
     z-index: -1;
     
     @include mq('phablet') {
@@ -203,6 +263,7 @@ nav .web-link{
     background-size: 95%;
     background-position: 0% 100%;
     background-repeat: no-repeat;
+    
     
     @include mq('phablet') {
         padding-top: $menu-width-desktop/2.1;
@@ -225,7 +286,8 @@ nav .web-link{
 *       Mo-graph       *
 ***********************/
 nav .motion-link {
-    margin-top: 10vh;
+    margin-top: 4vh;
+    z-index: 1;
 
     @include mq('phablet') {
         margin-top: 0;
@@ -243,6 +305,7 @@ nav .motion-link {
     background-size: 70%;
     background-position: 20% 80%;
     background-repeat: no-repeat;
+    border-top-right-radius: 100%;
 
     @include mq('phablet') {
         padding-left: $menu-width-desktop/3.4;
@@ -260,7 +323,8 @@ nav .motion-link {
         padding-left: $menu-maxsize-desktop/3.7;
     }        
 }
-
+/* before: main.css */
+/* critical:start */
 
 .motion-link a::first-letter{
     margin-left: 1.5px;
@@ -327,3 +391,5 @@ nav .motion-link {
         }
     }      
 }
+
+/* critical:end */

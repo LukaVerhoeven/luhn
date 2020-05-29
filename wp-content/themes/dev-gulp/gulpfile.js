@@ -10,6 +10,7 @@ var gulp = require( 'gulp' ),
     changed = require( 'gulp-changed' ),
     uglify  = require( 'gulp-uglifyes' ),
     scsslint = require('gulp-scss-lint'),
+    postcss = require('gulp-postcss');
     lineec  = require( 'gulp-line-ending-corrector' );
 
 var root  = '../' + themename + '/',
@@ -60,6 +61,7 @@ var imgSRC = root + 'src/img/*',
 function css() {
   return gulp.src([scss + 'main.scss'])
   .pipe(sourcemaps.init({loadMaps: true}))
+  .pipe(postcss(require('postcss-critical-split'))) //not working
   .pipe(sass({
     // outputStyle: 'expanded'
     outputStyle: 'compressed'
@@ -67,6 +69,7 @@ function css() {
   .pipe(autoprefixer('last 2 versions'))
   // .pipe(sourcemaps.write())
   .pipe(lineec())
+
   .pipe(gulp.dest(cssdist));
 }
 
