@@ -10,8 +10,28 @@
 		
         //css
         // wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', array(), '4.1.1', 'all');
-		wp_enqueue_style('main', get_template_directory_uri() . '/dist/css/main.css', array(), '1.0.0', 'all');
-		wp_enqueue_style('libraries', get_template_directory_uri() . '/dist/css/libraries.min.css', array(), '1.0.0', 'all');
+		// wp_enqueue_style('main', get_template_directory_uri() . '/dist/css/main.css', array(), '1.0.0', 'all');
+		// add preload ==> and it will preload in the header
+		wp_enqueue_style('global', get_template_directory_uri() . '/dist/css/global-critical.css', array(), null, 'all');
+		wp_enqueue_script('globalBundle', get_template_directory_uri() . '/dist/js/global.bundle.mjs', array(), '1.0.0', true);
+		if ( is_page('home')) { 
+			wp_enqueue_style('home', get_template_directory_uri() . '/dist/css/home-critical.css', array(), null, 'all');
+			wp_enqueue_script('homeBundle', get_template_directory_uri() . '/dist/js/home.bundle.mjs', array(), '1.0.0', true);
+
+		}
+		if ( is_category()) { 
+			wp_enqueue_style('navPreload', get_template_directory_uri() . '/dist/css/PLnavigation-chunk.css', array(), null, 'all');
+			wp_enqueue_style('headerPreload', get_template_directory_uri() . '/dist/css/PLheader-chunk.css', array(), null, 'all');
+			wp_enqueue_script('categoryBundle', get_template_directory_uri() . '/dist/js/category.bundle.mjs', array(), '1.0.0', true);
+		} 
+		if(is_single()){
+
+		}
+		if ( is_page('contact')) { 
+			wp_enqueue_style('homePreload', get_template_directory_uri() . '/dist/css/home.css', array(), '1.0.0', 'all');
+			wp_enqueue_script('homeBundle', get_template_directory_uri() . '/dist/js/home.bundle.mjs', array(), '1.0.0', true);
+		}
+		// wp_enqueue_style('libraries', get_template_directory_uri() . '/dist/css/libraries.min.css', array(), '1.0.0', 'all');
 				// css is loaded injs
 			
 
@@ -54,15 +74,80 @@
 		} 
 
 		// js
-		wp_enqueue_script('customjs', get_template_directory_uri() . '/dist/js/libraries.js', array(), '1.0.0', true);
-		// wp_enqueue_script('customjs', get_template_directory_uri() . '/dev-webpack/dist/home.bundle.mjs', array(), '1.0.0', true);
+		// wp_enqueue_script('customjs', get_template_directory_uri() . '/dist/js/easings.js', array(), '1.0.0', true);
+		// wp_enqueue_script('customjs', get_template_directory_uri() . '/dist/js/demo6.js', array(), '1.0.0', true);
+		
 
     }
 
 	add_action( 'wp_enqueue_scripts', 'awesome_script_enqueue');
-
 /* ==========================================
-		Async script attribute (for cdn)
+		preloading Assets (important one)
+========================================== */
+function preload_assets() {
+	// preload fonts
+	$fonts = array( 
+		get_template_directory_uri() . '/dist/fonts/HKNova-Medium.woff2',
+		get_template_directory_uri() . '/dist/fonts/icomoon.ttf',
+		get_template_directory_uri() . '/dist/fonts/leaguespartan-bold.woff2',
+	);
+
+	$styles = array( 
+		'https://fonts.googleapis.com/css?family=Poppins:200&display=swap',
+	);
+
+	$images = array( 
+	);
+
+	$videos = array( 
+	);
+	
+	// dns_prefetch
+	$dns_domains = array( 
+		"//cdnjs.cloudflare.com",
+		"//ajax.googleapis.com", 
+		"//www.google-analytics.com",
+		"//fonts.googleapis.com"
+	);
+
+	if(is_page('home')){
+		
+	}
+	// if (is_single()) {
+	// 	$dns_domains[] = 'somewebsite like youtube'
+	// }
+
+	$prefetch = 'on';
+			echo '<meta http-equiv="x-dns-prefetch-control" content="'.$prefetch.'">';
+			
+			if ($prefetch != 'on') {
+				foreach ($dns_domains as $domain) {
+					if (!empty($domain)) echo '<link rel="dns-prefetch" href="'.$domain.'" />';
+				}
+				unset($domain);
+			}
+	// preload fonts
+	foreach ($fonts as $font) {
+		$pieces = explode(".", $font);
+		$ext = $pieces[count($pieces)-1];
+		if (!empty($font)) echo '<link rel="preload" href="'.$font.'" as="font" type="font/'.$ext.'" />';
+	}
+	foreach ($styles as $style) {
+		if (!empty($style)) echo '<link rel="preload" href="'.$style.'" as="style" />';
+	}
+	foreach ($images as $image) {
+		if (!empty($image)) echo '<link rel="preload" href="'.$image.'" as="image" />';
+	}
+	foreach ($videos as $video) {
+		if (!empty($video)) echo '<link rel="preload" href="'.$video.'" as="video" />';
+	}
+
+	// preload images
+
+	}
+	add_action( 'wp_head', 'preload_assets', 0 );
+/* ==========================================
+		Async script attribute (for cdn) (==> defer is better https://flaviocopes.com/javascript-async-defer/)
 ========================================== */
 	add_filter( 'script_loader_tag', function ( $tag, $handle ) {
 		$scripts = ["jquery-3", "tilt", "three", "TweenMax", "imagesloaded"];
@@ -87,6 +172,49 @@
 					return str_replace('#asyncload', '', $url)."' async='async"; 
 	}
 add_filter('clean_url', 'add_async_forscript', 11, 1);
+
+/* ==========================================
+		preloading styles (that are already enqueued has NO USE)
+========================================== */
+
+// add_action( 'wp_enqueue_scripts', 'crunchify_print_scripts_styles');
+function crunchify_print_scripts_styles() {
+	$styles = [];
+	// // Print all loaded Scripts
+	// global $wp_scripts;
+	// foreach( $wp_scripts->queue as $script ) :
+	// 		$result['scripts'][] =  $wp_scripts->registered[$script]->src . ";";
+	// endforeach;
+	// Print all loaded Styles (CSS)
+	global $wp_styles;
+	foreach( $wp_styles->queue as $style ) :
+		$handle = strtolower($wp_styles->registered[$style]->handle );
+		if (strpos($handle, 'preload') !== false  ) {
+			// $styles[] = array('url' =>  $wp_styles->registered[$style]->src , 'version' => $wp_styles->registered[$style]->ver );
+			//don't add version for chunks
+			if (strpos($wp_styles->registered[$style]->src, 'chunk') !== false ||  $wp_styles->registered[$style]->ver == null) { 
+				$styles[] = $wp_styles->registered[$style]->src;
+			}else{
+				// $styles[] = array('url' =>  $wp_styles->registered[$style]->src , 'version' => $wp_styles->registered[$style]->ver );
+				$styles[] =  $wp_styles->registered[$style]->src . '?ver=' . $wp_styles->registered[$style]->ver;
+			}
+		}
+	endforeach;
+	return $styles;
+}
+
+add_action( 'wp_head', 'add_preload_taggs', 5);
+function add_preload_taggs()
+{
+	$styles = crunchify_print_scripts_styles();
+	foreach( $styles as $style ) :
+		echo '<link rel="preload" href="'. 
+		$style .
+		// $style['url'] . '?ver=' .$style['version'] .
+		// plugins_url($style) .
+		'" as="style">';
+	endforeach;
+}
 /* =======================================================
     Remove unused deafault wp jquery1 + jquery-migrate
 ========================================================== */

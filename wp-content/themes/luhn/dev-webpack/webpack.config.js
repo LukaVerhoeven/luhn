@@ -21,8 +21,9 @@ const { resolve } = require('path');
 let filenames = []; //leave this empty
 let jsEntryPath = '../src/js/pageModules/';
 let htmlPath = null; //set to null if no html files
-let destPath = '../dist';
+let destPath = '../dist/';
 let sassUtils = '../sass/utils/utils.js';
+let publicPath = '/wp-content/themes/luhn/dist/';
 
 function generateHtmlPlugins(templateDir) {
 	// Read files in template directory
@@ -103,33 +104,34 @@ const esConfig = {
 	},
 	entry: entries,
 	output: {
-		filename: '[name].bundle.mjs',
-		chunkFilename: '[name].chunk.js',
+		filename: 'js/[name].bundle.mjs',
+		chunkFilename: 'js/[name].chunk.js',
 		path: path.resolve(__dirname, destPath),
+		publicPath: publicPath,
 	},
 	// externals: {
 	// 	jquery: 'jQuery'
 	// },
 	plugins: [
 		// new CleanWebpackPlugin(['./dist/css']),
-		new CleanWebpackPlugin({
-			cleanOnceBeforeBuildPatterns: [
-				resolve('build/**/*'),
-				resolve('debug/**/*'),
-				resolve('bundlesize/**/*'),
-			],
+		// new CleanWebpackPlugin({
+		// 	cleanOnceBeforeBuildPatterns: [
+		// 		resolve('build/**/*'),
+		// 		resolve('debug/**/*'),
+		// 		resolve('bundlesize/**/*'),
+		// 	],
 
-			verbose: true,
-			dry: true, // remove after testing
-		}),
+		// 	verbose: true,
+		// 	dry: true, // remove after testing
+		// }),
 		new BrowserSyncPlugin({
-			host: 'localhost',
+			// host: 'localhost',
 			port: 3000,
 			files: ['*.html', '*.css', '*.js'],
-			server: {
-				baseDir: ['./dist/'],
-			},
-			// proxy: "local.phpServer" //<== php server
+			// server: {
+			// 	baseDir: ['./dist/'],
+			// },
+			proxy: 'http://mywebsite.luhn/', //<== php server
 		}),
 
 		new ScriptExtHtmlWebpackPlugin({
@@ -152,8 +154,10 @@ const esConfig = {
 			// Options similar to the same options in webpackOptions.output
 			// both options are optional.
 			hot: process.env.NODE_ENV === 'development',
-			filename: 'css/[name].[hash:4].css',
-			chunkFilename: 'css/[name]-chunk.[hash:4].css',
+			// filename: 'css/[name].[hash:4].css',
+			// chunkFilename: 'css/[name]-chunk.[hash:4].css',
+			filename: 'css/[name]-critical.css',
+			chunkFilename: 'css/[name]-chunk.css',
 			// chunkFilename: '[id].[hash:4].css',
 			// moduleFilename: ({ name }) => `css/${name}.[hash:4].css`,
 		}),
@@ -177,6 +181,7 @@ const esConfig = {
 					{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
+							publicPath: publicPath, //path for urls in css
 							// hot: process.env.NODE_ENV === 'development',
 							hmr: process.env.NODE_ENV === 'development',
 							reloadAll: true,
@@ -245,7 +250,8 @@ const esConfig = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'video/[name].[ext]',
+							name: '[name].[ext]',
+							outputPath: 'video/',
 						},
 					},
 					{
@@ -283,12 +289,54 @@ const esConfig = {
 			//   ]
 			// },
 			{
-				test: /\.(png|jpe?g|gif|svg|webp|eot|ttf|woff|woff2)$/,
+				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							name: 'fonts/[name].[ext]',
+							limit: 10000,
+							minetype: 'application/font-woff',
+							// outputPath: 'fonts/',
+						},
+					},
+				],
+			},
+			{
+				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				exclude: [/img/],
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'fonts/',
+						},
+					},
+				],
+			},
+			// {
+			// 	test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+			// 	exclude: [/img/], //Ignore svg that are in images folder
+
+			// 	use: [
+			// 		{
+			// 			loader: 'file-loader',
+			// 			options: {
+			// 				name: '[name].[ext]',
+			// 				outputPath: 'fonts/',
+			// 			},
+			// 		},
+			// 	],
+			// },
+
+			{
+				test: /\.(png|jpe?g|gif|svg|webp)$/,
 				loaders: [
 					{
 						loader: 'file-loader',
 						options: {
-							name: '/img/[hash:6].[ext]',
+							name: 'img/[hash:6].[ext]',
 						},
 					},
 					{

@@ -1,43 +1,65 @@
-// const getFoo = import(
-// 	/* webpackChunkName: "foo"*/ /* webpackPreload: true*/ '../hover-changeGif.js'
-// );
+// non global shared chunks can by Dynamicly imported  to generate a chunk
+// once generated ==> comment the import and execution in the constructor and load them in fucntions.php
 
-// const getlodash = () =>
-// 	import(/* webpackChunkName: "lodash"*/ /* webpackPreload: true*/ 'lodash');
-
-// getlodash().then((lodash) => {
-// 	console.log(lodash.trim('    test    '));
-// 	console.log('    test    ');
-// });
-
-// LOOK AT NETWORK==> it gets prefetched but it's not executed
-const getHomeCss = () =>
-	import(
-		/* webpackChunkName: "homepage"*/ /* webpackPreload: true*/ '../../../sass/pages/_home.scss'
-	);
-// const getHomeCss = () =>
+// Shared CSS Chunks (non global)
+// const genSharedChunk = () =>
 // 	import(
-// 		/* webpackChunkName: "homeCSS"*/ /* webpackPreload: true*/ '../../../sass/pages/_home.scss'
+// 		/* webpackChunkName: "sharedChunk"*/ /* webpackPreload: true*/ '../../../sass/layout/_sharedChunk.scss'
 // 	);
-import '../../../sass/components/_navigation.scss';
-// import '../sass/components/footer.scss';
-// import './html/index.html';
-// import isMobile from '../isMobile.js';
-// import hoverChangeGif from '../hover-changeGif.js';
-// import '../isMobile.js';
-// import '../hover-changeGif.js';
-// const getFoo = import(
-// 	/* webpackChunkName: "foo"*/ /* webpackPreload: true*/ '../hover-changeGif.js'
-// );
+
+// LazyLoaded CSS
+const getPageCss = () =>
+	import(
+		/* webpackChunkName: "LLhomepage"*/ /* webpackPrefetch: true*/ '../../../sass/pages/_home.scss'
+	);
+
+// Critical CSS (enqueue in functions.php)
+import '../../../sass/components/_preloader.scss';
+// import '../../../sass/layout/_header.scss';
+// import '../../../sass/components/_navigation.scss';
 
 class App {
 	constructor() {
-		// getFoo.then(({ default: foo }) => {
-		// 	let f = new foo();
-		// });
-		getHomeCss();
+		// You can comment the generators once you've got the chunks
+		// genSharedChunk();
+
+		// Lazy load css
+		getPageCss();
+
+		// LazyLoaded & prefeteched Js
+		this.lazyLoadingHover();
 	}
 
+	lazyLoadingHover() {
+		//this method is more used form importing libraries and using them only when needed
+		let buttons = document.querySelectorAll('.js-change_gif');
+		for (let i = 0; i < buttons.length; i++) {
+			const button = buttons[i];
+			button.addEventListener('mouseover', () => {
+				if (this.hoverGif == undefined) {
+					import(
+						/* webpackChunkName: "HoverGif"*/ /* webpackPrefetch: true*/ '../modules/hover-changeGif'
+					).then(({ default: instance }) => {
+						this.hoverGif = new instance();
+					});
+				}
+			});
+		}
+	}
+	// This won't do the same
+	// lazyLoadingHover(variable, getModule, classname) {
+	// 	let buttons = document.querySelectorAll(classname);
+	// 	for (let i = 0; i < buttons.length; i++) {
+	// 		const button = buttons[i];
+	// 		button.addEventListener('mouseover', () => {
+	// 			if (variable == undefined) {
+	// 				// getModule.then(({ default: module }) => {
+	// 				// 	variable = new module();
+	// 				// });
+	// 			}
+	// 		});
+	// 	}
+	// }
 	start() {
 		// body.has('home', () => {
 		//   // This code will run only on the homepage

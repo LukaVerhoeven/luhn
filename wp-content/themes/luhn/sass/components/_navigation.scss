@@ -12,324 +12,308 @@ $querysize: 'desktop-xl';
 /***********************
 *   Animation   *
 ***********************/
-$yCurve: cubic-bezier(.25,.5,.5,1.65);
+$yCurve: cubic-bezier(0.25, 0.5, 0.5, 1.65);
 $animationTime: 8s;
 @keyframes hovering {
-    50% {
-      animation-timing-function: $yCurve;
-      transform: translateY(20px);
-    }
+	50% {
+		animation-timing-function: $yCurve;
+		transform: translateY(20px);
+	}
 }
 
-.hovering{
-    height: 100%;
-    @include mq('desktop') {
-        animation: hovering $animationTime infinite;
-        animation-timing-function: $yCurve;
-    }
+.hovering {
+	height: 100%;
+	@include mq('desktop') {
+		animation: hovering $animationTime infinite;
+		animation-timing-function: $yCurve;
+	}
 }
 
-.contact-link .hovering{
-    animation-delay: -0.5s;
+.contact-link .hovering {
+	animation-delay: -0.5s;
 }
-.design-link .hovering{
-    animation-delay: -1.5s;
+.design-link .hovering {
+	animation-delay: -1.5s;
 }
-.web-link .hovering{
-    animation-delay: 0.9s;
+.web-link .hovering {
+	animation-delay: 0.9s;
 }
 
 /***********************
 *    Global Nav css    *
 ***********************/
 .global-menu__wrap {
-    display: flex;
-    @include mq('phablet') {
-        // flex-direction: row-reverse;
-    }
+	display: flex;
+	@include mq('phablet') {
+		// flex-direction: row-reverse;
+	}
+}
+nav li {
+	list-style: none;
 }
 
-.menu-col{
-    flex: auto;
-    list-style: none;
+.menu-col {
+	flex: auto;
 }
-
 
 .global-menu__item {
-    position: relative;
-    height: 25%;
-    min-height: 180px;
-    z-index: -2;
-    display: block;
-    margin: 0;
-    will-change: opacity,transform;
+	position: relative;
+	height: 25%;
+	min-height: 180px;
+	z-index: -2;
+	display: block;
+	margin: 0;
+	will-change: opacity, transform;
 
-
-    @include mq('phablet') {
-        width: 49%;
-        height: 100%;
-        display: inline-block;
-    }
-    @include mq('desktop') {
-        width: 23%;
-    }
-
-  
+	@include mq('phablet') {
+		width: 49%;
+		height: 100%;
+		display: inline-block;
+	}
+	@include mq('desktop') {
+		width: 23%;
+	}
 }
 
 // fix ==> disable paralax on mobile
-@media only screen and (max-width:1024px) {
-    .global-menu{
-        background-attachment: inherit !important;
-    }
+@media only screen and (max-width: 1024px) {
+	.global-menu {
+		background-attachment: inherit !important;
+	}
 
-    .global-menu__item {
-        background-attachment: inherit !important;
-        transform-style: unset !important;
-        position: relative !important;
-        backface-visibility: inherit !important;
-        transform: inherit !important;
+	.global-menu__item {
+		background-attachment: inherit !important;
+		transform-style: unset !important;
+		position: relative !important;
+		backface-visibility: inherit !important;
+		transform: inherit !important;
 
-        @include mq('phablet') {
-            display: inline-block !important;
-        }
-    }
+		@include mq('phablet') {
+			display: inline-block !important;
+		}
+	}
 }
 
+.background-3d a {
+	// background-size: 630%;
+	height: $menu-size;
+	width: $menu-size;
+	text-transform: uppercase;
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+	font-size: 6vw;
+	position: absolute;
+	color: #fff;
 
+	// @include sprite('image-sheet', 'webp');
 
-.background-3d a{
+	@include mq('phablet') {
+		font-size: 1.8vw;
+		line-height: 2.5vw;
+		top: 50%;
+		bottom: 50%;
+		right: 0;
+		left: 0;
+		margin: auto;
+		width: $menu-width-desktop;
+		height: $menu-height-desktop;
+	}
 
-    // background-size: 630%;
-    height: $menu-size;
-    width: $menu-size;
-    text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-size: 6vw;
-    position: absolute;
-    color: #fff;
+	@include mq($querysize) {
+		font-size: 3rem;
+		line-height: 4.1rem;
+	}
 
-    
-    // @include sprite('image-sheet', 'webp');
-
-    @include mq('phablet') {
-        font-size: 1.8vw;
-        line-height: 2.5vw;
-        top: 50%;
-        bottom: 50%;
-        right: 0;
-        left: 0;
-        margin: auto;
-        width: $menu-width-desktop;
-        height: $menu-height-desktop;
-    }
-
- 
-
-    @include mq($querysize) {
-        font-size: 3rem;
-        line-height: 4.1rem;
-    }
-
-    span{
-        font-family: 'Poppins', sans-serif;
-    }
+	span {
+		font-family: 'Poppins', sans-serif;
+	}
 }
 
-
-.big-menu{
-    display: block;
+.big-menu {
+	display: block;
 }
-
-
 
 /***********************
 *        contact       *
 ***********************/
-.contact-link a{
-    right: 0;
-    background-position: 60% 0;
-    color: #77abb5;
-    padding-top: 20vmin;
-    padding-right: 18%;
-    // font-size: 6vw;
-    letter-spacing: .6rem;
-    line-height: 8.5vw;
-    background-image:  url("/wp-content/themes/luhn/dist/img/air.svg");
-    background-size: 74%;
-    background-position:45% 75%;
-    background-repeat: no-repeat;
-    
-    
-    
-    @include mq('phablet') {
-        background-position: 50% 30%;
-        // background-position: 15px 7px;
-        // background-position: 32px 17px;
-        // font-size: 2.5vw;
-        line-height: 2.5vw;
-        padding-top: $menu-width-desktop/2.7;
-        padding-right: 11%;
-        max-height: $menu-maxsize-desktop;
-        max-width: $menu-maxsize-desktop*.91;
-        top: 53%;
-    }
-    
-    @include mq($querysize) {
-        padding-top: $menu-maxsize-desktop/2.9;
-        padding-right: 52px;
-        font-size: 3rem;
-        line-height: 4rem;
-    }        
+.contact-link a {
+	right: 0;
+	background-position: 60% 0;
+	color: #77abb5;
+	padding-top: 20vmin;
+	padding-right: 18%;
+	// font-size: 6vw;
+	letter-spacing: 0.6rem;
+	line-height: 8.5vw;
+	background-image: url('/wp-content/themes/luhn/dist/img/air.svg');
+	background-size: 74%;
+	background-position: 45% 75%;
+	background-repeat: no-repeat;
+
+	@include mq('phablet') {
+		background-position: 50% 30%;
+		// background-position: 15px 7px;
+		// background-position: 32px 17px;
+		// font-size: 2.5vw;
+		line-height: 2.5vw;
+		padding-top: $menu-width-desktop/2.7;
+		padding-right: 11%;
+		max-height: $menu-maxsize-desktop;
+		max-width: $menu-maxsize-desktop * 0.91;
+		top: 53%;
+	}
+
+	@include mq($querysize) {
+		padding-top: $menu-maxsize-desktop/2.9;
+		padding-right: 52px;
+		font-size: 3rem;
+		line-height: 4rem;
+	}
 }
 
-.contact-link span.big-menu{
-    font-size: 7vw;
-    @include mq('phablet') {
-        font-size: 2.1vw;
-        margin-left: -2px;
-    }
-    @include mq($querysize) {
-        font-size: 3.5rem;
-    }      
+.contact-link span.big-menu {
+	font-size: 7vw;
+	@include mq('phablet') {
+		font-size: 2.1vw;
+		margin-left: -2px;
+	}
+	@include mq($querysize) {
+		font-size: 3.5rem;
+	}
 }
 
 /***********************
 *        design       *
 ***********************/
-nav .design-link{
-    margin-top: 14vh;
-    z-index: 0;
-    
-    @include mq('phablet') {
-        margin-top: 0;
-    }
-    @include mq('desktop') {
-        width: 27%; //$menu-height-desktop
-    }   
+nav .design-link {
+	margin-top: 14vh;
+	z-index: 0;
+
+	@include mq('phablet') {
+		margin-top: 0;
+	}
+	@include mq('desktop') {
+		width: 27%; //$menu-height-desktop
+	}
 }
 
-.design-link a{
-    background-position: 19% 1%;
-    padding-top: 45%;
-    border-bottom-right-radius: 55%;
-    border-bottom-left-radius: 55%;
-    border-top-right-radius: 55%;
-    background-image:  url("/wp-content/themes/luhn/dist/img/water.svg");
-    background-size: 95%;
-    background-position:40% 80%;
-    background-repeat: no-repeat;
-    
-    
-    @include mq('phablet') {
-        background-position: 70% 115%;
-        max-width: $menu-maxsize-desktop*1.05;
-        max-height: $menu-maxsize-desktop*1.05;
-        padding-top: $menu-width-desktop/1.85;
-    }
+.design-link a {
+	background-position: 19% 1%;
+	padding-top: 45%;
+	border-bottom-right-radius: 55%;
+	border-bottom-left-radius: 55%;
+	border-top-right-radius: 55%;
+	background-image: url('/wp-content/themes/luhn/dist/img/water.svg');
+	background-size: 95%;
+	background-position: 40% 80%;
+	background-repeat: no-repeat;
 
-    @include mq('desktop') {
-       padding-top: 31%;
-    }
+	@include mq('phablet') {
+		background-position: 70% 115%;
+		max-width: $menu-maxsize-desktop * 1.05;
+		max-height: $menu-maxsize-desktop * 1.05;
+		padding-top: $menu-width-desktop/1.85;
+	}
 
-    @include mq($querysize) {
-        padding-top: $menu-maxsize-desktop/2.2;
-    }          
+	@include mq('desktop') {
+		padding-top: 31%;
+	}
+
+	@include mq($querysize) {
+		padding-top: $menu-maxsize-desktop/2.2;
+	}
 }
 
 /***********************
 *        web-dev       *
 ***********************/
-nav .web-link{
-    margin-top: 8vh;
-    z-index: -1;
-    
-    @include mq('phablet') {
-        margin-top: 0;
-    }        
+nav .web-link {
+	margin-top: 8vh;
+	z-index: -1;
+
+	@include mq('phablet') {
+		margin-top: 0;
+	}
 }
 
-.web-link a{
-    text-align: left;
-    padding-left: 38%;
-    padding-top: 58%;
-    right: 0;
-    border-bottom-left-radius: 35%;
-    border-top-right-radius: 80%;
-    // background-position: 40% 1%;
-    height: $menu-size*1.1;
-    background-image:  url("/wp-content/themes/luhn/dist/img/earth.svg");
-    background-size: 95%;
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    
-    
-    @include mq('phablet') {
-        padding-top: $menu-width-desktop/2.1;
-        padding-left: $menu-width-desktop/2.95;        
-        height: $menu-height-desktop*0.965;
-        max-height: $menu-maxsize-desktop*1.05;
-        max-width: $menu-maxsize-desktop*.95;
-    }
+.web-link a {
+	text-align: left;
+	padding-left: 38%;
+	padding-top: 58%;
+	right: 0;
+	border-bottom-left-radius: 35%;
+	border-top-right-radius: 80%;
+	// background-position: 40% 1%;
+	height: $menu-size * 1.1;
+	background-image: url('/wp-content/themes/luhn/dist/img/earth.svg');
+	background-size: 95%;
+	background-position: 0% 100%;
+	background-repeat: no-repeat;
 
-    @include mq('desktop') {
-        padding-top: 39%;
-     }
-    @include mq($querysize) {
-        padding-top: $menu-maxsize-desktop/2.1;
-        padding-left: $menu-maxsize-desktop/3;
-    }        
+	@include mq('phablet') {
+		padding-top: $menu-width-desktop/2.1;
+		padding-left: $menu-width-desktop/2.95;
+		height: $menu-height-desktop * 0.965;
+		max-height: $menu-maxsize-desktop * 1.05;
+		max-width: $menu-maxsize-desktop * 0.95;
+	}
+
+	@include mq('desktop') {
+		padding-top: 39%;
+	}
+	@include mq($querysize) {
+		padding-top: $menu-maxsize-desktop/2.1;
+		padding-left: $menu-maxsize-desktop/3;
+	}
 }
 
 /***********************
 *       Mo-graph       *
 ***********************/
 nav .motion-link {
-    margin-top: 4vh;
-    z-index: 1;
+	margin-top: 4vh;
+	z-index: 1;
 
-    @include mq('phablet') {
-        margin-top: 0;
-    }      
+	@include mq('phablet') {
+		margin-top: 0;
+	}
 }
 
-.motion-link a{
-    height: $menu-size*1.35;
-    padding-top: 64%;
-    padding-left: 35%;
-    padding-bottom: 15px;
-    text-align: left;
-    letter-spacing: .4rem;
-    background-image:  url("/wp-content/themes/luhn/dist/img/fire.svg");
-    background-size: 70%;
-    background-position: 20% 80%;
-    background-repeat: no-repeat;
-    border-top-right-radius: 100%;
+.motion-link a {
+	height: $menu-size * 1.35;
+	padding-top: 64%;
+	padding-left: 35%;
+	padding-bottom: 15px;
+	text-align: left;
+	letter-spacing: 0.4rem;
+	background-image: url('/wp-content/themes/luhn/dist/img/fire.svg');
+	background-size: 70%;
+	background-position: 20% 80%;
+	background-repeat: no-repeat;
+	border-top-right-radius: 100%;
 
-    @include mq('phablet') {
-        padding-left: $menu-width-desktop/3.4;
-        padding-top: $menu-width-desktop/1.75;
-        padding-bottom: 5%;        
-        height: $menu-height-desktop*1.21;
-        max-height: $menu-maxsize-desktop*1.25;
-        max-width: $menu-maxsize-desktop*.915;
-    }   
-    @include mq('desktop') {
-        padding-top: 47%;
-     }
-    @include mq($querysize) {
-        padding-top: $menu-maxsize-desktop/1.95;
-        padding-left: $menu-maxsize-desktop/3.7;
-    }        
+	@include mq('phablet') {
+		padding-left: $menu-width-desktop/3.4;
+		padding-top: $menu-width-desktop/1.75;
+		padding-bottom: 5%;
+		height: $menu-height-desktop * 1.21;
+		max-height: $menu-maxsize-desktop * 1.25;
+		max-width: $menu-maxsize-desktop * 0.915;
+	}
+	@include mq('desktop') {
+		padding-top: 47%;
+	}
+	@include mq($querysize) {
+		padding-top: $menu-maxsize-desktop/1.95;
+		padding-left: $menu-maxsize-desktop/3.7;
+	}
 }
 /* before: main.css */
 /* critical:start */
 
-.motion-link a::first-letter{
-    margin-left: 1.5px;
+.motion-link a::first-letter {
+	margin-left: 1.5px;
 }
-
 
 /************************************************
 *               Homepage Desktop                *
@@ -338,58 +322,57 @@ nav .motion-link {
 /*********************************
 *            Shapes              *
 **********************************/
-.home{
-    @include mq('desktop') {
-        // RESET HAMBURGER MENU
-        .hamburger{
-            display: none;
-        }
-        
-        .global-menu{
-            position: absolute;
-            max-width: unset;
-            margin-top: 3vh;
+.home {
+	@include mq('desktop') {
+		// RESET HAMBURGER MENU
+		.hamburger {
+			display: none;
+		}
 
-            @include mq($querysize) {
-                margin-top: 6vh;
-            }              
-        }
-        .global-menu__item{
-            transform: scale(1);
-            position: absolute;
-            pointer-events: auto;
-            opacity: 1;
-            height: $menu-list-height-desktop;
-            transition: none;
-            
-            a{
-                transition: transform .3s ease 0s;
+		.global-menu {
+			position: absolute;
+			max-width: unset;
+			margin-top: 3vh;
 
-                &:hover{
-                    transform: scale(1.07);
-                }       
-            }     
-        }
-        // ENDOF RESET HAMBURGER MENU
-        .contact-link{
-            right: 30px;
-        }
+			@include mq($querysize) {
+				margin-top: 6vh;
+			}
+		}
+		.global-menu__item {
+			transform: scale(1);
+			position: absolute;
+			pointer-events: auto;
+			opacity: 1;
+			height: $menu-list-height-desktop;
+			transition: none;
 
-        .design-link{
+			a {
+				transition: transform 0.3s ease 0s;
 
-        }
+				&:hover {
+					transform: scale(1.07);
+				}
+			}
+		}
+		// ENDOF RESET HAMBURGER MENU
+		.contact-link {
+			right: 30px;
+		}
 
-        .web-link{
-            right: 10%;
-            top: 53vh;
-        }
+		.design-link {
+		}
 
-        .motion-link{
-            height: $menu-list-height-desktop*1.7;
-            top: 42vh;
-            left: 10%;
-        }
-    }      
+		.web-link {
+			right: 10%;
+			top: 53vh;
+		}
+
+		.motion-link {
+			height: $menu-list-height-desktop * 1.7;
+			top: 42vh;
+			left: 10%;
+		}
+	}
 }
 
 /* critical:end */

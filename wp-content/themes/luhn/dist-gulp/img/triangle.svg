@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 333.33 245.33" enable-background="new 0 0 333.33 245.33" xml:space="preserve">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="17.5199" y1="139.3234" x2="306.6838" y2="139.3234">
+	<stop  offset="0" style="stop-color:#F64E66;stop-opacity:0.3"/>
+	<stop  offset="1" style="stop-color:#FCC8AD;stop-opacity:0.3"/>
+</linearGradient>
+<polyline fill="none" stroke="url(#SVGID_1_)" stroke-width="1.1259" stroke-miterlimit="10" points="306.47,169.27 162.1,109.47 
+	17.74,169.27 "/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="137.2019" y1="165.8747" x2="248.4476" y2="165.8747" gradientTransform="matrix(0.9897 0.1431 -0.1431 0.9897 0.2018 -71.5279)">
+	<stop  offset="0" style="stop-color:#2373E7"/>
+	<stop  offset="1" style="stop-color:#3AE9CF"/>
+</linearGradient>
+<polyline fill="none" stroke="url(#SVGID_2_)" stroke-width="47.0429" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+	207.24,68.37 154.56,94.55 182.22,143.37 127.37,172.1 "/>
+<g>
+	<defs>
+		<path id="SVGID_3_" d="M224.94,83.91l0.94-1.22L381.33,160c0,0-11.85,93.63-43.85,97.19c-32,3.56-288.59,8.89-288.59,8.89
+			l-144-103.7l57.48-103.11c0,0,71.7-46.22,73.48-48.59S152-25.48,152-25.48l46.55,55.59l-4.65,18.62l-1.54,0.78L224.94,83.91z"/>
+	</defs>
+	<clipPath id="SVGID_4_">
+		<use xlink:href="#SVGID_3_"  overflow="visible"/>
+	</clipPath>
+	<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="16.7645" y1="122.2343" x2="307.4392" y2="122.2343">
+		<stop  offset="0" style="stop-color:#F64E66"/>
+		<stop  offset="1" style="stop-color:#FCC8AD"/>
+	</linearGradient>
+	<polyline clip-path="url(#SVGID_4_)" fill="none" stroke="url(#SVGID_5_)" stroke-width="1.1259" stroke-miterlimit="10" points="
+		162.1,16.31 306.47,168.93 162.1,228.73 162.1,16.31 17.74,168.93 162.1,228.73 	"/>
+</g>
+</svg>

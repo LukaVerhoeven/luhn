@@ -2,7 +2,7 @@ const path = require('path');
 
 const resources = [
 	'_variables.scss',
-	'_reset.scss',
+	// '_reset.scss',
 	'_colors.scss',
 	'_breakpoints.scss',
 	'_helpers.scss',

@@ -1,0 +1,86 @@
+/***********************
+*     overlay color    *
+***********************/
+.post-color1 {
+  background-color: #feece2; }
+
+header.post-color1 {
+  background-color: transparent;
+  color: #461a02; }
+
+.post-color2 {
+  background-color: #cddfe3; }
+
+header.post-color2 {
+  background-color: transparent;
+  color: #406871; }
+
+.hide {
+  display: none !important; }
+
+.hide-mobile {
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .hide-mobile {
+      display: initial; } }
+
+@media only screen and (min-width: 1024px) {
+  .hide-desktop {
+    display: none; } }
+
+.fade-out {
+  transition: opacity .8s ease;
+  opacity: 0; }
+
+/***********************
+*         Rotate         *
+***********************/
+/***********************
+*         Math         *
+***********************/
+.home footer {
+  padding-top: 10px; }
+
+footer {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  padding: 70px 0; }
+  footer h2 {
+    margin-bottom: 20px; }
+  footer a {
+    padding: 1rem;
+    text-indent: -9999px;
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(17deg, #ffb88c, #f0a490);
+    transition: all 200ms;
+    will-change: transition;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+    footer a:hover {
+      -webkit-transform: scale(1.1) translateY(-3px);
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25); }
+      footer a:hover .icon-instagram {
+        left: 0; }
+    footer a i, footer a svg {
+      color: white;
+      font-size: 1.8rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-indent: 0; }
+    footer a i {
+      margin-top: 3px; }
+    footer a .icon-instagram {
+      font-size: 2.5rem;
+      left: 2px; }
+    footer a .icon-whatsapp {
+      transform: scale(1.3); }
+

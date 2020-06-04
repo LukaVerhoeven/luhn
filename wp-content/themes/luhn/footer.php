@@ -63,6 +63,17 @@
 </script>  
 <?php endif; ?>
 <?php if(is_page('home')):?>
+	<!-- <script >
+		(function() {
+			const transition = document.querySelector('.global-menu__item');
+			var removeLoader = function (event) {
+				var loader = document.getElementById("preloader");
+				loader.classList.add("hide");
+				transition.removeEventListener('transitionend',removeLoader, false );
+			};
+			transition.addEventListener("transitionend", removeLoader, false);
+		})();
+    </script>  -->
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>
     AOS.init();

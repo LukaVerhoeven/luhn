@@ -50,36 +50,39 @@ https://luhn.be/
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200&font-display=swap"></noscript>
 
 	<!-- Animate on scroll -->
-	<link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.rel='stylesheet'"/>
-	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/dist/css/testaos.css"> -->
-	<!-- preload script in footer -->
-	<link rel="preload" href='<?php echo get_template_directory_uri()?>/dist/js/libraries.js"' as="script">
-	<link rel="preload" href="https://unpkg.com/aos@next/dist/aos.js" as="script">
+
 	
 	
 
 	
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
+		<?php wp_head(); ?>
+		
+	<!-- <link rel="preload" href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css" as="style" onload="this.rel='stylesheet'"/>
+	<script src="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js" defer></script> -->
+	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/dist/css/testaos.css"> -->
+	<!-- preload script in footer -->
+	<!-- <link rel="preload" href='<?php echo get_template_directory_uri()?>/dist/js/libraries.js"' as="script"> -->
+	<!-- <link rel="preload" href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js" as="script"> -->
+	<!-- <script>    document.documentElement.className = "js-glitch";</script> -->
 	<style>
 		/* PreLoad only works with JavaScript, 
 		   if it's not present, don't show loader */
 		.no-js #preloader { visibility: hidden; }
 		.js #preloader { visibility: visible; }
 	</style>
-	<script > 
+	<script >
 			document.onreadystatechange = function() { 
 				var loader = document.getElementById("preloader");
-					if (document.readyState !== "complete") { 
-						loader.classList.remove("hide");
+				if (document.readyState !== "complete") { 
+					loader.classList.remove("hide");
 					} else { 
 						loader.classList.add("hide");
 					} 
 			}; 
     </script> 
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
-    <?php wp_head(); ?>
-	<!-- <script>    document.documentElement.className = "js-glitch";</script> -->
-
 
 </head>
 <body <?php body_class(); ?> >
