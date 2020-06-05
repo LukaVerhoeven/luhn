@@ -1,0 +1,105 @@
+/***********************
+*     overlay color    *
+***********************/
+.post-color1 {
+  background-color: #feece2; }
+
+header.post-color1 {
+  background-color: transparent;
+  color: #461a02; }
+
+.post-color2 {
+  background-color: #cddfe3; }
+
+header.post-color2 {
+  background-color: transparent;
+  color: #406871; }
+
+.hide {
+  display: none !important; }
+
+.hide-mobile {
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .hide-mobile {
+      display: initial; } }
+
+@media only screen and (min-width: 1024px) {
+  .hide-desktop {
+    display: none; } }
+
+.fade-out {
+  transition: opacity .8s ease;
+  opacity: 0; }
+
+/***********************
+*         Rotate         *
+***********************/
+/***********************
+*         Math         *
+***********************/
+.grid__item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%; }
+
+.grid__item--bg {
+  background-color: var(--item-bg);
+  height: 100%; }
+
+.grid__item-content {
+  width: 100%;
+  padding: 8vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--item-bg); }
+
+.grid__item--bg .grid__item-content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0; }
+
+.grid__item-img {
+  display: block;
+  height: 100%;
+  width: 100%; }
+
+.grid__item-img canvas {
+  height: 100%;
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .grid__item-img canvas {
+      display: block; } }
+
+.grid__item-img img {
+  height: 100%;
+  display: block; }
+  @media only screen and (min-width: 1024px) {
+    .grid__item-img img {
+      position: absolute;
+      z-index: -1; } }
+
+.grid__item-img img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s; }
+
+.grid__item:hover .grid__item-img img:nth-child(2) {
+  opacity: 1; }
+
+.theme-8 {
+  --item-bg: #0c13c1;
+  --item-link: #dd8ca5;
+  --item-link-hover: #fff;
+  --item-meta: #fff;
+  --item-title: #fff;
+  --item-subtitle: #fff;
+  --item-text: #fff; }
+

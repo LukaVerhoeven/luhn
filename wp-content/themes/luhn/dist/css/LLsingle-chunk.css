@@ -1,0 +1,386 @@
+/***********************
+*     overlay color    *
+***********************/
+.post-color1 {
+  background-color: #feece2; }
+
+header.post-color1 {
+  background-color: transparent;
+  color: #461a02; }
+
+.post-color2 {
+  background-color: #cddfe3; }
+
+header.post-color2 {
+  background-color: transparent;
+  color: #406871; }
+
+.hide {
+  display: none !important; }
+
+.hide-mobile {
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .hide-mobile {
+      display: initial; } }
+
+@media only screen and (min-width: 1024px) {
+  .hide-desktop {
+    display: none; } }
+
+.fade-out {
+  transition: opacity .8s ease;
+  opacity: 0; }
+
+/***********************
+*         Rotate         *
+***********************/
+/***********************
+*         Math         *
+***********************/
+/***********************
+*     Single global   *
+***********************/
+.single {
+  /***********************
+    *       Intro block     *
+    ***********************/
+  /***********************
+    *    iframe/video      *
+    ***********************/
+  /***********************
+    *        gallery       *
+    ***********************/
+  /***********************
+    *        image       *
+    ***********************/
+  /***********************
+    *        text       *
+    ***********************/ }
+  .single section:nth-child(2n):before {
+    content: "";
+    display: block;
+    height: 120px;
+    width: 40px;
+    background-position: 58% 50%;
+    margin: 30px auto;
+    background-image: url("/wp-content/themes/luhn/dist/img/zigzag1.svg");
+    background-repeat: no-repeat;
+    position: relative; }
+  .single section:nth-child(2n+1):before {
+    content: "";
+    position: relative;
+    display: block;
+    height: 100px;
+    width: 250px;
+    background-position: 79% 50%;
+    margin: 70px auto;
+    transition: transform .6s ease;
+    background-image: url("/wp-content/themes/luhn/dist/img/zigzag2.svg");
+    background-repeat: no-repeat; }
+  .single section:first-child:before {
+    display: none; }
+  .single section {
+    width: 90%;
+    margin: auto;
+    position: relative; }
+    .single section:last-child {
+      margin-bottom: 70px; }
+    @media only screen and (min-width: 768px) {
+      .single section {
+        max-width: 1100px; } }
+    @media only screen and (min-width: 1024px) {
+      .single section {
+        width: 75%; } }
+  .single .single-header {
+    width: 100%;
+    color: #5b5a5a; }
+    .single .single-header header {
+      text-align: right;
+      margin: 70px 25px; }
+      @media only screen and (min-width: 768px) {
+        .single .single-header header {
+          margin: 70px 0 70px auto;
+          width: 73%;
+          max-width: 900px; } }
+    .single .single-header h1 {
+      font-size: 3.5rem; }
+    .single .single-header header h2 {
+      font-size: 2rem; }
+    .single .single-header .intro-block {
+      max-width: 1200px;
+      margin: auto; }
+      @media only screen and (min-width: 1024px) {
+        .single .single-header .intro-block {
+          border-right: 1px solid #5b5a5a; } }
+    .single .single-header .cover-image {
+      display: inline-block;
+      margin-top: 20px;
+      width: 80%;
+      height: auto;
+      margin-left: 20px;
+      max-width: 300px; }
+      @media only screen and (min-width: 768px) {
+        .single .single-header .cover-image {
+          width: 40vw;
+          height: 40vw;
+          max-width: 500px;
+          max-height: 500px; } }
+      .single .single-header .cover-image img {
+        width: 100%;
+        height: auto; }
+      .single .single-header .cover-image canvas {
+        z-index: 1;
+        top: 0;
+        position: absolute; }
+    .single .single-header .grid__item-img {
+      z-index: 1; }
+    .single .single-header .single-intro {
+      position: relative;
+      width: 75%;
+      min-width: 230px;
+      min-height: 250px;
+      margin: auto;
+      margin-top: -140px;
+      margin-left: 18%;
+      text-align: right;
+      z-index: 0; }
+      @media only screen and (min-width: 768px) {
+        .single .single-header .single-intro {
+          display: table;
+          margin-left: auto; } }
+      @media only screen and (min-width: 1024px) {
+        .single .single-header .single-intro {
+          display: table;
+          margin-top: -200px;
+          min-height: 300px; } }
+      .single .single-header .single-intro p {
+        padding: 30px;
+        padding-top: 160px; }
+        @media only screen and (min-width: 768px) {
+          .single .single-header .single-intro p {
+            vertical-align: middle;
+            display: table-cell;
+            padding: 40px;
+            padding-left: 50%; } }
+        @media only screen and (min-width: 1024px) {
+          .single .single-header .single-intro p {
+            padding-left: 50%; } }
+      .single .single-header .single-intro a {
+        text-decoration: underline; }
+  .single .iframe .video-container,
+  .single .video .video-container {
+    position: relative;
+    padding-top: 25px;
+    height: 0;
+    padding-bottom: 54%;
+    position: relative;
+    padding-top: 25px;
+    height: 0;
+    padding-bottom: 54%; }
+    .single .iframe .video-container iframe,
+    .single .video .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    .single .iframe .video-container video,
+    .single .video .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+  .single .iframe .img-container,
+  .single .video .img-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    opacity: 1;
+    transition: opacity 1s ease;
+    will-change: opacity; }
+    .single .iframe .img-container h2,
+    .single .video .img-container h2 {
+      position: absolute;
+      color: #fff;
+      top: 31px;
+      left: 31px; }
+  .single .iframe .hide-overlay,
+  .single .video .hide-overlay {
+    opacity: 0; }
+  .single .iframe .cover,
+  .single .video .cover {
+    overflow: hidden;
+    position: relative;
+    position: relative;
+    padding-top: 25px;
+    height: 0;
+    padding-bottom: 54%; }
+    .single .iframe .cover 0,
+    .single .video .cover 0 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    .single .iframe .cover img,
+    .single .video .cover img {
+      width: 120%;
+      height: auto;
+      position: absolute;
+      left: -9999px;
+      right: -9999px;
+      top: -9999px;
+      bottom: -9999px;
+      margin: auto; }
+  .single .iframe .cover-overlay,
+  .single .video .cover-overlay {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    cursor: pointer;
+    overflow: hidden; }
+    .single .iframe .cover-overlay.dark,
+    .single .video .cover-overlay.dark {
+      background-color: rgba(100, 100, 100, 0.3); }
+  .single .iframe .icon-play,
+  .single .video .icon-play {
+    display: block;
+    height: 100%; }
+    .single .iframe .icon-play::before,
+    .single .video .icon-play::before {
+      color: white;
+      font-size: 3rem;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: -9999px;
+      right: -9999px;
+      top: -9999px;
+      bottom: -9999px;
+      margin: auto; }
+  .single .iframe .line,
+  .single .video .line {
+    border-color: #FFF; }
+  .single .gallery {
+    width: 100%;
+    max-width: 1400px; }
+    .single .gallery .carousel-container {
+      position: relative; }
+    .single .gallery .carousel {
+      width: 100%;
+      padding: 0 20%;
+      white-space: nowrap;
+      overflow: hidden; }
+      @media only screen and (min-width: 1024px) {
+        .single .gallery .carousel {
+          padding: 10% 22%; } }
+    .single .gallery li,
+    .single .gallery a,
+    .single .gallery img {
+      width: 100%;
+      height: auto; }
+    .single .gallery li {
+      display: inline-block;
+      vertical-align: middle;
+      opacity: 0;
+      visibility: hidden;
+      transition: transform .5s ease,opacity .3s ease, visibility .3s ease;
+      will-change: transform; }
+      @media only screen and (min-width: 1024px) {
+        .single .gallery li {
+          vertical-align: top;
+          width: 33%;
+          position: relative;
+          transform: scale(1.2); }
+          .single .gallery li:hover {
+            z-index: 4;
+            transform: scale(1.3); } }
+    .single .gallery li.active,
+    .single .gallery .js-active1,
+    .single .gallery .js-active2,
+    .single .gallery .js-active3 {
+      opacity: 1;
+      visibility: visible; }
+    .single .gallery .js-active-prev {
+      margin-bottom: 45%;
+      z-index: 4; }
+    .single .gallery .js-active1 {
+      margin-bottom: 30%;
+      z-index: 3; }
+    .single .gallery .js-active2 {
+      margin-bottom: 15%;
+      z-index: 2; }
+    .single .gallery .js-active3 {
+      z-index: 1; }
+    .single .gallery .js-active-next {
+      margin-bottom: -15%;
+      z-index: 0; }
+    .single .gallery .prev-button, .single .gallery .next-button {
+      text-indent: -9999px;
+      width: 20%;
+      height: 100%;
+      position: absolute; }
+      @media only screen and (min-width: 1024px) {
+        .single .gallery .prev-button, .single .gallery .next-button {
+          width: 10%;
+          height: 20%; } }
+    .single .gallery .icon-arrow {
+      text-indent: 0;
+      position: absolute; }
+      @media only screen and (min-width: 1024px) {
+        .single .gallery .icon-arrow {
+          font-size: 2.3rem; } }
+    .single .gallery .prev-button {
+      top: 0; }
+      @media only screen and (min-width: 1024px) {
+        .single .gallery .prev-button {
+          top: 15%;
+          left: 20.3%; } }
+      .single .gallery .prev-button .icon-arrow {
+        top: 0;
+        left: 25%;
+        transform: rotate(180deg); }
+        @media only screen and (min-width: 1024px) {
+          .single .gallery .prev-button .icon-arrow {
+            left: 0%; } }
+    .single .gallery .next-button {
+      bottom: 0;
+      right: 0; }
+      @media only screen and (min-width: 1024px) {
+        .single .gallery .next-button {
+          right: 20.3%;
+          bottom: 15%; } }
+      .single .gallery .next-button .icon-arrow {
+        right: 25%;
+        bottom: 0; }
+        @media only screen and (min-width: 1024px) {
+          .single .gallery .next-button .icon-arrow {
+            right: 0; } }
+    .single .gallery .no-more-slide {
+      animation-name: last-slide;
+      animation-iteration-count: 1;
+      animation-duration: .5s; }
+
+@keyframes last-slide {
+  0% {
+    transform: translateX(0px); }
+  20% {
+    transform: translateX(6px); }
+  40% {
+    transform: translateX(-6px); }
+  60% {
+    transform: translateX(6px); }
+  80% {
+    transform: translateX(-6px); }
+  100% {
+    transform: translateX(0px); } }
+  .single .image img {
+    width: 100%;
+    height: auto; }
+  .single .text-block a {
+    text-decoration: underline; }
+

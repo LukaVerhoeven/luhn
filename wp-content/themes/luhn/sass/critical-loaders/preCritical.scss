@@ -1,0 +1,18 @@
+.global-menu,
+.shape-overlays,
+.post-container {
+    visibility: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+//removed with js when loaded
+.disabled-transition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+}

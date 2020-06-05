@@ -10,10 +10,14 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 	.BundleAnalyzerPlugin;
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+	CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const webpack = require('webpack'); //to access built-in plugins
 const fs = require('fs');
-const { resolve } = require('path');
+const {
+	resolve
+} = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 // Our function that generates our html plugins
 
@@ -131,7 +135,7 @@ const esConfig = {
 			// server: {
 			// 	baseDir: ['./dist/'],
 			// },
-			proxy: 'http://mywebsite.luhn/', //<== php server
+			proxy: 'http://luhn-portfolio.wordpress/', //<== php server
 		}),
 
 		new ScriptExtHtmlWebpackPlugin({
@@ -174,11 +178,9 @@ const esConfig = {
 		// })
 	].concat(htmlPlugins),
 	module: {
-		rules: [
-			{
+		rules: [{
 				test: /\.(sa|sc|c)ss$/,
-				use: [
-					{
+				use: [{
 						loader: MiniCssExtractPlugin.loader,
 						options: {
 							publicPath: publicPath, //path for urls in css
@@ -189,10 +191,18 @@ const esConfig = {
 					},
 					{
 						loader: 'css-loader',
-						options: { sourceMap: true, importLoaders: 1 },
+						options: {
+							sourceMap: true,
+							importLoaders: 1
+						},
 					},
 					// 'postcss-loader',
-					{ loader: 'sass-loader', options: { sourceMap: true } },
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true
+						}
+					},
 					{
 						loader: 'sass-resources-loader',
 						options: {
@@ -246,8 +256,7 @@ const esConfig = {
 			{
 				test: /\.(mov|mp4|webm)$/,
 				// 'use' instead of 'loader' => chain multiple loaders (bottom to Top) or (right to Left)
-				use: [
-					{
+				use: [{
 						loader: 'file-loader',
 						options: {
 							name: '[name].[ext]',
@@ -290,30 +299,26 @@ const esConfig = {
 			// },
 			{
 				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							name: 'fonts/[name].[ext]',
-							limit: 10000,
-							minetype: 'application/font-woff',
-							// outputPath: 'fonts/',
-						},
+				use: [{
+					loader: 'url-loader',
+					options: {
+						name: 'fonts/[name].[ext]',
+						limit: 10000,
+						minetype: 'application/font-woff',
+						// outputPath: 'fonts/',
 					},
-				],
+				}, ],
 			},
 			{
 				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 				exclude: [/img/],
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: '[name].[ext]',
-							outputPath: 'fonts/',
-						},
+				use: [{
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]',
+						outputPath: 'fonts/',
 					},
-				],
+				}, ],
 			},
 			// {
 			// 	test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -332,8 +337,7 @@ const esConfig = {
 
 			{
 				test: /\.(png|jpe?g|gif|svg|webp)$/,
-				loaders: [
-					{
+				loaders: [{
 						loader: 'file-loader',
 						options: {
 							name: 'img/[hash:6].[ext]',
@@ -401,8 +405,7 @@ const legacyConfig = {
 		path: path.resolve(__dirname, 'dist'),
 	},
 	module: {
-		rules: [
-			{
+		rules: [{
 				test: /\.(sa|sc|c)ss$/,
 				use: ['css-loader', 'sass-loader'],
 			},
@@ -417,11 +420,9 @@ const legacyConfig = {
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
-				loaders: [
-					{
-						loader: 'file-loader',
-					},
-				],
+				loaders: [{
+					loader: 'file-loader',
+				}, ],
 			},
 		],
 	},

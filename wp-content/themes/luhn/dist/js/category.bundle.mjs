@@ -62,7 +62,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"LLfooter":"LLfooter","PLcategory":"PLcategory"}[chunkId]||chunkId) + ".chunk.js"
+/******/ 		return __webpack_require__.p + "js/" + ({"LLcategory-page":"LLcategory-page","LLfooter":"LLfooter","LLlines":"LLlines","active-category":"active-category"}[chunkId]||chunkId) + ".chunk.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -96,11 +96,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"LLfooter":1,"PLcategory":1};
+/******/ 		var cssChunks = {"LLcategory-page":1,"LLfooter":1,"LLlines":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "css/" + ({"LLfooter":"LLfooter","PLcategory":"PLcategory"}[chunkId]||chunkId) + "-chunk.css";
+/******/ 				var href = "css/" + ({"LLcategory-page":"LLcategory-page","LLfooter":"LLfooter","LLlines":"LLlines","active-category":"active-category"}[chunkId]||chunkId) + "-chunk.css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -260,7 +260,7 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = "../src/js/pageModules/category.js");
 /******/ 	})();
 /******/
-/******/ 	webpackJsonpCallback([[], {}, 0, ["LLfooter","PLcategory"]]);
+/******/ 	webpackJsonpCallback([[], {}, 0, ["LLcategory-page","LLfooter","LLlines","active-category"]]);
 /******/ 	return startupResult;
 /******/ })
 /************************************************************************/
@@ -273,7 +273,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// PRELOAD CSS\r\n// Create Chunks for Preloading (once generated ==> you can comment then in the constructor and load them in fucntions.php)\r\n// reset\r\n// typo\r\n// header\r\n// navigation\r\nconst genPageChunk = () =>\r\n\t__webpack_require__.e(/*! import() | PLcategory */ \"PLcategory\").then(__webpack_require__.t.bind(null, /*! ../../../sass/pages/_cathegory.scss */ \"../sass/pages/_cathegory.scss\", 7));\r\n\r\n// LazyLoaded CSS\r\nconst getFooterCss = () =>\r\n\t__webpack_require__.e(/*! import() | LLfooter */ \"LLfooter\").then(__webpack_require__.t.bind(null, /*! ../../../sass/layout/_footer.scss */ \"../sass/layout/_footer.scss\", 7));\r\n\r\n// TODO: remove Preloader on other pages\r\n\r\nclass App {\r\n\tconstructor() {\r\n\t\t// You can comment the generators once you've got the chunks\r\n\t\tgenPageChunk();\r\n\r\n\t\t// Lazy load css\r\n\t\tgetFooterCss();\r\n\t}\r\n\r\n\tstart() {\r\n\t\t// body.has('home', () => {\r\n\t\t//   // This code will run only on the homepage\r\n\t\t//   this.home = new Homepage(this.injector);\r\n\t\t// });\r\n\t\t// console.log('Application running...');\r\n\t}\r\n}\r\n\r\n(() => {\r\n\tconst app = new App();\r\n\tapp.start();\r\n})();\r\n\n\n//# sourceURL=webpack:///../src/js/pageModules/category.js?");
+eval("// PRELOAD CSS\r\n// Create Chunks for Preloading (once generated ==> you can comment then in the constructor and load them in fucntions.php)\r\n// reset\r\n// typo\r\n// header\r\n// navigation\r\n// import '../../../sass/pages/_cathegory.scss';\r\n\r\n// LazyLoaded CSS\r\nconst genPageChunk = () =>\r\n\t__webpack_require__.e(/*! import() | LLcategory-page */ \"LLcategory-page\").then(__webpack_require__.t.bind(null, /*! ../../../sass/pages/_cathegory.scss */ \"../sass/pages/_cathegory.scss\", 7));\r\n\r\nconst getFooterCss = () =>\r\n\t__webpack_require__.e(/*! import() | LLfooter */ \"LLfooter\").then(__webpack_require__.t.bind(null, /*! ../../../sass/layout/_footer.scss */ \"../sass/layout/_footer.scss\", 7));\r\n\r\nconst getLinesCss = () =>\r\n\t__webpack_require__.e(/*! import() | LLlines */ \"LLlines\").then(__webpack_require__.t.bind(null, /*! ../../../sass/components/_corner-lines.scss */ \"../sass/components/_corner-lines.scss\", 7));\r\n\r\n// TODO: remove Preloader on other pages\r\n\r\nclass App {\r\n\tconstructor() {\r\n\t\t// You can comment the generators once you've got the chunks\r\n\r\n\t\t// Lazy load css\r\n\t\tgenPageChunk();\r\n\t\tgetFooterCss();\r\n\t\tgetLinesCss();\r\n\r\n\t\t__webpack_require__.e(/*! import() | active-category */ \"active-category\").then(__webpack_require__.bind(null, /*! ../modules/active-category */ \"../src/js/modules/active-category.js\")).then(\r\n\t\t\t({\r\n\t\t\t\tdefault: instance\r\n\t\t\t}) => {\r\n\t\t\t\tnew instance();\r\n\t\t\t}\r\n\t\t);\r\n\t}\r\n\r\n\tstart() {\r\n\t\t// body.has('home', () => {\r\n\t\t//   // This code will run only on the homepage\r\n\t\t//   this.home = new Homepage(this.injector);\r\n\t\t// });\r\n\t\t// console.log('Application running...');\r\n\t}\r\n}\r\n\r\n(() => {\r\n\tconst app = new App();\r\n\tapp.start();\r\n})();\n\n//# sourceURL=webpack:///../src/js/pageModules/category.js?");
 
 /***/ })
 

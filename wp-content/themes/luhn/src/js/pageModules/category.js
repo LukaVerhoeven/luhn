@@ -4,15 +4,28 @@
 // typo
 // header
 // navigation
-const genPageChunk = () =>
-	import(
-		/* webpackChunkName: "PLcategory"*/ /* webpackPrefetch: true*/ '../../../sass/pages/_cathegory.scss'
-	);
+// import '../../../sass/pages/_cathegory.scss';
 
 // LazyLoaded CSS
+const genPageChunk = () =>
+	import(
+		/* webpackChunkName: "LLcategory-page"*/
+		/* webpackPrefetch: true*/
+		'../../../sass/pages/_cathegory.scss'
+	);
+
 const getFooterCss = () =>
 	import(
-		/* webpackChunkName: "LLfooter"*/ /* webpackPrefetch: true*/ '../../../sass/layout/_footer.scss'
+		/* webpackChunkName: "LLfooter"*/
+		/* webpackPrefetch: true*/
+		'../../../sass/layout/_footer.scss'
+	);
+
+const getLinesCss = () =>
+	import(
+		/* webpackChunkName: "LLlines"*/
+		/* webpackPrefetch: true*/
+		'../../../sass/components/_corner-lines.scss'
 	);
 
 // TODO: remove Preloader on other pages
@@ -20,10 +33,19 @@ const getFooterCss = () =>
 class App {
 	constructor() {
 		// You can comment the generators once you've got the chunks
-		genPageChunk();
 
 		// Lazy load css
+		genPageChunk();
 		getFooterCss();
+		getLinesCss();
+
+		import( /* webpackChunkName: "active-category"*/ /* webpackPrefetch: true*/ '../modules/active-category').then(
+			({
+				default: instance
+			}) => {
+				new instance();
+			}
+		);
 	}
 
 	start() {

@@ -14,6 +14,7 @@ $querysize: 'desktop-xl';
 ***********************/
 $yCurve: cubic-bezier(0.25, 0.5, 0.5, 1.65);
 $animationTime: 8s;
+
 @keyframes hovering {
 	50% {
 		animation-timing-function: $yCurve;
@@ -21,22 +22,27 @@ $animationTime: 8s;
 	}
 }
 
-.hovering {
+.home .hovering {
 	height: 100%;
+
 	@include mq('desktop') {
 		animation: hovering $animationTime infinite;
 		animation-timing-function: $yCurve;
 	}
 }
 
-.contact-link .hovering {
-	animation-delay: -0.5s;
-}
-.design-link .hovering {
-	animation-delay: -1.5s;
-}
-.web-link .hovering {
-	animation-delay: 0.9s;
+.home {
+	.contact-link .hovering {
+		animation-delay: -0.5s;
+	}
+
+	.design-link .hovering {
+		animation-delay: -1.5s;
+	}
+
+	.web-link .hovering {
+		animation-delay: 0.9s;
+	}
 }
 
 /***********************
@@ -44,10 +50,12 @@ $animationTime: 8s;
 ***********************/
 .global-menu__wrap {
 	display: flex;
+
 	@include mq('phablet') {
 		// flex-direction: row-reverse;
 	}
 }
+
 nav li {
 	list-style: none;
 }
@@ -70,9 +78,8 @@ nav li {
 		height: 100%;
 		display: inline-block;
 	}
-	@include mq('desktop') {
-		width: 23%;
-	}
+
+
 }
 
 // fix ==> disable paralax on mobile
@@ -173,10 +180,12 @@ nav li {
 
 .contact-link span.big-menu {
 	font-size: 7vw;
+
 	@include mq('phablet') {
 		font-size: 2.1vw;
 		margin-left: -2px;
 	}
+
 	@include mq($querysize) {
 		font-size: 3.5rem;
 	}
@@ -192,9 +201,10 @@ nav .design-link {
 	@include mq('phablet') {
 		margin-top: 0;
 	}
-	@include mq('desktop') {
-		width: 27%; //$menu-height-desktop
-	}
+
+	// @include mq('desktop') {
+	// 	width: 27%; //$menu-height-desktop
+	// }
 }
 
 .design-link a {
@@ -215,9 +225,6 @@ nav .design-link {
 		padding-top: $menu-width-desktop/1.85;
 	}
 
-	@include mq('desktop') {
-		padding-top: 31%;
-	}
 
 	@include mq($querysize) {
 		padding-top: $menu-maxsize-desktop/2.2;
@@ -258,9 +265,8 @@ nav .web-link {
 		max-width: $menu-maxsize-desktop * 0.95;
 	}
 
-	@include mq('desktop') {
-		padding-top: 39%;
-	}
+
+
 	@include mq($querysize) {
 		padding-top: $menu-maxsize-desktop/2.1;
 		padding-left: $menu-maxsize-desktop/3;
@@ -300,16 +306,15 @@ nav .motion-link {
 		max-height: $menu-maxsize-desktop * 1.25;
 		max-width: $menu-maxsize-desktop * 0.915;
 	}
-	@include mq('desktop') {
-		padding-top: 47%;
-	}
+
+
+
 	@include mq($querysize) {
 		padding-top: $menu-maxsize-desktop/1.95;
 		padding-left: $menu-maxsize-desktop/3.7;
 	}
 }
-/* before: main.css */
-/* critical:start */
+
 
 .motion-link a::first-letter {
 	margin-left: 1.5px;
@@ -324,6 +329,7 @@ nav .motion-link {
 **********************************/
 .home {
 	@include mq('desktop') {
+
 		// RESET HAMBURGER MENU
 		.hamburger {
 			display: none;
@@ -338,6 +344,7 @@ nav .motion-link {
 				margin-top: 6vh;
 			}
 		}
+
 		.global-menu__item {
 			transform: scale(1);
 			position: absolute;
@@ -345,6 +352,10 @@ nav .motion-link {
 			opacity: 1;
 			height: $menu-list-height-desktop;
 			transition: none;
+
+			@include mq('desktop') {
+				width: 23%;
+			}
 
 			a {
 				transition: transform 0.3s ease 0s;
@@ -354,25 +365,45 @@ nav .motion-link {
 				}
 			}
 		}
+
 		// ENDOF RESET HAMBURGER MENU
 		.contact-link {
 			right: 30px;
 		}
 
 		.design-link {
+			@include mq('desktop') {
+				width: 27%; //$menu-height-desktop
+			}
+
+			a {
+				@include mq('desktop') {
+					padding-top: 31%;
+				}
+			}
 		}
 
 		.web-link {
 			right: 10%;
 			top: 53vh;
+
+			a {
+				@include mq('desktop') {
+					padding-top: 39%;
+				}
+			}
 		}
 
 		.motion-link {
 			height: $menu-list-height-desktop * 1.7;
 			top: 42vh;
 			left: 10%;
+
+			a {
+				@include mq('desktop') {
+					padding-top: 47%;
+				}
+			}
 		}
 	}
 }
-
-/* critical:end */

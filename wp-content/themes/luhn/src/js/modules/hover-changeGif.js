@@ -19,7 +19,7 @@ const hoverGif = class {
 			var changers = document.querySelectorAll('.js-change_gif a');
 
 			for (var i = 0; i < changers.length; i++) {
-				changers[i].addEventListener('mouseenter', function () {
+				changers[i].addEventListener('mouseenter', (e) => {
 					// show the animation
 					if (
 						BrowserDetect.browser == 'MS Edge' ||
@@ -33,7 +33,7 @@ const hoverGif = class {
 						overlay.classList.add('active');
 					}
 					var x =
-						this.parentElement.parentElement.dataset.category *
+						e.currentTarget.parentElement.parentElement.dataset.category *
 						(picture.offsetWidth / 4);
 
 					// move image to correct letter
@@ -48,11 +48,13 @@ const hoverGif = class {
 						BrowserDetect.browser == 'MS Edge' ||
 						BrowserDetect.browser == 'Explorer'
 					) {
-						for (var i = 0; i < source.length; i++) {
+						for (var i = source.length - 1; i >= 0; i--) {
 							// weird fix so it will call a new XML every time
 							var xhr = new XMLHttpRequest();
 							// resetGif
-							resetGifEdge(source[i]);
+							this.resetGifEdge(source[i]);
+							// not working 
+							// img.srcset = source[i].srcset + "?a=" + Math.random();
 						}
 					} else {
 						// all other browsers

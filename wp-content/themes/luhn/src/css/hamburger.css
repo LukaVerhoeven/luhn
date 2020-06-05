@@ -66,6 +66,7 @@ a:focus {
 	pointer-events: none;
 	z-index: 100;
 }
+
 .global-menu ul {
 	width: 100%;
 	height: 100%;
@@ -403,24 +404,28 @@ a:focus {
 }
 
 @media screen and (max-width: 55em) {
+
 	html,
 	body {
 		/* 		overflow-x: hidden; */
 		width: 100%;
 		/* 		height: 100%; */
 	}
+
 	.hamburger {
 		position: absolute;
 		top: 0.5em;
 		right: 0.5em;
 		transform: scale(0.75);
 	}
+
 	.content {
 		position: relative;
 		height: auto;
 		min-height: 0;
 		flex-direction: column;
 	}
+
 	.content--fixed {
 		position: relative;
 		z-index: 0;

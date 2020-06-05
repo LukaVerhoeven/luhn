@@ -1,0 +1,45 @@
+/***********************
+*     overlay color    *
+***********************/
+.post-color1 {
+  background-color: #feece2; }
+
+header.post-color1 {
+  background-color: transparent;
+  color: #461a02; }
+
+.post-color2 {
+  background-color: #cddfe3; }
+
+header.post-color2 {
+  background-color: transparent;
+  color: #406871; }
+
+.hide {
+  display: none !important; }
+
+.hide-mobile {
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .hide-mobile {
+      display: initial; } }
+
+@media only screen and (min-width: 1024px) {
+  .hide-desktop {
+    display: none; } }
+
+.fade-out {
+  transition: opacity .8s ease;
+  opacity: 0; }
+
+/***********************
+*         Rotate         *
+***********************/
+/***********************
+*         Math         *
+***********************/
+.global-menu,
+.shape-overlays,
+.post-container {
+  visibility: visible; }
+

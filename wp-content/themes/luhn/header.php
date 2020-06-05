@@ -60,8 +60,9 @@ https://luhn.be/
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" async></script>
 		<?php wp_head(); ?>
 		
-	<!-- <link rel="preload" href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css" as="style" onload="this.rel='stylesheet'"/>
-	<script src="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js" defer></script> -->
+	<link rel="preload" href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css" as="style" onload="this.rel='stylesheet'"/>
+	<noscript><link rel="stylesheet" href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css"></noscript>
+	<script src="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js" defer></script>
 	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/dist/css/testaos.css"> -->
 	<!-- preload script in footer -->
 	<!-- <link rel="preload" href='<?php echo get_template_directory_uri()?>/dist/js/libraries.js"' as="script"> -->
@@ -73,24 +74,28 @@ https://luhn.be/
 		.no-js #preloader { visibility: hidden; }
 		.js #preloader { visibility: visible; }
 	</style>
-	<script >
-			document.onreadystatechange = function() { 
-				var loader = document.getElementById("preloader");
-				if (document.readyState !== "complete") { 
-					loader.classList.remove("hide");
-					} else { 
-						loader.classList.add("hide");
-					} 
-			}; 
-    </script> 
+	<?php if(is_page("home")):?>
+		<script >
+				document.onreadystatechange = function() { 
+					var loader = document.getElementById("preloader");
+					if (document.readyState !== "complete") { 
+						loader.classList.remove("hide");
+						} else { 
+							loader.classList.add("hide");
+						} 
+				}; 
+		</script>
+	<?php endif; ?>
 
 </head>
 <body <?php body_class(); ?> >
 	<header >
-		<div id="preloader">
-			<p>Preparing the visual experience of Luhn</p>
-			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-		</div>
+		<?php if(is_page("home")):?>
+			<div id="preloader">
+				<p>Preparing the visual experience of Luhn</p>
+				<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			</div>
+		<?php endif; ?>
 		<!-- Hamburger menu -->
 		<div class="hamburger-menu">
 			<div class="content">
@@ -148,12 +153,12 @@ https://luhn.be/
 				<nav class="global-menu"  id="parallax" data-selector=".global-menu__item " data-hover-only="true">
 					<ul class="global-menu__wrap">
 						<li class="menu-col">
-							<div data-depth="-0.40" data-category="0" class="js-change_gif global-menu__item design-link background-3d"><div class="hovering"><a href="/category/design/">Design</a></div></div>
-							<div data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item motion-link background-3d"><div class="hovering"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></div></div>
+							<div data-depth="-0.40" data-category="0" class="js-change_gif global-menu__item disabled-transition design-link background-3d"><div class="hovering"><a href="/category/design/">Design</a></div></div>
+							<div data-depth="-0.40" data-category="1" class="js-change_gif global-menu__item disabled-transition motion-link background-3d"><div class="hovering"><a href="/category/motion/" aria-label="Motion graphics">Mo<br>tion</a></div></div>
 						</li>
 						<li class="menu-col">
-							<div data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item contact-link background-3d"><div class="hovering"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></div></div>
-							<div data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item web-link background-3d"><div class="hovering"><a href="/category/web/"> web</a></div></div>
+							<div data-depth="-0.40" data-category="3" class="js-change_gif global-menu__item disabled-transition contact-link background-3d"><div class="hovering"><a href="/contact" aria-label="contact"><span class="big-menu">Con</span>tact</a></div></div>
+							<div data-depth="-0.40" data-category="2" class="js-change_gif global-menu__item disabled-transition web-link background-3d"><div class="hovering"><a href="/category/web/"> web</a></div></div>
 						</li>
 					</ul>
 				</nav>

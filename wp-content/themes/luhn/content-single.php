@@ -15,7 +15,7 @@
             <?php endif; ?>
         </div>
         <div class="single-intro <?php the_field('card_color'); ?>">
-                <?php echo the_field('intro_text'); ?>
+               <p><?php echo the_field('intro_text'); ?></p> 
         </div>
     </div>
 </section>

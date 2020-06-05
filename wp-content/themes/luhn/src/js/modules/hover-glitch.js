@@ -1,5 +1,9 @@
+import Device from './isDesktop';
+
 // https://tympanus.net/codrops/2018/04/10/webgl-distortion-hover-effects/
 var hoverEffect = function (opts) {
+    var device = new Device();
+    var isDesktop = device.isDesktop;
     if (isDesktop) {
         var vertex = `
             varying vec2 vUv;
@@ -50,7 +54,6 @@ var hoverEffect = function (opts) {
                 // gl_FragColor = disp;
             }
         `;
-
         var parent = opts.parent || console.warn("no parent");
         var dispImage = opts.displacementImage || console.warn("displacement image missing");
         var image1 = opts.image1 || console.warn("first image missing");
@@ -68,7 +71,6 @@ var hoverEffect = function (opts) {
             })(navigator.userAgent || navigator.vendor || window.opera);
             return check;
         };
-        console.log("test");
 
         var scene = new THREE.Scene();
         var camera = new THREE.OrthographicCamera(
@@ -201,3 +203,5 @@ var hoverEffect = function (opts) {
         animate();
     }
 };
+
+export default hoverEffect;

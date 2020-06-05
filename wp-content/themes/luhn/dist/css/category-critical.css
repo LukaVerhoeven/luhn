@@ -1,0 +1,171 @@
+/***********************
+*     overlay color    *
+***********************/
+.post-color1 {
+  background-color: #feece2; }
+
+header.post-color1 {
+  background-color: transparent;
+  color: #461a02; }
+
+.post-color2 {
+  background-color: #cddfe3; }
+
+header.post-color2 {
+  background-color: transparent;
+  color: #406871; }
+
+.hide {
+  display: none !important; }
+
+.hide-mobile {
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .hide-mobile {
+      display: initial; } }
+
+@media only screen and (min-width: 1024px) {
+  .hide-desktop {
+    display: none; } }
+
+.fade-out {
+  transition: opacity .8s ease;
+  opacity: 0; }
+
+/***********************
+*         Rotate         *
+***********************/
+/***********************
+*         Math         *
+***********************/
+/***********************
+*    cathegory-nav    *
+***********************/
+#category-nav {
+  max-width: 1200px;
+  margin: auto; }
+  #category-nav .background-3d {
+    margin: 0;
+    float: left;
+    width: 33.3%;
+    list-style: none;
+    position: relative;
+    height: 200px;
+    z-index: 0;
+    transform: scale(0.5);
+    opacity: .5;
+    transition: all .5s ease; }
+    #category-nav .background-3d.active {
+      margin-top: 0;
+      transform: scale(1);
+      opacity: 1; }
+    #category-nav .background-3d.motion-link a {
+      height: 190px;
+      left: -9960px;
+      padding-top: 74px;
+      padding-left: 36px; }
+    #category-nav .background-3d.design-link a {
+      height: 160px;
+      padding-top: 60px;
+      background-position: 70% 45%; }
+    #category-nav .background-3d.web-link a {
+      height: 155px;
+      padding-top: 70px;
+      padding-left: 47px; }
+    #category-nav .background-3d a {
+      left: -9999px;
+      right: -9999px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      width: 100%;
+      width: 140px;
+      vertical-align: top;
+      display: inline-block; }
+
+/***********************
+*        no-post      *
+***********************/
+.no-post {
+  text-align: center; }
+  .no-post h2 {
+    margin-top: 40px; }
+  .no-post p {
+    margin-top: 20px; }
+  .no-post a {
+    text-decoration: underline; }
+
+/***********************
+*       post-card      *
+***********************/
+.post-container {
+  margin: auto;
+  max-width: 1600px;
+  text-align: center; }
+
+.post-block {
+  width: 80vw;
+  height: 80vw;
+  display: block;
+  margin: 25px;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transform: perspective(300px);
+  /***********************
+    *       thumbnail     *
+    ***********************/
+  /***********************
+    *       text     *
+    ***********************/
+  /***********************
+    *     corner-lines     *
+    ***********************/ }
+  @media only screen and (min-width: 560px) {
+    .post-block {
+      width: 300px;
+      height: 300px; } }
+  .post-block .thumbnail, .post-block article, .post-block .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+  .post-block .thumbnail {
+    overflow: hidden; }
+  .post-block .thumbnail img {
+    width: 180%;
+    height: auto;
+    opacity: .7;
+    position: absolute;
+    left: -9999px;
+    right: -9999px;
+    top: -9999px;
+    bottom: -9999px;
+    margin: auto; }
+  .post-block .thumbnail.square img {
+    width: 100%; }
+  .post-block .overlay {
+    opacity: .8; }
+  .post-block .post-text {
+    position: absolute;
+    bottom: 60px;
+    left: 17%;
+    width: 64vw;
+    color: #5b5a5a;
+    text-align: left;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform-origin: bottom left;
+    transform: scale(0.8); }
+    @media only screen and (min-width: 560px) {
+      .post-block .post-text {
+        width: auto;
+        left: 60px; } }
+  .post-block h1 {
+    transform: translateZ(40px);
+    font-size: 2.5rem;
+    margin-bottom: 15px; }
+  .post-block p {
+    transform: translateZ(40px);
+    font-size: 1.5rem; }
+

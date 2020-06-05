@@ -48,21 +48,21 @@
 /******/
 /******/ 	// object to store loaded CSS chunks
 /******/ 	var installedCssChunks = {
-/******/ 		"global": 0
+/******/ 		"home": 0
 /******/ 	}
 /******/
 /******/ 	// object to store loaded and loading chunks
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"global": 0
+/******/ 		"home": 0
 /******/ 	};
 /******/
 /******/
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"LLfooter":"LLfooter","LLhamburger":"LLhamburger","afterCritical":"afterCritical","colordrip":"colordrip"}[chunkId]||chunkId) + ".chunk.js"
+/******/ 		return __webpack_require__.p + "js/" + ({"HoverGif":"HoverGif","LLhomepage":"LLhomepage"}[chunkId]||chunkId) + ".chunk.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -96,11 +96,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"LLfooter":1,"LLhamburger":1,"afterCritical":1};
+/******/ 		var cssChunks = {"LLhomepage":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "css/" + ({"LLfooter":"LLfooter","LLhamburger":"LLhamburger","afterCritical":"afterCritical","colordrip":"colordrip"}[chunkId]||chunkId) + "-chunk.css";
+/******/ 				var href = "css/" + ({"HoverGif":"HoverGif","LLhomepage":"LLhomepage"}[chunkId]||chunkId) + "-chunk.css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -257,79 +257,35 @@
 /******/
 /******/ 	var startupResult = (function() {
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "../src/js/pageModules/global.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "../src/js/pageModules/home.js");
 /******/ 	})();
 /******/
-/******/ 	webpackJsonpCallback([[], {}, 0, ["LLfooter","LLhamburger","afterCritical"]]);
+/******/ 	webpackJsonpCallback([[], {}, 0, ["HoverGif","LLhomepage"]]);
 /******/ 	return startupResult;
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "../sass/components/_navigation.scss":
-/*!*******************************************!*\
-  !*** ../sass/components/_navigation.scss ***!
-  \*******************************************/
+/***/ "../sass/components/_preloader.scss":
+/*!******************************************!*\
+  !*** ../sass/components/_preloader.scss ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///../sass/components/_navigation.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///../sass/components/_preloader.scss?");
 
 /***/ }),
 
-/***/ "../sass/critical-loaders/preCritical.scss":
-/*!*************************************************!*\
-  !*** ../sass/critical-loaders/preCritical.scss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///../sass/critical-loaders/preCritical.scss?");
-
-/***/ }),
-
-/***/ "../sass/layout/_header.scss":
-/*!***********************************!*\
-  !*** ../sass/layout/_header.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///../sass/layout/_header.scss?");
-
-/***/ }),
-
-/***/ "../sass/utils/_reset.scss":
-/*!*********************************!*\
-  !*** ../sass/utils/_reset.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///../sass/utils/_reset.scss?");
-
-/***/ }),
-
-/***/ "../sass/utils/_typography.scss":
-/*!**************************************!*\
-  !*** ../sass/utils/_typography.scss ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///../sass/utils/_typography.scss?");
-
-/***/ }),
-
-/***/ "../src/js/pageModules/global.js":
-/*!***************************************!*\
-  !*** ../src/js/pageModules/global.js ***!
-  \***************************************/
+/***/ "../src/js/pageModules/home.js":
+/*!*************************************!*\
+  !*** ../src/js/pageModules/home.js ***!
+  \*************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_critical_loaders_preCritical_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../sass/critical-loaders/preCritical.scss */ \"../sass/critical-loaders/preCritical.scss\");\n/* harmony import */ var _sass_critical_loaders_preCritical_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_critical_loaders_preCritical_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _sass_utils_reset_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../sass/utils/_reset.scss */ \"../sass/utils/_reset.scss\");\n/* harmony import */ var _sass_utils_reset_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sass_utils_reset_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _sass_utils_typography_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../sass/utils/_typography.scss */ \"../sass/utils/_typography.scss\");\n/* harmony import */ var _sass_utils_typography_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sass_utils_typography_scss__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _sass_layout_header_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../sass/layout/_header.scss */ \"../sass/layout/_header.scss\");\n/* harmony import */ var _sass_layout_header_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_sass_layout_header_scss__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _sass_components_navigation_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../sass/components/_navigation.scss */ \"../sass/components/_navigation.scss\");\n/* harmony import */ var _sass_components_navigation_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_sass_components_navigation_scss__WEBPACK_IMPORTED_MODULE_4__);\n// Bundle of Critical css used on all pages (enqueue in functions.php)\r\n\r\n\r\n\r\n\r\n\r\n// import '../../css/hamburger.css';\r\n\r\n// Chunks of less important css used on all pages\r\nconst getFooterCss = () =>\r\n\t__webpack_require__.e(/*! import() | LLfooter */ \"LLfooter\").then(__webpack_require__.t.bind(null, /*! ../../../sass/layout/_footer.scss */ \"../sass/layout/_footer.scss\", 7));\r\n\r\nconst getHamburgerCss = () =>\r\n\t__webpack_require__.e(/*! import() | LLhamburger */ \"LLhamburger\").then(__webpack_require__.t.bind(null, /*! ../../css/hamburger.css */ \"../src/css/hamburger.css\", 7));\r\nconst showChunkCss = () =>\r\n\t__webpack_require__.e(/*! import() | afterCritical */ \"afterCritical\").then(__webpack_require__.t.bind(null, /*! ../../../sass/critical-loaders/afterCritical.scss */ \"../sass/critical-loaders/afterCritical.scss\", 7));\r\n\r\nclass Global {\r\n\tconstructor() {\r\n\t\t// Lazy load css\r\n\t\tgetFooterCss();\r\n\t\tgetHamburgerCss();\r\n\t\tshowChunkCss().then(() => {\r\n\t\t\tsetTimeout(function () {\r\n\t\t\t\tconst items = document.querySelectorAll('.global-menu__item');\r\n\t\t\t\titems.forEach(item => {\r\n\t\t\t\t\titem.classList.remove('disabled-transition');\r\n\t\t\t\t});\r\n\t\t\t}, 500)\r\n\r\n\t\t});\r\n\t\t// this.lazyLoadingHamburger(this.hamburger);\r\n\t\t__webpack_require__.e(/*! import() | colordrip */ \"colordrip\").then(__webpack_require__.bind(null, /*! ../hamburger/colordrip */ \"../src/js/hamburger/colordrip.js\")).then(\r\n\t\t\t({\r\n\t\t\t\tdefault: instance\r\n\t\t\t}) => {\r\n\t\t\t\tnew instance();\r\n\t\t\t}\r\n\t\t);\r\n\t}\r\n\r\n\t// lazyLoadingHamburger(variable) { // not working on mobile ==> more used for libraries\r\n\t// \tlet buttons = document.querySelectorAll('.hamburger-menu');\r\n\t// \tfor (let i = 0; i < buttons.length; i++) {\r\n\t// \t\tconst button = buttons[i];\r\n\t// \t\tconst events = ['click', 'mouseover'];\r\n\t// \t\tfor (let j = 0; j < events.length; j++) {\r\n\t// \t\t\tbutton.addEventListener(events[j], () => {\r\n\t// \t\t\t\tif (variable == undefined) {\r\n\t// \t\t\t\t\timport(\r\n\t// \t\t\t\t\t\t/* webpackChunkName: \"hamburger\"*/ /* webpackPrefetch: true*/ '../hamburger/colordrip'\r\n\t// \t\t\t\t\t).then(({ default: instance }) => {\r\n\t// \t\t\t\t\t\tvariable = new instance();\r\n\t// \t\t\t\t\t});\r\n\t// \t\t\t\t}\r\n\t// \t\t\t});\r\n\t// \t\t}\r\n\t// \t}\r\n\t// }\r\n}\r\n\r\n(() => {\r\n\tconst global = new Global();\r\n})();\n\n//# sourceURL=webpack:///../src/js/pageModules/global.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_components_preloader_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../sass/components/_preloader.scss */ \"../sass/components/_preloader.scss\");\n/* harmony import */ var _sass_components_preloader_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_components_preloader_scss__WEBPACK_IMPORTED_MODULE_0__);\n// non global shared chunks can by Dynamicly imported  to generate a chunk\r\n// once generated ==> comment the import and execution in the constructor and load them in fucntions.php\r\n\r\n// Shared CSS Chunks (non global)\r\n// const genSharedChunk = () =>\r\n// \timport(\r\n// \t\t/* webpackChunkName: \"sharedChunk\"*/ /* webpackPreload: true*/ '../../../sass/layout/_sharedChunk.scss'\r\n// \t);\r\n\r\n// LazyLoaded CSS\r\nconst getPageCss = () =>\r\n\t__webpack_require__.e(/*! import() | LLhomepage */ \"LLhomepage\").then(__webpack_require__.t.bind(null, /*! ../../../sass/pages/_home.scss */ \"../sass/pages/_home.scss\", 7));\r\n\r\n// Critical CSS (enqueue in functions.php)\r\n\r\n// import '../../../sass/layout/_header.scss';\r\n// import '../../../sass/components/_navigation.scss';\r\n\r\nclass App {\r\n\tconstructor() {\r\n\t\t// You can comment the generators once you've got the chunks\r\n\t\t// genSharedChunk();\r\n\r\n\t\t// Lazy load css\r\n\t\tgetPageCss();\r\n\r\n\t\t// LazyLoaded & prefeteched Js\r\n\t\tthis.lazyLoadingHover();\r\n\r\n\t\tthis.resizeMenuTransition();\r\n\t}\r\n\r\n\tlazyLoadingHover() {\r\n\t\t//this method is more used form importing libraries and using them only when needed\r\n\t\tlet buttons = document.querySelectorAll('.js-change_gif');\r\n\t\tfor (let i = 0; i < buttons.length; i++) {\r\n\t\t\tconst button = buttons[i];\r\n\t\t\tbutton.addEventListener('mouseover', () => {\r\n\t\t\t\tif (this.hoverGif == undefined) {\r\n\t\t\t\t\t__webpack_require__.e(/*! import() | HoverGif */ \"HoverGif\").then(__webpack_require__.bind(null, /*! ../modules/hover-changeGif */ \"../src/js/modules/hover-changeGif.js\")).then(({\r\n\t\t\t\t\t\tdefault: instance\r\n\t\t\t\t\t}) => {\r\n\t\t\t\t\t\tthis.hoverGif = new instance();\r\n\t\t\t\t\t});\r\n\t\t\t\t}\r\n\t\t\t});\r\n\t\t}\r\n\t}\r\n\r\n\r\n\t// This won't do the same\r\n\t// lazyLoadingHover(variable, getModule, classname) {\r\n\t// \tlet buttons = document.querySelectorAll(classname);\r\n\t// \tfor (let i = 0; i < buttons.length; i++) {\r\n\t// \t\tconst button = buttons[i];\r\n\t// \t\tbutton.addEventListener('mouseover', () => {\r\n\t// \t\t\tif (variable == undefined) {\r\n\t// \t\t\t\t// getModule.then(({ default: module }) => {\r\n\t// \t\t\t\t// \tvariable = new module();\r\n\t// \t\t\t\t// });\r\n\t// \t\t\t}\r\n\t// \t\t});\r\n\t// \t}\r\n\t// }\r\n\tresizeMenuTransition() {\r\n\t\twindow.onresize = function (event) {\r\n\t\t\tif (window.innerWidth < 1024) {\r\n\t\t\t\tconst items = document.querySelectorAll('.global-menu__item');\r\n\t\t\t\titems.forEach(item => {\r\n\t\t\t\t\titem.classList.add('disabled-transition');\r\n\t\t\t\t\tsetTimeout(function () {\r\n\t\t\t\t\t\titem.classList.remove('disabled-transition');\r\n\t\t\t\t\t}, 500);\r\n\t\t\t\t});\r\n\t\t\t}\r\n\t\t\tconst hamburger = document.querySelector('.js-hover');\r\n\t\t\tconst svg = document.querySelector('.shape-overlays');\r\n\t\t\tif (window.innerWidth > 1024 && hamburger.classList.contains('is-opened-navi')) {\r\n\t\t\t\thamburger.click();\r\n\t\t\t\tsvg.style.zIndex = 100;\r\n\t\t\t\tsetTimeout(function () {\r\n\t\t\t\t\tsvg.style.zIndex = 1;\r\n\t\t\t\t}, 1300)\r\n\t\t\t}\r\n\r\n\t\t};\r\n\t}\r\n\r\n\tstart() {\r\n\t\t// body.has('home', () => {\r\n\t\t//   // This code will run only on the homepage\r\n\t\t//   this.home = new Homepage(this.injector);\r\n\t\t// });\r\n\t\tconsole.log('Application running...');\r\n\t}\r\n}\r\n\r\n(() => {\r\n\tconst app = new App();\r\n\tapp.start();\r\n})();\n\n//# sourceURL=webpack:///../src/js/pageModules/home.js?");
 
 /***/ })
 

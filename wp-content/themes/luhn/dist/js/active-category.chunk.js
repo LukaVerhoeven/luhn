@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["hamburger"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["active-category"],{
 
 /***/ "../src/js/modules/active-category.js":
 /*!********************************************!*\

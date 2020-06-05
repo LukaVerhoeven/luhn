@@ -5,9 +5,11 @@
 	padding-top: 1px;
 	width: 50%;
 	margin: auto;
+
 	a {
 		display: block;
 	}
+
 	h1 {
 		font-family: 'icomoon', 'nova', sans-serif;
 		text-transform: uppercase;
@@ -53,6 +55,7 @@
 			margin: 0 auto;
 			width: 55%;
 		}
+
 		h1,
 		picture,
 		.animation-container,
@@ -60,10 +63,12 @@
 			@include mq('desktop') {
 				width: 550px;
 			}
+
 			@include mq('desktop-large') {
 				width: 650px;
 			}
 		}
+
 		h1 {
 			text-shadow: 5px -4px #8fa5ca;
 			margin-top: 17vh;
@@ -79,9 +84,14 @@
 				height: 254px;
 				line-height: 254px;
 				margin-top: calc(17vh + 9px);
-				margin-left: calc(3vw + 1px);
+
 				// letter-spacing: .5px;
 			}
+
+			@include mq('desktop') {
+				margin-left: calc(3vw + 1px);
+			}
+
 			@include mq('desktop-large') {
 				margin-top: calc(17vh + 11px);
 				letter-spacing: -1.3px;
@@ -91,6 +101,7 @@
 				font-size: 24.4rem;
 			}
 		}
+
 		.animation-container {
 			margin-left: calc(3vw + 6px);
 			position: absolute;
@@ -120,9 +131,11 @@
 			height: 100%;
 		}
 	}
+
 	.back-button {
 		display: none;
 	}
+
 	@include mq('desktop') {
 		.logo-text {
 			text-align: center;
@@ -146,9 +159,11 @@
 	0% {
 		opacity: 0;
 	}
+
 	50% {
 		opacity: 1;
 	}
+
 	100% {
 		opacity: 0;
 	}

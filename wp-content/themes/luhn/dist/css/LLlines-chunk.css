@@ -1,0 +1,119 @@
+/***********************
+*     overlay color    *
+***********************/
+.post-color1 {
+  background-color: #feece2; }
+
+header.post-color1 {
+  background-color: transparent;
+  color: #461a02; }
+
+.post-color2 {
+  background-color: #cddfe3; }
+
+header.post-color2 {
+  background-color: transparent;
+  color: #406871; }
+
+.hide {
+  display: none !important; }
+
+.hide-mobile {
+  display: none; }
+  @media only screen and (min-width: 1024px) {
+    .hide-mobile {
+      display: initial; } }
+
+@media only screen and (min-width: 1024px) {
+  .hide-desktop {
+    display: none; } }
+
+.fade-out {
+  transition: opacity .8s ease;
+  opacity: 0; }
+
+/***********************
+*         Rotate         *
+***********************/
+/***********************
+*         Math         *
+***********************/
+/***********************
+*     corner-lines     *
+***********************/
+.corner-container {
+  position: relative;
+  height: 100%; }
+
+.top-right-corner, .left-bottom-corner {
+  position: absolute;
+  width: calc(100% - 60px);
+  height: calc(100% - 60px); }
+
+.line {
+  border-style: solid;
+  border-color: #5b5a5a;
+  border-width: 0; }
+
+.top-right-corner {
+  top: 30px;
+  right: 30px; }
+  .top-right-corner .line-vertical {
+    right: 0;
+    border-right-width: 1px; }
+  .top-right-corner .line-horizontal {
+    right: 0;
+    border-top-width: 1px; }
+
+.left-bottom-corner {
+  bottom: 30px;
+  left: 30px; }
+  .left-bottom-corner .line-vertical {
+    border-left-width: 1px;
+    bottom: 0; }
+  .left-bottom-corner .line-horizontal {
+    left: 0;
+    bottom: 0;
+    border-bottom-width: 1px; }
+
+.line-vertical {
+  display: block;
+  height: 50px;
+  transition: height .4s ease;
+  position: absolute; }
+
+.line-horizontal {
+  display: block;
+  width: 50px;
+  transition: width .4s ease;
+  position: absolute; }
+
+/***********************
+*       cathegory      *
+***********************/
+.post-block .top-right-corner, .post-block .left-bottom-corner {
+  transform: translateZ(25px); }
+
+.post-block:hover .line-vertical {
+  height: 100%; }
+
+.post-block:hover .line-horizontal {
+  width: 100%; }
+
+/***********************
+*        single       *
+***********************/
+.single .line-vertical {
+  height: 30px; }
+
+.single .line-horizontal {
+  width: 30px; }
+
+.single .top-right-corner {
+  top: 25px;
+  right: 25px; }
+
+.single .left-bottom-corner {
+  bottom: 25px;
+  left: 25px; }
+

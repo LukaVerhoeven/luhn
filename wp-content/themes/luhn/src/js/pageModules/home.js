@@ -10,7 +10,9 @@
 // LazyLoaded CSS
 const getPageCss = () =>
 	import(
-		/* webpackChunkName: "LLhomepage"*/ /* webpackPrefetch: true*/ '../../../sass/pages/_home.scss'
+		/* webpackChunkName: "LLhomepage"*/
+		/* webpackPrefetch: true*/
+		'../../../sass/pages/_home.scss'
 	);
 
 // Critical CSS (enqueue in functions.php)
@@ -28,6 +30,8 @@ class App {
 
 		// LazyLoaded & prefeteched Js
 		this.lazyLoadingHover();
+
+		this.resizeMenuTransition();
 	}
 
 	lazyLoadingHover() {
@@ -38,14 +42,20 @@ class App {
 			button.addEventListener('mouseover', () => {
 				if (this.hoverGif == undefined) {
 					import(
-						/* webpackChunkName: "HoverGif"*/ /* webpackPrefetch: true*/ '../modules/hover-changeGif'
-					).then(({ default: instance }) => {
+						/* webpackChunkName: "HoverGif"*/
+						/* webpackPrefetch: true*/
+						'../modules/hover-changeGif'
+					).then(({
+						default: instance
+					}) => {
 						this.hoverGif = new instance();
 					});
 				}
 			});
 		}
 	}
+
+
 	// This won't do the same
 	// lazyLoadingHover(variable, getModule, classname) {
 	// 	let buttons = document.querySelectorAll(classname);
@@ -60,6 +70,30 @@ class App {
 	// 		});
 	// 	}
 	// }
+	resizeMenuTransition() {
+		window.onresize = function (event) {
+			if (window.innerWidth < 1024) {
+				const items = document.querySelectorAll('.global-menu__item');
+				items.forEach(item => {
+					item.classList.add('disabled-transition');
+					setTimeout(function () {
+						item.classList.remove('disabled-transition');
+					}, 500);
+				});
+			}
+			const hamburger = document.querySelector('.js-hover');
+			const svg = document.querySelector('.shape-overlays');
+			if (window.innerWidth > 1024 && hamburger.classList.contains('is-opened-navi')) {
+				hamburger.click();
+				svg.style.zIndex = 100;
+				setTimeout(function () {
+					svg.style.zIndex = 1;
+				}, 1300)
+			}
+
+		};
+	}
+
 	start() {
 		// body.has('home', () => {
 		//   // This code will run only on the homepage
